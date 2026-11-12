@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMS sequence diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520;
+          --sans:'Geist', system-ui, sans-serif; --serif:'Instrument Serif', Georgia, serif; --mono:'Geist Mono', ui-monospace, monospace; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); padding: 3rem 1.25rem; }
+  .frame { max-width: 1040px; margin: 0 auto; min-width: 0; }
+  .eyebrow { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem); letter-spacing: -.02em; line-height: 1.1; }
+  .lede { color: var(--muted); max-width: 62ch; margin: .75rem 0 2.5rem; line-height: 1.55; }
+  section { margin-bottom: 3.5rem; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; letter-spacing: -.01em; }
+  .cap { color: var(--muted); font-size: .9rem; margin: .35rem 0 1rem; line-height: 1.5; }
+  code { font-family: var(--mono); font-size: .82em; }
+  .diagram-container { width: 100%; overflow-x: auto; border: 1px solid rgba(45,49,66,.12); border-radius: 6px; }
+  svg { width: 100%; display: block; }
+  @media print { section { break-inside: avoid; page-break-inside: avoid; } .diagram-container { overflow-x: visible; } svg { min-width: 0 !important; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <p class="eyebrow">SUMS · UML · Sequence</p>
+  <h1>SUMS sequence diagram</h1>
+  <p class="lede">One continuous session: the student logs in, borrows a book, pays fees and chats, each step following the last, traced from <code>app/api</code> and <code>socket-server.js</code>. Time runs top to bottom.</p>
+  <section>
+    <h2>Full session</h2>
+    <p class="cap">Login → borrow a book → pay fees → real-time chat, as one connected timeline.</p>
+    <div class="diagram-container"><svg viewBox="0 0 1248 3134" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="seq-sums-title seq-sums-desc" style="min-width:1248px">
+<title id="seq-sums-title">SUMS sequence</title>
+<desc id="seq-sums-desc">All main SUMS interactions in one sequence: login with session check, borrowing a book, paying fees, and real-time chat through the socket server, lecture upload and download, and payment verification with notifications.</desc>
+<rect width="1248" height="3134" fill="#f5f5f5"/><text x="40" y="36" fill="#4f5d75" font-size="10" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">SMART UNIVERSITY MANAGEMENT SYSTEM (SUMS)</text><text x="40" y="70" fill="#2d3142" font-size="30" font-family="'Instrument Serif', Georgia, serif">Sequence Diagram</text><line x1="40" y1="84" x2="1208" y2="84" stroke="rgba(45,49,66,0.18)" stroke-width="1"/>
+<g transform="translate(0,88)">
+<defs>
+  <pattern id="seq-sums-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/></pattern>
+  <marker id="seq-sums-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+  <marker id="seq-sums-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+  <marker id="seq-sums-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+  <marker id="seq-sums-arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect width="100%" height="100%" fill="url(#seq-sums-dots)" opacity="0.55"/>
+<line x1="96" y1="128" x2="96" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="272" y1="128" x2="272" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="448" y1="128" x2="448" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="624" y1="128" x2="624" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="800" y1="128" x2="800" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="976" y1="128" x2="976" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="1152" y1="128" x2="1152" y2="2172" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<rect x="216" y="460" width="480" height="272" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<rect x="216" y="460" width="40" height="16" rx="2" fill="#f5f5f5" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<text x="236" y="472" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.12em">ALT</text>
+<line x1="224" y1="660" x2="688" y2="660" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="216" y="960" width="624" height="224" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<rect x="216" y="960" width="40" height="16" rx="2" fill="#f5f5f5" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<text x="236" y="972" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.12em">ALT</text>
+<line x1="224" y1="1112" x2="832" y2="1112" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="216" y="1448" width="624" height="224" rx="4" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<rect x="216" y="1448" width="40" height="16" rx="2" fill="#f5f5f5" stroke="rgba(45,49,66,0.22)" stroke-width="1"/>
+<text x="236" y="1460" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.12em">ALT</text>
+<line x1="224" y1="1600" x2="832" y2="1600" stroke="rgba(45,49,66,0.20)" stroke-width="1" stroke-dasharray="4,3"/>
+<rect x="92" y="200" width="8" height="1756" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="268" y="200" width="8" height="1936" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="444" y="548" width="8" height="100" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="620" y="236" width="8" height="1612" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="796" y="272" width="8" height="1792" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="972" y="1868" width="8" height="268" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="1148" y="1904" width="8" height="196" fill="rgba(45,49,66,0.06)" stroke="#4f5d75" stroke-width="0.8"/>
+<rect x="284" y="482" width="105" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="492" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[password matches]</text>
+<rect x="284" y="674" width="40" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="684" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[else]</text>
+<rect x="284" y="982" width="218" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="992" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[loans &lt; 5 · not duplicate · copy free]</text>
+<rect x="284" y="1126" width="40" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="1136" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[else]</text>
+<rect x="284" y="1470" width="137" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="1480" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[card payment]</text>
+<rect x="284" y="1614" width="126" height="14" rx="2" fill="#f5f5f5"/>
+<text x="288" y="1624" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.04em">[wallet or bank: pending review]</text>
+<path d="M 100 208 L 268 208" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="142" y="188" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="197" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">ID + PASSWORD</text>
+<path d="M 276 244 L 620 244" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="324" y="224" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="233" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">POST /LOGIN</text>
+<path d="M 628 280 L 796 280" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="672" y="260" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="269" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FIND STUDENT</text>
+<path d="M 796 316 L 628 316" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="686" y="296" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="305" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">STUDENT</text>
+<path d="M 628 352 L 796 352" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="680" y="332" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="341" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FIND USER</text>
+<path d="M 796 388 L 628 388" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="670" y="368" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="377" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">PASSWORD HASH</text>
+<path d="M 628 424 L 658 424 Q 664 424 664 430 L 664 434 Q 664 440 658 440 L 630 440" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="672" y="426" width="92" height="12" rx="2" fill="#f5f5f5"/>
+<text x="718" y="435" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">BCRYPT.COMPARE</text>
+<path d="M 620 520 L 276 520" fill="none" stroke="#bf4520" stroke-width="1.4" marker-end="url(#seq-sums-arrow-accent)"/>
+<rect x="496" y="500" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="509" fill="#bf4520" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 + COOKIE</text>
+<path d="M 276 556 L 444 556" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="314" y="536" width="92" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="545" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">GET /DASHBOARD</text>
+<path d="M 452 592 L 482 592 Q 488 592 488 598 L 488 602 Q 488 608 482 608 L 454 608" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="496" y="594" width="72" height="12" rx="2" fill="#f5f5f5"/>
+<text x="532" y="603" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">HAS COOKIE?</text>
+<path d="M 444 640 L 276 640" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="318" y="620" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="629" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NEXT · RENDER</text>
+<path d="M 620 708 L 276 708" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="494" y="688" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="697" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">401 · INVALID</text>
+<path d="M 100 756 L 268 756" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="144" y="736" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="745" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">CLICK BORROW</text>
+<path d="M 276 792 L 620 792" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="320" y="772" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="781" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">POST /BORROW</text>
+<path d="M 628 828 L 796 828" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="680" y="808" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="817" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FIND BOOK</text>
+<path d="M 796 864 L 628 864" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="694" y="844" width="36" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="853" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">BOOK</text>
+<path d="M 628 900 L 796 900" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="676" y="880" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="889" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">COUNT LOANS</text>
+<path d="M 796 936 L 628 936" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="672" y="916" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="925" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">ACTIVE LOANS</text>
+<path d="M 628 1020 L 796 1020" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="680" y="1000" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1009" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">COPIES -1</text>
+<path d="M 628 1056 L 796 1056" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="672" y="1036" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1045" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">CREATE ISSUE</text>
+<path d="M 620 1092 L 276 1092" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="490" y="1072" width="92" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1081" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 · BORROWED</text>
+<path d="M 620 1160 L 276 1160" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="490" y="1140" width="92" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1149" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">400 · REJECTED</text>
+<path d="M 100 1208 L 268 1208" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="152" y="1188" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="1197" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">OPEN FEES</text>
+<path d="M 276 1244 L 620 1244" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="328" y="1224" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="1233" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">GET /FEES</text>
+<path d="M 628 1280 L 796 1280" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="678" y="1260" width="68" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1269" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">QUERY DUES</text>
+<path d="M 796 1316 L 628 1316" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="672" y="1296" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1305" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FEES · FINES</text>
+<path d="M 620 1352 L 276 1352" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="494" y="1332" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1341" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 · SUMMARY</text>
+<path d="M 100 1388 L 268 1388" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="144" y="1368" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="1377" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">PAY · METHOD</text>
+<path d="M 276 1424 L 620 1424" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="326" y="1404" width="68" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="1413" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">POST /FEES</text>
+<path d="M 628 1508 L 796 1508" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="680" y="1488" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1497" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">MARK PAID</text>
+<path d="M 796 1544 L 628 1544" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="692" y="1524" width="40" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1533" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">SAVED</text>
+<path d="M 620 1580 L 276 1580" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="500" y="1560" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1569" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 · TX ID</text>
+<path d="M 620 1648 L 276 1648" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="502" y="1628" width="68" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1637" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 · PENDING</text>
+<path d="M 100 1696 L 268 1696" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="152" y="1676" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="1685" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">OPEN CHAT</text>
+<path d="M 276 1732 L 620 1732" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="320" y="1712" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="1721" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">GET /HISTORY</text>
+<path d="M 628 1768 L 796 1768" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="670" y="1748" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1757" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FIND MESSAGES</text>
+<path d="M 796 1804 L 628 1804" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="684" y="1784" width="56" height="12" rx="2" fill="#f5f5f5"/><text x="712" y="1793" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">MESSAGES</text>
+<path d="M 620 1840 L 276 1840" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="494" y="1820" width="84" height="12" rx="2" fill="#f5f5f5"/><text x="536" y="1829" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">200 · HISTORY</text>
+<path d="M 276 1876 L 972 1876" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow-open)"/>
+<rect x="328" y="1856" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="1865" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">JOIN ROOM</text>
+<path d="M 1148 1912 L 980 1912" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow-open)"/>
+<rect x="1032" y="1892" width="64" height="12" rx="2" fill="#f5f5f5"/><text x="1064" y="1901" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">JOIN ROOM</text>
+<path d="M 100 1948 L 268 1948" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="144" y="1928" width="80" height="12" rx="2" fill="#f5f5f5"/><text x="184" y="1937" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">TYPE MESSAGE</text>
+<path d="M 276 1984 L 972 1984" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="324" y="1964" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="360" y="1973" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">SENDMESSAGE</text>
+<path d="M 972 2020 L 804 2020" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="864" y="2000" width="48" height="12" rx="2" fill="#f5f5f5"/><text x="888" y="2009" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">CREATE</text>
+<path d="M 804 2056 L 972 2056" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="868" y="2036" width="40" height="12" rx="2" fill="#f5f5f5"/><text x="888" y="2045" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">SAVED</text>
+<path d="M 980 2092 L 1148 2092" fill="none" stroke="#bf4520" stroke-width="1.4" marker-end="url(#seq-sums-arrow-accent)"/>
+<rect x="1018" y="2072" width="92" height="12" rx="2" fill="#f5f5f5"/><text x="1064" y="2081" fill="#bf4520" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">RECEIVEMESSAGE</text>
+<path d="M 972 2128 L 276 2128" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="852" y="2108" width="72" height="12" rx="2" fill="#f5f5f5"/><text x="888" y="2117" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">MESSAGESENT</text>
+<rect x="24" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="24" y="72" width="144" height="56" rx="6" fill="rgba(79,93,117,0.10)" stroke="#5a6580" stroke-width="1"/><rect x="32" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#5a6580" stroke-opacity="0.45" stroke-width="0.8"/><text x="48" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">USER</text><text x="96" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student</text><text x="96" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">browser</text>
+<rect x="200" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="200" y="72" width="144" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="208" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#4f5d75" stroke-opacity="0.45" stroke-width="0.8"/><text x="224" y="89" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">UI</text><text x="272" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student Portal</text><text x="272" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/student/*</text>
+<rect x="376" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="376" y="72" width="144" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="384" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#4f5d75" stroke-opacity="0.45" stroke-width="0.8"/><text x="400" y="89" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">EDGE</text><text x="448" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Middleware</text><text x="448" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">middleware.ts</text>
+<rect x="552" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="552" y="72" width="144" height="56" rx="6" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/><rect x="560" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#bf4520" stroke-opacity="0.45" stroke-width="0.8"/><text x="576" y="89" fill="#bf4520" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">API</text><text x="624" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">API Routes</text><text x="624" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">app/api/*</text>
+<rect x="728" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="728" y="72" width="144" height="56" rx="6" fill="rgba(45,49,66,0.05)" stroke="#4f5d75" stroke-width="1"/><rect x="736" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#4f5d75" stroke-opacity="0.45" stroke-width="0.8"/><text x="752" y="89" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">DB</text><text x="800" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">MongoDB</text><text x="800" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">mongoose</text>
+<rect x="904" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="904" y="72" width="144" height="56" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><rect x="912" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#4f5d75" stroke-opacity="0.45" stroke-width="0.8"/><text x="928" y="89" fill="#4f5d75" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">WS</text><text x="976" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Socket Server</text><text x="976" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">:3001 · socket.io</text>
+<rect x="1080" y="72" width="144" height="56" rx="6" fill="#f5f5f5"/><rect x="1080" y="72" width="144" height="56" rx="6" fill="rgba(79,93,117,0.10)" stroke="#5a6580" stroke-width="1"/><rect x="1088" y="80" width="32" height="12" rx="2" fill="transparent" stroke="#5a6580" stroke-opacity="0.45" stroke-width="0.8"/><text x="1104" y="89" fill="#5a6580" font-size="7" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">UI</text><text x="1152" y="104" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Teacher</text><text x="1152" y="119" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">socket client</text>
+<line x1="96" y1="2172" x2="96" y2="2972" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="272" y1="2172" x2="272" y2="2972" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="624" y1="2172" x2="624" y2="2972" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="800" y1="2172" x2="800" y2="2972" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="1152" y1="2172" x2="1152" y2="2972" stroke="rgba(45,49,66,0.22)" stroke-width="1" stroke-dasharray="3,3"/>
+<line x1="40" y1="2196" x2="1208" y2="2196" stroke="rgba(45,49,66,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="40" y="2214" fill="#bf4520" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.14em">LECTURES · TEACHER UPLOADS, STUDENT DOWNLOADS</text>
+<path d="M 1148 2274 L 628 2274" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="751.1" y="2257" width="273.7" height="12" rx="2" fill="#f5f5f5"/><text x="888.0" y="2266" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">POST /API/TEACHER/LECTURES (PDF/DOC/DOCX ≤ 4 MB)</text>
+<path d="M 628 2318 L 796 2318" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="638.8" y="2301" width="146.5" height="12" rx="2" fill="#f5f5f5"/><text x="712.0" y="2310" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">SAVE LECTURE + FILE BYTES</text>
+<path d="M 628 2362 L 1148 2362" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="851.9" y="2345" width="72.3" height="12" rx="2" fill="#f5f5f5"/><text x="888.0" y="2354" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">201 CREATED</text>
+<path d="M 100 2414 L 620 2414" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="286.8" y="2397" width="146.5" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2406" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">GET /API/STUDENT/LECTURES</text>
+<path d="M 628 2458 L 796 2458" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="630.8" y="2441" width="162.4" height="12" rx="2" fill="#f5f5f5"/><text x="712.0" y="2450" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">FIND LECTURES OF OWN SECTION</text>
+<path d="M 620 2502 L 100 2502" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="321.2" y="2485" width="77.6" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2494" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">LECTURE LIST</text>
+<path d="M 100 2554 L 620 2554" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="281.4" y="2537" width="157.1" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2546" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">GET /API/LECTURES/[ID]/FILE</text>
+<path d="M 620 2598 L 100 2598" fill="none" stroke="#bf4520" stroke-width="1.2" marker-end="url(#seq-sums-arrow-accent)"/>
+<rect x="276.1" y="2581" width="167.7" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2590" fill="#bf4520" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">FILE STREAM (SECTION CHECKED)</text>
+<line x1="40" y1="2628" x2="1208" y2="2628" stroke="rgba(45,49,66,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="40" y="2646" fill="#bf4520" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.14em">PAYMENTS · WALLET / BANK VERIFICATION AND NOTIFICATIONS</text>
+<path d="M 100 2706 L 620 2706" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="249.7" y="2689" width="220.7" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2698" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">POST /API/STUDENT/FEES (WALLET + TX ID)</text>
+<path d="M 628 2750 L 796 2750" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="620.2" y="2733" width="183.6" height="12" rx="2" fill="#f5f5f5"/><text x="712.0" y="2742" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">FEE PENDING + TX ID (CARD: PAID)</text>
+<path d="M 276 2802 L 620 2802" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="329.7" y="2785" width="236.6" height="12" rx="2" fill="#f5f5f5"/><text x="448.0" y="2794" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">ADMIN: PATCH /API/ADMIN/FINANCIAL/PAYMENTS</text>
+<path d="M 628 2846 L 796 2846" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/>
+<rect x="620.2" y="2829" width="183.6" height="12" rx="2" fill="#f5f5f5"/><text x="712.0" y="2838" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">UPDATE FEE + CREATE NOTIFICATION</text>
+<path d="M 100 2898 L 620 2898" fill="none" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/>
+<rect x="273.5" y="2881" width="173.0" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2890" fill="#2e5aa8" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">GET /API/STUDENT/NOTIFICATIONS</text>
+<path d="M 620 2942 L 100 2942" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/>
+<rect x="286.8" y="2925" width="146.5" height="12" rx="2" fill="#f5f5f5"/><text x="360.0" y="2934" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">PAYMENT RESULT / REMINDER</text>
+<g transform="translate(0,786)"><line x1="40" y1="2196" x2="1208" y2="2196" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/><text x="40" y="2212" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">LEGEND</text><rect x="40" y="2226" width="28" height="12" rx="2" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/><text x="76" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Focal component</text><line x1="186" y1="2232" x2="214" y2="2232" stroke="#2e5aa8" stroke-width="1.2" marker-end="url(#seq-sums-arrow-link)"/><text x="222" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">HTTP call</text><line x1="300" y1="2232" x2="328" y2="2232" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#seq-sums-arrow)"/><text x="336" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Call / query</text><line x1="430" y1="2232" x2="458" y2="2232" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow)"/><text x="466" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Return</text><line x1="529" y1="2232" x2="557" y2="2232" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#seq-sums-arrow-open)"/><text x="565" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Async emit</text><line x1="649" y1="2232" x2="677" y2="2232" stroke="#bf4520" stroke-width="1.4" marker-end="url(#seq-sums-arrow-accent)"/><text x="685" y="2236" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Headline success</text>
+</g>
+</g>
+</svg></div>
+  </section>
+</div>
+</body>
+</html>

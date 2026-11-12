@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0F2E5D;
+  --color-secondary: #dfb839;
+  --color-bg-base: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-text-main: #1E293B;
+}
+
+@theme {
+  --color-primary: #0F2E5D;
+  --color-secondary: #dfb839;
+  --color-bg-base: #FFFFFF;
+  --color-surface: #F8FAFC;
+  --color-text-main: #1E293B;
+
+  --font-sans: var(--font-raleway);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-bg-base);
+    color: var(--color-text-main);
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Dark mode (toggled with the "dark" class on <html>, see lib/theme.ts) */
+html.dark {
+  color-scheme: dark;
+  filter: invert(1) hue-rotate(180deg);
+  background: #fff;
+}
+html.dark img,
+html.dark video,
+html.dark iframe,
+html.dark canvas,
+html.dark [data-keep-colors] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Printing: hide navigation chrome so only the page content prints */
+@media print {
+  aside,
+  header,
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* Dark mode: keep brand-colored surfaces (sidebars, primary buttons, hero gradients) in their original colors */
+html.dark .bg-primary,
+html.dark [class*="from-[#0F2E5D]"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+html.dark .bg-primary .bg-primary,
+html.dark [class*="from-[#0F2E5D]"] .bg-primary {
+  filter: none;
+}

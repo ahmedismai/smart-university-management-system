@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart University Management System (SUMS) - System Documentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ==========================================================================
+     GLOBAL RESET & COLOR VARIABLES
+     ========================================================================== */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --primary: #1e3a8a;
+    --primary-hover: #172554;
+    --primary-light: #3b82f6;
+    --primary-subtle: #eff6ff;
+    --accent: #d97706;
+    --success: #059669;
+    --success-subtle: #f0fdf4;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Monaco, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f3f6fb;
+    color: var(--slate-800);
+    line-height: 1.7;
+    font-size: 14.5px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .document-container {
+    max-width: 1040px;
+    margin: 2rem auto;
+    background: #ffffff;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  /* ==========================================================================
+     COVER PAGE
+     ========================================================================== */
+  .cover-sheet {
+    background: linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #1e3a8a 100%);
+    color: #ffffff;
+    padding: 6.5rem 4.5rem 5.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover-sheet::before {
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -100px;
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  .cover-header-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 2.25rem;
+  }
+
+  .cover-main-title {
+    font-size: 3.1rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.25rem;
+    color: #ffffff;
+  }
+
+  .cover-lead-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #cbd5e1;
+    max-width: 740px;
+    margin-bottom: 4rem;
+  }
+
+  .cover-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: 2.25rem;
+  }
+
+  .cover-meta-col .meta-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    margin-bottom: 0.35rem;
+  }
+
+  .cover-meta-col .meta-value {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #f8fafc;
+  }
+
+  /* ==========================================================================
+     DOCUMENT BODY CONTENT
+     ========================================================================== */
+  .document-body {
+    padding: 3.5rem 4.5rem;
+  }
+
+  /* Section Styles */
+  .section-block {
+    margin-bottom: 3.25rem;
+  }
+
+  .section-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--slate-100);
+  }
+
+  h2 {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    letter-spacing: -0.025em;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    background: var(--primary-subtle);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #dbeafe;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--slate-900);
+    margin: 2rem 0 0.85rem;
+    letter-spacing: -0.015em;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--slate-800);
+    margin: 1.35rem 0 0.5rem;
+  }
+
+  p {
+    color: var(--slate-600);
+    margin-bottom: 1.15rem;
+    line-height: 1.75;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  ul, ol {
+    margin: 0.85rem 0 1.5rem 1.75rem;
+    color: var(--slate-700);
+  }
+
+  li {
+    margin-bottom: 0.45rem;
+    padding-left: 0.25rem;
+    line-height: 1.65;
+  }
+
+  strong {
+    color: var(--slate-900);
+    font-weight: 600;
+  }
+
+  /* ==========================================================================
+     TABLE OF CONTENTS (TOC)
+     ========================================================================== */
+  .toc-card {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    border-radius: 8px;
+    padding: 1.75rem 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .toc-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--slate-900);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem 2.5rem;
+  }
+
+  .toc-list li {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+
+  .toc-list a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .toc-list a:hover {
+    text-decoration: underline;
+  }
+
+  .toc-list .toc-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--slate-300);
+    margin: 0 0.5rem 0.35rem;
+  }
+
+  .toc-list .toc-num {
+    font-family: var(--font-mono);
+    color: var(--slate-400);
+    font-size: 0.8rem;
+  }
+
+  /* ==========================================================================
+     CALLOUT BOXES & HIGHLIGHTS
+     ========================================================================== */
+  .callout-box {
+    background: #f8fafc;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1.5rem 0;
+    border-top: 1px solid var(--slate-200);
+    border-right: 1px solid var(--slate-200);
+    border-bottom: 1px solid var(--slate-200);
+  }
+
+  .callout-box p {
+    color: var(--slate-700);
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+
+  /* ==========================================================================
+     TABLES
+     ========================================================================== */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.88rem;
+    border: 1px solid var(--slate-200);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th {
+    background-color: var(--slate-100);
+    color: var(--slate-900);
+    font-weight: 700;
+    text-align: left;
+    padding: 0.85rem 1.15rem;
+    border-bottom: 1px solid var(--slate-200);
+    letter-spacing: -0.01em;
+  }
+
+  td {
+    padding: 0.85rem 1.15rem;
+    color: var(--slate-700);
+    border-bottom: 1px solid var(--slate-200);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:nth-child(even) td {
+    background-color: #fafbfc;
+  }
+
+  /* Pill Badges for Tables */
+  .pill {
+    display: inline-block;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+  }
+
+  .pill-get { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+  .pill-post { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+  .pill-type { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+
+  /* Monospace & Code */
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.86em;
+    background: var(--slate-100);
+    color: var(--slate-900);
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    border: 1px solid var(--slate-200);
+  }
+
+  pre {
+    background: var(--slate-900);
+    color: #f8fafc;
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 0.83rem;
+    line-height: 1.65;
+    margin: 1.25rem 0 1.75rem;
+  }
+
+  /* ==========================================================================
+     DIAGRAM PRESENTATION CARDS
+     ========================================================================== */
+  .diagram-card {
+    background: #ffffff;
+    border: 1px solid var(--slate-300);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.5rem 0 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04);
+  }
+
+  .diagram-viewport {
+    background: #f8fafc;
+    border: 1px solid var(--slate-200);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .diagram-viewport img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .diagram-footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.85rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--slate-200);
+  }
+
+  .diagram-fig-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate-600);
+  }
+
+  .diagram-action-links {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 0.35rem 0.75rem;
+    border-radius: 5px;
+    transition: all 0.15s ease-in-out;
+  }
+
+  .btn-pdf {
+    background: #dc2626;
+    color: #ffffff;
+  }
+
+  .btn-pdf:hover {
+    background: #b91c1c;
+  }
+
+  .btn-html {
+    background: var(--primary);
+    color: #ffffff;
+  }
+
+  .btn-html:hover {
+    background: var(--primary-hover);
+  }
+
+  /* ==========================================================================
+     PRINT & PDF SPECIFIC RULES
+     ========================================================================== */
+  @page {
+    size: A4 portrait;
+    margin: 16mm 14mm 16mm 14mm;
+  }
+
+  @page :first {
+    margin: 0;
+  }
+
+  @media print {
+    body {
+      background: #ffffff !important;
+      color: #000000 !important;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .document-container {
+      max-width: 100%;
+      margin: 0;
+      box-shadow: none;
+      border-radius: 0;
+    }
+
+    .cover-sheet {
+      height: 100vh;
+      box-sizing: border-box;
+      padding: 7rem 4rem;
+      border-radius: 0;
+      page-break-after: always;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background: #090e1a !important;
+    }
+
+    .document-body {
+      padding: 1.5rem 0;
+    }
+
+    .page-break-before {
+      page-break-before: always;
+      padding-top: 1rem;
+    }
+
+    .diagram-card {
+      page-break-inside: avoid;
+      box-shadow: none;
+      border: 1px solid #cbd5e1;
+      margin: 1rem 0;
+      padding: 0.5rem;
+    }
+
+    .diagram-action-links {
+      display: none !important;
+    }
+
+    .section-block {
+      page-break-inside: auto;
+    }
+
+    h2, h3, h4 {
+      page-break-after: avoid;
+    }
+
+    table, pre, .callout-box {
+      page-break-inside: avoid;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="document-container">
+
+  <!-- ==================== COVER PAGE ==================== -->
+  <header class="cover-sheet">
+    <div class="cover-header-tag">Software Architecture & Engineering Documentation</div>
+    <h1 class="cover-main-title">Smart University Management System</h1>
+    <p class="cover-lead-subtitle">
+      A Modern, Scalable, Full-Stack Enterprise Platform for Centralized Academic, Financial, and Real-Time University Governance.
+    </p>
+
+    <div class="cover-meta-grid">
+      <div class="cover-meta-col">
+        <div class="meta-label">System Code</div>
+        <div class="meta-value">SUMS-v1.0-PROD</div>
+      </div>
+      <div class="cover-meta-col">
+        <div class="meta-label">Architecture</div>
+        <div class="meta-value">Next.js 15 + MongoDB</div>
+      </div>
+      <div class="cover-meta-col">
+        <div class="meta-label">Document Standard</div>
+        <div class="meta-value">UML Capstone Grade</div>
+      </div>
+      <div class="cover-meta-col">
+        <div class="meta-label">Verification Status</div>
+        <div class="meta-value">Production Verified</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== DOCUMENT BODY ==================== -->
+  <main class="document-body">
+
+    <!-- Table of Contents -->
+    <div class="toc-card">
+      <div class="toc-title">Table of Contents</div>
+      <ul class="toc-list">
+        <li><a href="#sec-1">1. Executive Summary & Vision</a><span class="toc-dots"></span><span class="toc-num">01</span></li>
+        <li><a href="#sec-2">2. Architecture & Tech Stack</a><span class="toc-dots"></span><span class="toc-num">02</span></li>
+        <li><a href="#sec-3">3. System Requirements Spec</a><span class="toc-dots"></span><span class="toc-num">03</span></li>
+        <li><a href="#sec-4">4. UML System Models</a><span class="toc-dots"></span><span class="toc-num">04</span></li>
+        <li><a href="#sec-4-1">↳ 4.1 Use Case Diagram</a><span class="toc-dots"></span><span class="toc-num">05</span></li>
+        <li><a href="#sec-4-2">↳ 4.2 Class Diagram</a><span class="toc-dots"></span><span class="toc-num">06</span></li>
+        <li><a href="#sec-4-3">↳ 4.3 Sequence Diagram</a><span class="toc-dots"></span><span class="toc-num">07</span></li>
+        <li><a href="#sec-4-4">↳ 4.4 Activity Diagram</a><span class="toc-dots"></span><span class="toc-num">08</span></li>
+        <li><a href="#sec-5">5. Database Schema Catalog</a><span class="toc-dots"></span><span class="toc-num">09</span></li>
+        <li><a href="#sec-6">6. Security & Edge Middleware</a><span class="toc-dots"></span><span class="toc-num">10</span></li>
+        <li><a href="#sec-7">7. API & WebSocket Protocol</a><span class="toc-dots"></span><span class="toc-num">11</span></li>
+        <li><a href="#sec-8">8. Deployment & Execution</a><span class="toc-dots"></span><span class="toc-num">12</span></li>
+      </ul>
+    </div>
+
+    <!-- ==================== SECTION 1 ==================== -->
+    <section class="section-block" id="sec-1">
+      <div class="section-header-row">
+        <h2>1. Executive Summary & Vision</h2>
+        <span class="section-badge">OVERVIEW</span>
+      </div>
+
+      <p>
+        The <strong>Smart University Management System (SUMS)</strong> is an enterprise web application designed to consolidate, automate, and centralize every aspect of university operations into a cohesive, high-performance platform. It eliminates fragmented departmental spreadsheets, paper-based records, and legacy isolated databases by providing real-time synchronization between academic records, student services, financial auditing, and administrative governance.
+      </p>
+
+      <div class="callout-box">
+        <p>
+          <strong>Strategic Institutional Objective:</strong> Deliver a fast, responsive, role-based platform that guarantees sub-second responsiveness, real-time classroom interactions, automated grade transcripts, and tamper-proof financial tracking.
+        </p>
+      </div>
+
+      <h3>Core Functional Pillars</h3>
+      <ul>
+        <li><strong>Role-Based Access Control (RBAC):</strong> Segmented authenticated portals designed specifically for Administrators, Faculty (Teachers), Students, Staff, and Parents.</li>
+        <li><strong>Curriculum & Routine Automation:</strong> Automated schedule routine management, room allocation, class capacity enforcement, and multi-criteria attendance tracking.</li>
+        <li><strong>Financial Engine & Invoicing:</strong> Invoicing, waiver subsidies, overdue fine calculations, and multi-method payment verification.</li>
+        <li><strong>Campus Auxiliary Services:</strong> Digital library management with 14-day borrowing controls, real-time student-faculty chat, hostel allocation, and transport coordination.</li>
+      </ul>
+    </section>
+
+    <!-- ==================== SECTION 2 ==================== -->
+    <section class="section-block" id="sec-2">
+      <div class="section-header-row">
+        <h2>2. Architecture & Technology Stack</h2>
+        <span class="section-badge">TECH STACK</span>
+      </div>
+
+      <p>
+        The system is constructed as a high-efficiency modular monolith leveraging server-side rendering (SSR), edge compute, persistent document stores, and standalone WebSocket micro-threads.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 26%;">Architecture Layer</th>
+            <th style="width: 28%;">Technology Selected</th>
+            <th style="width: 46%;">Architectural Functionality</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frontend & Views</strong></td>
+            <td><code>Next.js 15+</code> / <code>React 19</code></td>
+            <td>App Router with Server Components for zero-bundle rendering, fast initial load, and instantaneous client transitions.</td>
+          </tr>
+          <tr>
+            <td><strong>Styling & Animations</strong></td>
+            <td><code>Tailwind CSS 4.0</code> + <code>Framer Motion</code></td>
+            <td>Clean typography, fully responsive layouts, accessible contrast ratios, and hardware-accelerated animations.</td>
+          </tr>
+          <tr>
+            <td><strong>Backend API Layer</strong></td>
+            <td><code>Next.js Route Handlers</code></td>
+            <td>RESTful JSON micro-endpoints supporting transactions, authentication cookies, and data sanitization.</td>
+          </tr>
+          <tr>
+            <td><strong>Data Persistence Tier</strong></td>
+            <td><code>MongoDB</code> + <code>Mongoose 8.x</code></td>
+            <td>Flexible document persistence with strict schema enforcement, automated validation, and referenced indexing.</td>
+          </tr>
+          <tr>
+            <td><strong>Real-Time Messaging</strong></td>
+            <td><code>Socket.io</code> (Port 3001)</td>
+            <td>Low-latency full-duplex bi-directional communication between students and instructors with chat rooms and persistence.</td>
+          </tr>
+          <tr>
+            <td><strong>Edge Security & Auth</strong></td>
+            <td><code>Next.js Edge Middleware</code></td>
+            <td>Multi-role session cookie verification at the network edge prior to page or API execution.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION 3 ==================== -->
+    <section class="section-block" id="sec-3">
+      <div class="section-header-row">
+        <h2>3. System Requirements Specification</h2>
+        <span class="section-badge">REQUIREMENTS</span>
+      </div>
+
+      <h3>3.1 Functional Requirements</h3>
+      <ul>
+        <li><strong>Authentication:</strong> Secure authentication handling password hashing (`bcryptjs`) and setting signed HTTP-only cookies.</li>
+        <li><strong>Academic Management:</strong> Full CRUD operations over Classes, Courses, Sections, and weekly Lecture/Lab Routines with collision detection.</li>
+        <li><strong>Attendance Governance:</strong> Daily attendance logging linked with automated absenteeism tracking governed by institutional thresholds.</li>
+        <li><strong>Examinations & Transcripts:</strong> Batch marks upload, dynamic transcript generation, GPA computation, and result distribution.</li>
+        <li><strong>Library Management:</strong> Tracking available copies, 14-day loan terms, automated overdue fine calculation, and renewals.</li>
+        <li><strong>Lectures:</strong> Teachers upload PDF/DOC/DOCX lecture files (max 4 MB) per course and section; students download only their own section's files.</li>
+        <li><strong>Per-Course Marks &amp; CGPA:</strong> One mark per student, course and assessment (upsert); credit-weighted CGPA from the grade scale; CSV upload and graduation-clearance check.</li>
+        <li><strong>Requests &amp; Inquiries:</strong> Contact, leave and password-reset requests are stored and handled by admins; students keep documents and print an ID card.</li>
+        <li><strong>Payment Verification &amp; Notifications:</strong> Card payments are instant; wallet/bank payments wait for finance approval; decisions and reminders notify the student.</li>
+        <li><strong>Campus Operations:</strong> Admin CRUD for students, staff, parents and users; inventory audits; hostel allocation; global search; dark mode; all amounts in EGP.</li>
+        <li><strong>SUMS Assistant:</strong> Chatbot (Gemini with offline fallback) that answers from the university knowledge base and the signed-in student's real records.</li>
+        <li><strong>New data models:</strong> Lecture, StudentDocument, Inquiry, Notification, InventoryAudit, InventoryLog, Meeting, Application, RolePermission (40 models in total).</li>
+      </ul>
+
+      <h3>3.2 Non-Functional Requirements</h3>
+      <ul>
+        <li><strong>Sub-Second Latency:</strong> Server-side rendering ensures primary dashboards render within 250 milliseconds.</li>
+        <li><strong>Information Security:</strong> Complete isolation of student data; administrative operations audited with timestamps.</li>
+        <li><strong>Fault Tolerance:</strong> Independent Socket.io server ensures real-time messaging does not impede core database transactions.</li>
+      </ul>
+    </section>
+
+    <!-- ==================== SECTION 4.1 ==================== -->
+    <section class="section-block page-break-before" id="sec-4-1">
+      <div class="section-header-row">
+        <h2>4.1 Use Case Diagram (System Interactions)</h2>
+        <span class="section-badge">USE CASE</span>
+      </div>
+
+      <p>
+        The Use Case Diagram defines the behavioral perimeter of the SUMS ecosystem. It partitions capabilities across 4 primary actors: <strong>Visitor</strong> (Public admissions & information), <strong>Student</strong> (Academic, library, fees, and chat services), <strong>Admin</strong> (Total institutional oversight and records), and <strong>Teacher</strong> (Instructional feedback and messaging).
+      </p>
+
+      <div class="diagram-card">
+        <div class="diagram-viewport">
+          <img src="./diagrams/png/uc-sums.png" alt="Use Case Diagram">
+        </div>
+        <div class="diagram-footer-bar">
+          <span class="diagram-fig-title">Figure 4.1: SUMS Functional Boundary & Use Case Allocation</span>
+          <div class="diagram-action-links">
+            <a href="./diagrams/pdf/uc-sums.pdf" class="btn btn-pdf" target="_blank">📄 Vector PDF</a>
+            <a href="./diagrams/use-case-diagram.html" class="btn btn-html" target="_blank">🌐 Interactive HTML</a>
+          </div>
+        </div>
+      </div>
+
+      <h4>Actor Responsibility Matrix</h4>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 25%;">Actor Name</th>
+            <th style="width: 35%;">Associated Use Cases</th>
+            <th style="width: 40%;">System Interaction Scope</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Visitor</strong></td>
+            <td>Browse Info, Apply for Admission</td>
+            <td>Unauthenticated public portal access via <code>/about</code>, <code>/academics</code>, and <code>/admission/*</code>.</td>
+          </tr>
+          <tr>
+            <td><strong>Student</strong></td>
+            <td>Dashboard, Routine, Attendance, Marks, Fees, Library, Chat</td>
+            <td>Authenticated access to personal academic records, online tuition payment, and book borrowing.</td>
+          </tr>
+          <tr>
+            <td><strong>Admin</strong></td>
+            <td>Manage Users, Academic Modules, Reports, Campus Resources</td>
+            <td>Full administrative CRUD authority across courses, finances, staff assignments, and audits.</td>
+          </tr>
+          <tr>
+            <td><strong>Teacher</strong></td>
+            <td>Direct Messaging, Classroom Coordination</td>
+            <td>Instructional oversight and real-time WebSocket communication with enrolled students.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION 4.2 ==================== -->
+    <section class="section-block page-break-before" id="sec-4-2">
+      <div class="section-header-row">
+        <h2>4.2 Class Diagram (Data Entities & Structural Topology)</h2>
+        <span class="section-badge">CLASS DIAGRAM</span>
+      </div>
+
+      <p>
+        The Class Diagram models the entire database structure, comprising all <strong>40 Mongoose Models</strong> located in <code>models/</code>. The model represents entities, typed attributes, method signatures, multiplicity constraints (e.g., <code>1..*</code>, <code>0..1</code>), composition, and dependency vectors.
+      </p>
+
+      <div class="diagram-card">
+        <div class="diagram-viewport">
+          <img src="./diagrams/png/cls-sums.png" alt="Class Diagram">
+        </div>
+        <div class="diagram-footer-bar">
+          <span class="diagram-fig-title">Figure 4.2: Topological Overview of All 40 SUMS Database Models</span>
+          <div class="diagram-action-links">
+            <a href="./diagrams/pdf/cls-sums.pdf" class="btn btn-pdf" target="_blank">📄 Vector PDF</a>
+            <a href="./diagrams/class-diagram.html" class="btn btn-html" target="_blank">🌐 Interactive HTML</a>
+          </div>
+        </div>
+      </div>
+
+      <h4>Architectural Package Decomposition</h4>
+      <ul>
+        <li><strong>Core Authentication:</strong> <code>User</code> serves as the central identity gate with 1-to-1 links to <code>Student</code>, <code>Teacher</code>, <code>Staff</code>, and <code>Parent</code>.</li>
+        <li><strong>Academic Framework:</strong> <code>Class</code> aggregates <code>Section</code>, which schedules <code>Routine</code> for a given <code>Course</code>. Evaluation is maintained in <code>Exam</code>, <code>Mark</code>, and <code>Result</code>.</li>
+        <li><strong>Financial Ledger:</strong> <code>Fee</code> instances reference <code>FeeHead</code> classifications, balanced with student <code>Waiver</code> records and overdue <code>Fine</code> entities.</li>
+        <li><strong>Digital Library:</strong> <code>Book</code> records manage available physical copies, circulating via <code>BookIssue</code> transactions.</li>
+      </ul>
+    </section>
+
+    <!-- ==================== SECTION 4.3 ==================== -->
+    <section class="section-block page-break-before" id="sec-4-3">
+      <div class="section-header-row">
+        <h2>4.3 Sequence Diagram (Student Session Lifecycle)</h2>
+        <span class="section-badge">SEQUENCE DIAGRAM</span>
+      </div>
+
+      <p>
+        The Sequence Diagram chronologically traces an active student session across all tiers: Student Client → Student Portal UI → Edge Middleware → API Route Handlers → MongoDB → Socket.io Server → Teacher Client.
+      </p>
+
+      <div class="diagram-card">
+        <div class="diagram-viewport">
+          <img src="./diagrams/png/seq-sums.png" alt="Sequence Diagram">
+        </div>
+        <div class="diagram-footer-bar">
+          <span class="diagram-fig-title">Figure 4.3: End-to-End Execution Sequence Across Architectural Tiers</span>
+          <div class="diagram-action-links">
+            <a href="./diagrams/pdf/seq-sums.pdf" class="btn btn-pdf" target="_blank">📄 Vector PDF</a>
+            <a href="./diagrams/sequence-diagram.html" class="btn btn-html" target="_blank">🌐 Interactive HTML</a>
+          </div>
+        </div>
+      </div>
+
+      <h4>Sequential Stage Breakdown</h4>
+      <ol>
+        <li><strong>Authentication Flow:</strong> Credentials submitted via <code>POST /login</code>, verified against MongoDB via <code>bcrypt.compare</code>, followed by signed cookie dispatch (`student_session`).</li>
+        <li><strong>Protected Route Verification:</strong> <code>middleware.ts</code> intercepts requests to <code>/student/dashboard</code>, verifying cookie existence before rendering.</li>
+        <li><strong>Library Borrowing Logic:</strong> Evaluates active loan count (&lt; 5), verifies copy availability, decrements stock, and generates a <code>BookIssue</code> record.</li>
+        <li><strong>Financial Settlement:</strong> Student executes payment; the transaction updates the record to <code>Paid</code> and returns a verifiable transaction ID.</li>
+        <li><strong>Real-Time Chat Transmission:</strong> Student connects to Socket.io (Port 3001), emits <code>sendMessage</code>, saves record in MongoDB, and streams event to Teacher.</li>
+      </ol>
+    </section>
+
+    <!-- ==================== SECTION 4.4 ==================== -->
+    <section class="section-block page-break-before" id="sec-4-4">
+      <div class="section-header-row">
+        <h2>4.4 Activity Diagram (Operational Workflows)</h2>
+        <span class="section-badge">ACTIVITY DIAGRAM</span>
+      </div>
+
+      <p>
+        The Activity Diagram maps system workflows from initialization to logout. It captures decision gateways, error-handling retry loops, role bifurcations, parallel tasks, and terminal outcomes.
+      </p>
+
+      <div class="diagram-card">
+        <div class="diagram-viewport">
+          <img src="./diagrams/png/act-sums.png" alt="Activity Diagram">
+        </div>
+        <div class="diagram-footer-bar">
+          <span class="diagram-fig-title">Figure 4.4: Complete SUMS Operational Flowchart & Decision Tree</span>
+          <div class="diagram-action-links">
+            <a href="./diagrams/pdf/act-sums.pdf" class="btn btn-pdf" target="_blank">📄 Vector PDF</a>
+            <a href="./diagrams/activity-diagram.html" class="btn btn-html" target="_blank">🌐 Interactive HTML</a>
+          </div>
+        </div>
+      </div>
+
+      <h4>Workflow Path Summary</h4>
+      <ul>
+        <li><strong>Visitor Branch:</strong> Visitors choose to explore public academic catalog pages or apply for admissions, terminating cleanly without session overhead.</li>
+        <li><strong>Authentication Gateway:</strong> Invalid credentials trigger an HTTP 400/401 notification toast and an immediate retry branch.</li>
+        <li><strong>Student Task Execution:</strong> Enables concurrent pathways for checking academic records, processing fee payments, executing book loans, or chatting.</li>
+        <li><strong>Session Loop & Termination:</strong> After each task, a decision node evaluates whether additional tasks are requested; if not, session cookies are revoked upon logout.</li>
+      </ul>
+    </section>
+
+    <!-- ==================== SECTION 5 ==================== -->
+    <section class="section-block page-break-before" id="sec-5">
+      <div class="section-header-row">
+        <h2>5. Database Schema Catalog</h2>
+        <span class="section-badge">DATA DICTIONARY</span>
+      </div>
+
+      <p>
+        The MongoDB persistence layer enforces strict schema validation through Mongoose. Below is a specification of core operational collections:
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 20%;">Model Entity</th>
+            <th style="width: 35%;">Key Attributes & Types</th>
+            <th style="width: 25%;">Relational Constraints</th>
+            <th style="width: 20%;">Domain Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>User</strong></td>
+            <td><code>email: String</code>, <code>password: Hash</code>, <code>role: Enum</code></td>
+            <td>1-to-1 with specific role model</td>
+            <td>Central authentication credential holder.</td>
+          </tr>
+          <tr>
+            <td><strong>Student</strong></td>
+            <td><code>studentId: String</code>, <code>name: String</code>, <code>email: String</code></td>
+            <td>Refs <code>Class</code> & <code>Section</code></td>
+            <td>Comprehensive student academic profile.</td>
+          </tr>
+          <tr>
+            <td><strong>Fee</strong></td>
+            <td><code>amount: Number</code>, <code>status: Enum</code>, <code>transactionId: String</code></td>
+            <td>Refs <code>Student</code> and <code>FeeHead</code></td>
+            <td>Invoiced student charges and receipts.</td>
+          </tr>
+          <tr>
+            <td><strong>BookIssue</strong></td>
+            <td><code>dueDate: Date</code>, <code>status: Enum</code></td>
+            <td>Links <code>Book</code> to <code>Student</code></td>
+            <td>Tracks active circulating library loans.</td>
+          </tr>
+          <tr>
+            <td><strong>Attendance</strong></td>
+            <td><code>date: Date</code>, <code>status: Present|Absent|Late</code></td>
+            <td>Refs <code>Student</code> & <code>Class</code></td>
+            <td>Daily roll-call and compliance log.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== SECTION 6 & 7 ==================== -->
+    <section class="section-block" id="sec-6">
+      <div class="section-header-row">
+        <h2>6. Security, RBAC & Deployment Guide</h2>
+        <span class="section-badge">GOVERNANCE</span>
+      </div>
+
+      <h3>6.1 Security & Route Protection (`middleware.ts`)</h3>
+      <p>
+        All incoming requests to protected routes (`/admin/*` and `/student/*`) are evaluated at the edge by Next.js Middleware. Missing or invalid session cookies result in immediate redirect to the designated portal login, securing administrative and confidential student records.
+      </p>
+
+      <h3>6.2 Installation & Startup Procedure</h3>
+      <p>
+        To execute the platform in local or staging environments, run the following commands:
+      </p>
+
+      <pre>
+# Step 1: Install production and dev dependencies
+npm install
+
+# Step 2: Establish local environment variables in .env.local
+# MONGODB_URI=mongodb://localhost:27017/sums_db
+# JWT_SECRET=your_production_secret_key
+# NEXT_PUBLIC_SOCKET_URL=http://localhost:3001
+
+# Step 3: Launch the dedicated WebSocket Server (Port 3001)
+node socket-server.js
+
+# Step 4: Launch the Next.js Web Application (Port 3000)
+npm run dev
+      </pre>
+
+      <div class="callout-box">
+        <p>
+          <strong>System Verification Notice:</strong> The web application connects to the MongoDB instance and communicates with the real-time Socket server at <code>http://localhost:3001</code>.
+        </p>
+      </div>
+    
+      <h3>6.3 Deployment (GitHub + Vercel)</h3>
+      <ul>
+        <li><strong>Website and API:</strong> push to GitHub and import the repository in Vercel (<code>vercel.json</code> included). Set <code>MONGODB_URI</code> (optionally <code>GEMINI_API_KEY</code>, <code>AI_MODEL_NAME</code>, <code>NEXT_PUBLIC_SOCKET_URL</code>) and allow Vercel in MongoDB Atlas Network Access.</li>
+        <li><strong>Socket server:</strong> hosted separately (Render, Railway or Fly.io) because Vercel cannot run WebSockets.</li>
+        <li><strong>Upload limit:</strong> 4 MB per file (Vercel request body limit is 4.5 MB).</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+</body>
+</html>

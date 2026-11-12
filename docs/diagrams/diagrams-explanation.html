@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شرح دياجرامات SUMS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Readex+Pro:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* Layout: one reading column; each diagram = figure + "how to read" + walkthrough + discussion notes */
+  :root {
+    --paper: #f4f5f7;
+    --surface: #ffffff;
+    --ink: #2d3142;
+    --muted: #556079;
+    --rule: rgba(45, 49, 66, 0.14);
+    --accent: #bf4520;
+    --accent-tint: rgba(191, 69, 32, 0.08);
+    --display: 'Readex Pro', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+    --body: 'IBM Plex Sans Arabic', Tahoma, 'Segoe UI', sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #1d2029; --surface: #262a36; --ink: #eceef2; --muted: #a9b0c2;
+      --rule: rgba(236, 238, 242, 0.14); --accent: #f08a59; --accent-tint: rgba(240, 138, 89, 0.12);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #1d2029; --surface: #262a36; --ink: #eceef2; --muted: #a9b0c2;
+    --rule: rgba(236, 238, 242, 0.14); --accent: #f08a59; --accent-tint: rgba(240, 138, 89, 0.12);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.85; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 56px 20px 80px; }
+  h1, h2, h3 { font-family: var(--display); text-wrap: balance; line-height: 1.35; margin: 0; }
+  h1 { font-size: clamp(1.9rem, 3vw + 1rem, 2.6rem); font-weight: 700; }
+  h2 { font-size: 1.7rem; font-weight: 700; }
+  h3 { font-size: 1.12rem; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  p { margin: 0 0 12px; max-width: 68ch; }
+  code, .en { font-family: var(--mono); font-size: 0.84em; direction: ltr; unicode-bidi: isolate; background: var(--accent-tint); padding: 1px 6px; border-radius: 4px; }
+  .eyebrow { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--muted); direction: ltr; text-align: right; margin-bottom: 10px; }
+  .lede { color: var(--muted); font-size: 1.05rem; margin-top: 14px; }
+
+  .map { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 32px 0 8px; }
+  .map a { display: block; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; color: inherit; text-decoration: none; }
+  .map a:hover, .map a:focus-visible { border-color: var(--accent); outline: none; }
+  .map b { display: block; font-family: var(--display); font-weight: 600; }
+  .map span { color: var(--muted); font-size: 0.9rem; line-height: 1.6; display: block; margin-top: 4px; }
+
+  section { margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--rule); }
+  .num { font-family: var(--mono); color: var(--accent); font-size: 0.85rem; letter-spacing: 0.1em; }
+  figure { margin: 22px 0 6px; background: #f5f5f5; border: 1px solid var(--rule); border-radius: 8px; overflow-x: auto; }
+  figure img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+  figcaption { font-size: 0.85rem; color: var(--muted); margin-bottom: 8px; }
+  figcaption a { color: var(--accent); }
+
+  .key { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 16px 18px; margin: 10px 0; }
+  .key dt { font-weight: 600; }
+  .key dd { margin: 0; color: var(--muted); }
+
+  ol.steps, ul.points { margin: 8px 0 12px; padding-inline-start: 22px; max-width: 72ch; }
+  ol.steps li, ul.points li { margin-bottom: 8px; }
+  .note { border-inline-start: 3px solid var(--accent); background: var(--accent-tint); padding: 12px 16px; border-radius: 0 6px 6px 0; margin: 16px 0; max-width: 72ch; }
+  .note b { font-family: var(--display); }
+
+  .stage { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .stage h4 { margin: 0 0 6px; font-family: var(--display); font-size: 1rem; }
+  .stage p { margin: 0; }
+
+  .qa details { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; margin: 10px 0; padding: 0 18px; }
+  .qa summary { cursor: pointer; padding: 14px 0; font-weight: 600; font-family: var(--display); }
+  .qa summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .qa details p { color: var(--muted); }
+  .qa details[open] { padding-bottom: 8px; }
+
+  @media (max-width: 720px) {
+    .map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .key { grid-template-columns: 1fr; }
+    body { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<main class="wrap">
+  <p class="eyebrow">SMART UNIVERSITY MANAGEMENT SYSTEM · UML</p>
+  <h1>شرح دياجرامات SUMS</h1>
+  <p class="lede">SUMS نظام لإدارة الجامعة مبني بـ Next.js و MongoDB. الصفحة دي بتشرح الأربع دياجرامات اللي بتوصف النظام: إزاي تقرا كل واحد، وكل جزء فيه معناه إيه، والحاجات اللي ممكن تتسأل عليها في المناقشة.</p>
+
+  <nav class="map" aria-label="الدياجرامات">
+    <a href="#use-case"><b>Use Case</b><span>مين بيستخدم النظام، وبيعمل إيه</span></a>
+    <a href="#activity"><b>Activity</b><span>الخطوات والقرارات بالترتيب</span></a>
+    <a href="#sequence"><b>Sequence</b><span>مين بيبعت رسالة لمين، وإمتى</span></a>
+    <a href="#class"><b>Class</b><span>البيانات وعلاقاتها ببعض</span></a>
+  </nav>
+  <p>ترتيب القراية الطبيعي: الـ Use Case بيقولك <em>إيه</em> اللي النظام بيعمله. الـ Activity بيقولك <em>بأي ترتيب</em>. الـ Sequence بيقولك <em>مين بيكلم مين</em> جوه السيرفر. والـ Class بيقولك <em>البيانات متخزنة إزاي</em>.</p>
+
+  <!-- ============================================================ USE CASE -->
+  <section id="use-case">
+    <p class="num">01</p>
+    <h2>Use Case Diagram</h2>
+    <p>بيوضح مين اللي بيتعامل مع النظام (الـ actors) وكل واحد يقدر يعمل إيه (الـ use cases). مابيوضحش التفاصيل الداخلية ولا الترتيب.</p>
+    <figure><img src="png/uc-sums.png" alt="Use case diagram: Visitor, Student, Admin and Teacher connected to 15 use cases inside the SUMS system boundary" loading="lazy"></figure>
+    <figcaption>الصورة كاملة: <a href="png/uc-sums.png">png/uc-sums.png</a></figcaption>
+
+    <h3>إزاي تقراه</h3>
+    <dl class="key">
+      <dt>الراجل (stick figure)</dt><dd>Actor: حد أو حاجة من برة النظام بتتعامل معاه.</dd>
+      <dt>الشكل البيضاوي</dt><dd>Use case: خدمة واحدة النظام بيقدمها. تحت الاسم مكتوب الـ route أو دور كل actor فيها.</dd>
+      <dt>المستطيل الكبير</dt><dd>System boundary: حدود النظام. اللي جواه هو SUMS، واللي برّه هم الـ actors.</dd>
+      <dt>خط عادي</dt><dd>Association: الـ actor ده بيستخدم الـ use case ده.</dd>
+      <dt>سهم بمثلث فاضي</dt><dd>Generalization: الطالب نوع من الزائر، فيقدر يعمل كل اللي الزائر بيعمله وزيادة.</dd>
+      <dt>البيضاوي الملوّن</dt><dd>Log in: البوابة المشتركة اللي لازم الطالب والأدمن يعدّوا منها.</dd>
+    </dl>
+
+    <h3>الـ Actors</h3>
+    <ul class="points">
+      <li><b>Visitor:</b> أي حد فاتح الموقع من غير ما يسجّل دخول. بيتصفح معلومات الجامعة وصفحات القبول.</li>
+      <li><b>Student:</b> طالب سجّل دخول، ومعاه cookie اسمها <code>student_session</code>.</li>
+      <li><b>Admin:</b> مسؤول سجّل دخول من <code>/login/employee</code>، ومعاه <code>admin_session</code>.</li>
+      <li><b>Teacher:</b> actor ثانوي، بيظهر في الشات بس. هو مستخدم على الـ socket بيستقبل رسايل الطالب.</li>
+    </ul>
+
+    <h3>الـ Use cases</h3>
+    <ol class="steps">
+      <li><b>اتنين للزائر:</b> تصفح معلومات الجامعة، والتقديم للقبول.</li>
+      <li><b>Log in:</b> مشترك بين الطالب والأدمن.</li>
+      <li><b>سبعة مشتركين:</b> Dashboard، والجدول والكورسات، والحضور، والدرجات، والمصاريف، والمكتبة، والإعلانات. نفس البيانات بيشوفها الطالب وبيديرها الأدمن. مثلاً في المصاريف الطالب <em>بيدفع</em> والأدمن <em>بيدير</em>.</li>
+      <li><b>تلاتة للأدمن بس:</b> إدارة المستخدمين والأدوار، وموارد الحرم (سكن ومواصلات ومخزن)، والتقارير والـ audit logs.</li>
+      <li><b>اتنين للطالب بس:</b> البروفايل والإعدادات، والشات مع المدرّس.</li>
+    </ol>
+
+    <div class="note"><b>للمناقشة:</b> فورم التقديم في <code>/admission/apply</code> موجود في الواجهة، لكن مش بيبعت بياناته لأي API، يعني البيانات لسه مش بتتحفظ.</div>
+  </section>
+
+  <!-- ============================================================ ACTIVITY -->
+  <section id="activity">
+    <p class="num">02</p>
+    <h2>Activity Diagram</h2>
+    <p>بيمشي مع المستخدم من أول ما يفتح الموقع لحد ما يخرج. بيوضح كل خطوة وكل قرار بالترتيب، ومسار الزائر والطالب والأدمن كلهم بيبدأوا من نفس النقطة وبيخلصوا عند نفس النهاية.</p>
+    <figure><img src="png/act-sums.png" alt="Activity diagram of the full SUMS journey from opening the website to logging out" loading="lazy"></figure>
+    <figcaption>الصورة كاملة: <a href="png/act-sums.png">png/act-sums.png</a></figcaption>
+
+    <h3>إزاي تقراه</h3>
+    <dl class="key">
+      <dt>دايرة مليانة</dt><dd>Start: بداية النشاط.</dd>
+      <dt>دايرة جوّه دايرة</dt><dd>End: نهاية النشاط.</dd>
+      <dt>مستطيل حوافه مدوّرة</dt><dd>Action: خطوة بيعملها المستخدم أو النظام.</dd>
+      <dt>المعيّن</dt><dd>Decision: سؤال، وكل خط خارج منه مكتوب عليه الإجابة (YES أو NO أو اسم الدور).</dd>
+      <dt>النقط على الخط الأفقي</dt><dd>Merge: المسارات المختلفة بترجع تتقابل في مسار واحد.</dd>
+      <dt>السهم البرتقالي</dt><dd>Happy path: المسار الناجح لتسجيل الدخول.</dd>
+    </dl>
+
+    <h3>المسار خطوة بخطوة</h3>
+    <ol class="steps">
+      <li><b>فتح الموقع:</b> لو المستخدم مش هيسجّل دخول، يبقى زائر. بيتصفح ويقدّم، وبعدين يروح على الـ End.</li>
+      <li><b>تسجيل الدخول:</b> بيختار البوابة ويدخّل بياناته. لو البيانات غلط، بتظهر رسالة خطأ (400 أو 401) ويرجع يحاول تاني.</li>
+      <li><b>Set session cookie:</b> لو البيانات صح، السيرفر بيحط cookie مدتها 24 ساعة.</li>
+      <li><b>Which role?:</b> المسار بيتقسم هنا لأدمن وطالب.</li>
+      <li><b>الأدمن:</b> Dashboard، بعدين يدير موديول (مستخدمين، أكاديمي، مالية، إلخ). لو لسه عنده شغل يرجع تاني، ولو خلّص يعمل Log out.</li>
+      <li><b>الطالب:</b> من الـ Dashboard بيختار مهمة من أربع:
+        <ul class="points">
+          <li><b>Records:</b> يشوف الجدول والحضور والنتائج.</li>
+          <li><b>Library:</b> السؤال "Loan allowed?" معناه إن معاه أقل من 5 كتب، والكتاب ده مش معاه أصلاً، وفيه نسخة متاحة. لو ينفع، بيتعمل loan لمدة 14 يوم والنسخ المتاحة بتقل واحدة. لو لأ، بيرجع 400.</li>
+          <li><b>Fees:</b> لو عليه مصاريف، بيختار البند وطريقة الدفع (bKash أو Nagad أو كارت). البند بيتعلّم Paid وبيطلع transaction ID، وبعدين يشوف الإيصال.</li>
+          <li><b>Chat:</b> بيحمّل الرسايل القديمة، وبيدخل الـ socket room، ويبعت رسالة. الرسالة بتتحفظ وبتوصل للمدرّس.</li>
+        </ul>
+      </li>
+      <li><b>Another task?:</b> لو عايز مهمة تانية بيرجع للـ Dashboard، ولو لأ بيعمل Log out. الـ Logout بيمسح الـ cookie، وبعدها End.</li>
+    </ol>
+  </section>
+
+  <!-- ============================================================ SEQUENCE -->
+  <section id="sequence">
+    <p class="num">03</p>
+    <h2>Sequence Diagram</h2>
+    <p>بيوضح الرسايل اللي بتتبعت بين أجزاء النظام بترتيبها الزمني. الوقت بيمشي من فوق لتحت، والمثال هو session واحدة متصلة: طالب بيسجّل دخول، وبعدين يستعير كتاب، ويدفع المصاريف، ويكلّم المدرّس.</p>
+    <figure><img src="png/seq-sums.png" alt="Sequence diagram with seven lifelines covering login, borrowing a book, paying fees and real-time chat" loading="lazy"></figure>
+    <figcaption>الصورة كاملة: <a href="png/seq-sums.png">png/seq-sums.png</a></figcaption>
+
+    <h3>إزاي تقراه</h3>
+    <dl class="key">
+      <dt>المربعات اللي فوق</dt><dd>Lifelines: الأجزاء المشاركة، والخط المتقطع اللي نازل من كل واحد هو عمره في السيناريو.</dd>
+      <dt>المستطيل الرفيع على الخط</dt><dd>Activation bar: الجزء ده شغّال في الفترة دي.</dd>
+      <dt>سهم أزرق</dt><dd>HTTP call: طلب من المتصفح للـ API، زي <code>POST /login</code>.</dd>
+      <dt>سهم رمادي متصل</dt><dd>Call / query: نداء داخلي أو استعلام على الداتابيز.</dd>
+      <dt>سهم متقطع رأسه مليان</dt><dd>Return: الرد.</dd>
+      <dt>سهم متقطع رأسه فاضي</dt><dd>Async emit: رسالة socket مش بتستنى رد، زي <code>JOIN ROOM</code>.</dd>
+      <dt>إطار ALT</dt><dd>تفرّع: الجزء اللي فوق الخط المتقطع بيحصل لو الشرط اللي بين القوسين اتحقق، واللي تحته في الحالة التانية <code>[else]</code>.</dd>
+      <dt>سهم برتقالي</dt><dd>أهم نجاح: الـ cookie اتعملت، والرسالة وصلت للمدرّس.</dd>
+    </dl>
+
+    <h3>الـ Lifelines السبعة</h3>
+    <p><b>Student</b> (المستخدم)، <b>Student Portal</b> (صفحات <code>/student/*</code>)، <b>Middleware</b> (<code>middleware.ts</code>)، <b>API Routes</b> (<code>app/api/*</code>)، <b>MongoDB</b>، <b>Socket Server</b> (<code>socket-server.js</code> على port 3001)، <b>Teacher</b>.</p>
+
+    <h3>المراحل (الأربعة الأساسية + مرحلتين جداد)</h3>
+    <div class="stage"><h4>1. Login</h4><p>البوابة بتبعت <code>POST /login</code>. الـ API بيدوّر على الطالب، وبعدين على حساب الـ User بتاعه، ويقارن الباسورد بـ <code>bcrypt.compare</code>. لو الباسورد صح، بيرجع <code>200 + cookie</code>، والبوابة بتطلب <code>/dashboard</code>، والـ middleware بيتأكد إن الـ cookie موجودة ويسيبه يعدّي. لو غلط، بيرجع <code>401</code>.</p></div>
+    <div class="stage"><h4>2. Borrow a book</h4><p>الطالب بيدوس Borrow، فالبوابة بتبعت <code>POST /borrow</code>. الـ API بيجيب الكتاب ويعدّ الكتب اللي مع الطالب. لو الشروط تمام، بينقّص نسخة ويعمل <code>BookIssue</code> ويرجع 200. لو لأ، بيرجع 400.</p></div>
+    <div class="stage"><h4>3. Pay fees</h4><p>البوابة بتبعت <code>GET /fees</code> عشان تجيب الملخص. بعدين الطالب بيختار طريقة الدفع، وتتبعت <code>POST /fees</code>. لو الدفع بكارت بيتعلّم Paid فورًا ويرجع transaction ID. لو بمحفظة أو تحويل بنكي بيتسجل Pending مع رقم العملية، والأدمن بيراجعه ويوافق أو يرفض، وبعدها الطالب بيوصله إشعار.</p></div>
+    <div class="stage"><h4>4. Real-time chat</h4><p>الرسايل القديمة بتيجي بـ HTTP. بعدين الطالب والمدرّس بيعملوا <code>join</code> للـ room. لما الطالب يبعت <code>sendMessage</code>، السيرفر بيحفظ الرسالة في MongoDB ويبعتها للمدرّس بـ <code>receiveMessage</code>، ويأكد للطالب بـ <code>messageSent</code>.</p></div>
+    <div class="stage"><h4>5. Lectures</h4><p>المدرس بيرفع ملف PDF/Word (لحد 4 ميجا) عن طريق <code>POST /api/teacher/lectures</code> والسيرفر بيتأكد إن الكورس تبعه وبيحفظ الملف في MongoDB. الطالب بيفتح <code>GET /api/student/lectures</code> فيشوف محاضرات كورسات سكشنه بس، وبيحمّل الملف من <code>GET /api/lectures/[id]/file</code> بعد فحص الصلاحية.</p></div>
+    <div class="stage"><h4>6. Payment review &amp; notifications</h4><p>الأدمن بيعمل <code>PATCH /api/admin/financial/payments</code> بالموافقة أو الرفض، فالـ API بيحدّث الـ Fee وبينشئ Notification، والطالب بيشوفها من <code>GET /api/student/notifications</code> (وكمان تذكيرات الرسوم).</p></div>
+
+    <div class="note"><b>ملاحظة:</b> الـ middleware بيحمي <em>الصفحات</em> بس (<code>/student</code> و <code>/admin</code>)، عشان كده مش ظاهر في طلبات الـ API. وتسجيل دخول الأدمن نفس الفلو بالظبط، لكنه بيدوّر على User دوره Admin وبيحط <code>admin_session</code>.</div>
+  </section>
+
+  <!-- ============================================================ CLASS -->
+  <section id="class">
+    <p class="num">04</p>
+    <h2>Class Diagram</h2>
+    <p>بيوضح كل الـ Mongoose models اللي في <code>models/</code>، وهم 40 class: كل class فيه إيه من بيانات، وإيه علاقته بالتاني.</p>
+    <figure><img src="png/cls-sums.png" alt="Class diagram of all 40 SUMS models with associations, composition and dependencies" loading="lazy"></figure>
+    <figcaption>الصورة كاملة: <a href="png/cls-sums.png">png/cls-sums.png</a></figcaption>
+
+    <h3>إزاي تقراه</h3>
+    <dl class="key">
+      <dt>المربع</dt><dd>Class، ومتقسم 3 أجزاء: الاسم، بعدين الـ attributes (<code>اسم: نوع</code>)، بعدين الـ operations لو موجودة.</dd>
+      <dt><code>+</code> و <code>-</code></dt><dd>Visibility: علامة <code>+</code> معناها public، وعلامة <code>-</code> معناها private، زي <code>password</code> في User لأنه hash ومش بيتعرض.</dd>
+      <dt>سهم متصل</dt><dd>Association: فيه <code>ObjectId ref</code> حقيقي في الـ schema، زي <code>Fee.studentId → Student</code>.</dd>
+      <dt>الأرقام على الأطراف</dt><dd>Multiplicity: <code>1</code> معناها واحد بالظبط، و <code>0..1</code> معناها ممكن يكون موجود أو لأ، و <code>0..*</code> معناها أي عدد.</dd>
+      <dt>معيّن مليان</dt><dd>Composition: بين Class و Section. الـ Section جزء من Class ومالهاش وجود من غيره.</dd>
+      <dt>سهم متقطع</dt><dd>Dependency: ربط مش <code>ObjectId</code>، لكنه موجود في الكود، زي الربط بالإيميل أو بـ string id.</dd>
+      <dt>الإطار المتقطع تحت</dt><dd>Package: مجموعة classes بيديرها الأدمن، ومش مربوطة بالطالب مباشرة.</dd>
+      <dt>المربع الملوّن</dt><dd>User: الحساب اللي بيتم بيه تسجيل الدخول.</dd>
+    </dl>
+
+    <h3>التقسيم</h3>
+    <ul class="points">
+      <li><b>فوق (الحسابات):</b> User و Staff و Parent و Teacher. البيانات الشخصية في Student و Teacher وغيرهم، لكن الباسورد والـ role في User، والربط بينهم <b>بالإيميل</b>.</li>
+      <li><b>في النص:</b> Student، لأن أغلب البيانات مربوطة بيه.</li>
+      <li><b>شمال (المالية والمكتبة):</b> Fee مربوط بـ FeeHead (نوع المصروف)، و Fine و Waiver. و BookIssue بيربط Book بالطالب عن طريق <code>memberId</code>.</li>
+      <li><b>يمين (الأكاديمي):</b> Class فيه Sections. و Routine بيربط Course و Section و Teacher. و Exam و Result مربوطين بـ Course. و Attendance و Mark مربوطين بـ Student و Class. و Mark بيرجع لـ GradeScale عشان يحسب التقدير.</li>
+      <li><b>تحت (Campus &amp; Admin Records):</b> Hostel و TransportRoute و Inventory و Announcement و Activity و Alert و Report و AttendancePolicy و Holiday. الأدمن بيديرهم كلهم.</li>
+      <li><b>أسفل (Teaching Materials, Requests &amp; Operations):</b> Lecture (ملفات المحاضرات مربوطة بـ Course و Teacher) و StudentDocument و Notification (مربوطين بـ Student) و Inquiry (الطلبات والاستفسارات) و InventoryAudit و InventoryLog و Meeting (الفصول الأونلاين مربوطة بـ Section) و Application (طلبات التقديم) و RolePermission (صلاحيات الأدوار).</li>
+    </ul>
+
+    <div class="note"><b>مهم:</b> الـ operations زي <code>Fee.pay()</code> و <code>Book.borrow()</code> و <code>BookIssue.renew()</code> و <code>User.login()</code> مش methods جوّه الـ Mongoose models. هي السلوك اللي بتنفّذه الـ API routes على البيانات دي، وحطيتها عشان الدياجرام يوضّح إن البيانات دي بيتعمل عليها إيه.</div>
+  </section>
+
+  <!-- ============================================================ Q&A -->
+  <section id="questions" class="qa">
+    <p class="num">05</p>
+    <h2>أسئلة متوقعة في المناقشة</h2>
+
+    <details><summary>ليه User منفصل عن Student؟</summary>
+      <p>عشان بيانات الدخول (الباسورد المتشفّر والـ role) تبقى في مكان واحد لكل الأدوار. بيانات الطالب الأكاديمية والشخصية في Student. وقت الـ login، الـ API بيدوّر على Student بالـ ID أو الإيميل، وبعدين يجيب الـ User اللي ليه نفس الإيميل ويقارن الباسورد.</p></details>
+
+    <details><summary>إيه الفرق بين السهم المتصل والمتقطع في الـ Class Diagram؟</summary>
+      <p>السهم المتصل معناه إن فيه field نوعه <code>ObjectId</code> بـ <code>ref</code> للـ model التاني، يعني علاقة صريحة في الـ schema. أما المتقطع فمعناه إن الربط موجود في الكود لكنه بـ string أو بالإيميل، زي <code>BookIssue.memberId</code> و <code>Message.receiverId</code>.</p></details>
+
+    <details><summary>ليه Class و Section composition مش association؟</summary>
+      <p>لأن <code>classId</code> في Section إجباري (required). الـ Section مالهاش معنى من غير الـ Class اللي هي جزء منه، فلو اتمسح الـ Class، الـ Sections بتاعته ملهاش لازمة.</p></details>
+
+    <details><summary>المدرّس actor إزاي، وهو مالوش بوابة؟</summary>
+      <p>المدرّس بيظهر في الشات. صفحة الرسايل بتجيب لستة المدرّسين من <code>/api/student/messages/contacts</code>، والرسايل بتوصله عن طريق الـ socket server. عشان كده هو actor ثانوي، متوصّل بـ use case الشات بس.</p></details>
+
+    <details><summary>الـ session بتشتغل إزاي؟</summary>
+      <p>بعد ما الباسورد يطلع صح، السيرفر بيحط cookie، يا <code>student_session</code> يا <code>admin_session</code>، مدتها 24 ساعة. الـ <code>middleware.ts</code> بيتأكد منها قبل أي صفحة تحت <code>/student</code> أو <code>/admin</code>، ولو مش موجودة بيحوّل على صفحة الـ login. والـ Logout بيمسح الـ cookie.</p></details>
+
+    <details><summary>ليه الشات على سيرفر منفصل؟</summary>
+      <p>لأن الشات real-time ومحتاج اتصال مفتوح (WebSocket) طول الوقت. الـ API routes في Next.js بتشتغل request ورد وخلاص. عشان كده <code>socket-server.js</code> شغّال لوحده على port 3001 بـ socket.io، وبيحفظ الرسايل في نفس الـ MongoDB.</p></details>
+
+    <details><summary>إيه اللي بيمنع الطالب يستعير كتب كتير؟</summary>
+      <p>الـ API بيعمل 3 checks قبل ما يكتب أي حاجة في الداتابيز: لازم يكون معاه أقل من 5 كتب Active أو Overdue، ومايكونش الكتاب ده معاه أصلاً، ويكون فيه نسخة متاحة. لو أي شرط فشل، بيرجع 400 بالسبب. ده السؤال "Loan allowed?" في الـ Activity، والـ ALT التاني في الـ Sequence.</p></details>
+  </section>
+</main>
+</body>
+</html>

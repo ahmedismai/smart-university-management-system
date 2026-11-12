@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMS class diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520;
+          --sans:'Geist', system-ui, sans-serif; --serif:'Instrument Serif', Georgia, serif; --mono:'Geist Mono', ui-monospace, monospace; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); padding: 3rem 1.25rem; }
+  .frame { max-width: 1040px; margin: 0 auto; min-width: 0; }
+  .eyebrow { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem); letter-spacing: -.02em; line-height: 1.1; }
+  .lede { color: var(--muted); max-width: 62ch; margin: .75rem 0 2.5rem; line-height: 1.55; }
+  section { margin-bottom: 3.5rem; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; letter-spacing: -.01em; }
+  .cap { color: var(--muted); font-size: .9rem; margin: .35rem 0 1rem; line-height: 1.5; }
+  code { font-family: var(--mono); font-size: .82em; }
+  .diagram-container { width: 100%; overflow-x: auto; border: 1px solid rgba(45,49,66,.12); border-radius: 6px; }
+  svg { width: 100%; display: block; }
+  @media print { section { break-inside: avoid; page-break-inside: avoid; } .diagram-container { overflow-x: visible; } svg { min-width: 0 !important; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <p class="eyebrow">SUMS · UML · Class</p>
+  <h1>SUMS class diagram</h1>
+  <p class="lede">Every Mongoose model in <code>models/</code> in one connected diagram. Solid arrows are real <code>ObjectId</code> refs; dashed arrows are links stored as strings or matched by email.</p>
+  <section>
+    <h2>All models</h2>
+    <p class="cap">Student sits in the middle: accounts on top, finance and library on the left, academics, attendance and marks on the right.</p>
+    <div class="diagram-container"><svg viewBox="0 0 2000 1884" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="cls-sums-title cls-sums-desc" style="min-width:2000px">
+<title id="cls-sums-title">SUMS class diagram</title>
+<desc id="cls-sums-desc">All 40 Mongoose models of SUMS in one connected class diagram: ObjectId references as associations with multiplicities, string and email links as dependencies, and the campus and admin records package managed by the admin user.</desc>
+<rect width="2000" height="1884" fill="#f5f5f5"/><text x="40" y="36" fill="#4f5d75" font-size="10" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">SMART UNIVERSITY MANAGEMENT SYSTEM (SUMS)</text><text x="40" y="70" fill="#2d3142" font-size="30" font-family="'Instrument Serif', Georgia, serif">Class Diagram</text><line x1="40" y1="84" x2="1960" y2="84" stroke="rgba(45,49,66,0.18)" stroke-width="1"/>
+<g transform="translate(0,88)">
+<defs>
+  <pattern id="cls-sums-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/></pattern>
+  <marker id="cls-sums-open" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polyline points="0 0, 9 4, 0 8" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+  <marker id="cls-sums-tri" markerWidth="14" markerHeight="12" refX="13" refY="6" orient="auto"><polygon points="0 0, 13 6, 0 12" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/></marker>
+  <marker id="cls-sums-dia" markerWidth="16" markerHeight="10" refX="1" refY="5" orient="auto"><polygon points="1 5, 8 1, 15 5, 8 9" fill="#2d3142" stroke="#2d3142" stroke-width="1"/></marker>
+  <marker id="cls-sums-dia-o" markerWidth="16" markerHeight="10" refX="1" refY="5" orient="auto"><polygon points="1 5, 8 1, 15 5, 8 9" fill="#f5f5f5" stroke="#2d3142" stroke-width="1"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect width="100%" height="100%" fill="url(#cls-sums-dots)" opacity="0.55"/>
+<rect x="24" y="1068" width="1952" height="300" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.30)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="40" y="1088" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">PACKAGE · CAMPUS &amp; ADMIN RECORDS</text>
+<path d="M 1640 136 L 1720 136" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1640 136 L 1720 136" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1440 136 L 1360 136" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1440 136 L 1360 136" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 600 928 L 548 928 Q 544 928 544 932 L 544 932 Q 544 936 540 936 L 520 936" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 600 928 L 548 928 Q 544 928 544 932 L 544 932 Q 544 936 540 936 L 520 936" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1080 308 L 1089.6 305.6 Q 1096 304 1104 304 L 1128 304 Q 1136 304 1136 312 L 1136 316 Q 1136 320 1140 320 L 1140 320 Q 1144 320 1147.2 320.8 L 1160 324" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1080 308 L 1089.6 305.6 Q 1096 304 1104 304 L 1128 304 Q 1136 304 1136 312 L 1136 316 Q 1136 320 1140 320 L 1140 320 Q 1144 320 1147.2 320.8 L 1160 324" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1256 284 L 1256 188" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1256 284 L 1256 188" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1816 284 L 1816 188" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1816 284 L 1816 188" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 600 348 L 590.4 345.6 Q 584 344 576 344 L 552 344 Q 544 344 544 336 L 544 332 Q 544 328 540 328 L 540 328 Q 536 328 532.8 328.8 L 520 332" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 600 348 L 590.4 345.6 Q 584 344 576 344 L 552 344 Q 544 344 544 336 L 544 332 Q 544 328 540 328 L 540 328 Q 536 328 532.8 328.8 L 520 332" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1360 300 L 1372.8 296.8 Q 1376 296 1380 296 L 1380 296 Q 1384 296 1384 300 L 1384 328 Q 1384 336 1392 336 L 1416 336 Q 1424 336 1430.4 337.6 L 1440 340" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1360 300 L 1372.8 296.8 Q 1376 296 1380 296 L 1380 296 Q 1384 296 1384 300 L 1384 328 Q 1384 336 1392 336 L 1416 336 Q 1424 336 1430.4 337.6 L 1440 340" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-start="url(#cls-sums-dia)"/>
+<path d="M 800 348 L 809.6 345.6 Q 816 344 824 344 L 848 344 Q 856 344 856 336 L 856 308 Q 856 304 860 304 L 860 304 Q 864 304 867.2 304.8 L 880 308" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 800 348 L 809.6 345.6 Q 816 344 824 344 L 848 344 Q 856 344 856 336 L 856 308 Q 856 304 860 304 L 860 304 Q 864 304 867.2 304.8 L 880 308" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1256 488 L 1256 364" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1256 488 L 1256 364" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1536 188 L 1536 248 Q 1536 256 1544 256 L 1568 256 Q 1576 256 1576 264 L 1576 284" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1536 188 L 1536 248 Q 1536 256 1544 256 L 1568 256 Q 1576 256 1576 264 L 1576 284" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1536 488 L 1536 424 Q 1536 416 1544 416 L 1568 416 Q 1576 416 1576 408 L 1576 392" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1536 488 L 1536 424 Q 1536 416 1544 416 L 1568 416 Q 1576 416 1576 408 L 1576 392" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1160 544 L 1112 544 Q 1104 544 1104 536 L 1104 348 Q 1104 344 1100 344 L 1100 344 Q 1096 344 1092.8 344.8 L 1080 348" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1160 544 L 1112 544 Q 1104 544 1104 536 L 1104 348 Q 1104 344 1100 344 L 1100 344 Q 1096 344 1092.8 344.8 L 1080 348" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1504 284 L 1504 216 Q 1504 208 1496 208 L 1320 208 Q 1312 208 1312 200 L 1312 188" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1504 284 L 1504 216 Q 1504 208 1496 208 L 1320 208 Q 1312 208 1312 200 L 1312 188" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1440 544 L 1408 544 Q 1400 544 1400 536 L 1400 328 Q 1400 320 1392 320 L 1384 320 Q 1376 320 1369.6 321.6 L 1360 324" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1440 544 L 1408 544 Q 1400 544 1400 536 L 1400 328 Q 1400 320 1392 320 L 1384 320 Q 1376 320 1369.6 321.6 L 1360 324" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 800 552 L 832 552 Q 840 552 840 544 L 840 328 Q 840 320 848 320 L 856 320 Q 864 320 870.4 321.6 L 880 324" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 800 552 L 832 552 Q 840 552 840 544 L 840 328 Q 840 320 848 320 L 856 320 Q 864 320 870.4 321.6 L 880 324" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 696 188 L 696 248 Q 696 256 704 256 L 936 256 Q 944 256 944 264 L 944 284" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 696 188 L 696 248 Q 696 256 704 256 L 936 256 Q 944 256 944 264 L 944 284" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1360 724 L 1372.8 720.8 Q 1376 720 1380 720 L 1380 720 Q 1384 720 1384 716 L 1384 348 Q 1384 344 1380 344 L 1380 344 Q 1376 344 1372.8 344.8 L 1360 348" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1360 724 L 1372.8 720.8 Q 1376 720 1380 720 L 1380 720 Q 1384 720 1384 716 L 1384 348 Q 1384 344 1380 344 L 1380 344 Q 1376 344 1372.8 344.8 L 1360 348" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1920 544 L 1936 544 Q 1944 544 1944 536 L 1944 144 Q 1944 136 1936 136 L 1920 136" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1920 544 L 1936 544 Q 1944 544 1944 536 L 1944 144 Q 1944 136 1936 136 L 1920 136" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1160 748 L 1150.4 745.6 Q 1144 744 1136 744 L 1128 744 Q 1120 744 1120 736 L 1120 376 Q 1120 368 1112 368 L 1104 368 Q 1096 368 1089.6 369.6 L 1080 372" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1160 748 L 1150.4 745.6 Q 1144 744 1136 744 L 1128 744 Q 1120 744 1120 736 L 1120 376 Q 1120 368 1112 368 L 1104 368 Q 1096 368 1089.6 369.6 L 1080 372" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 800 748 L 809.6 745.6 Q 816 744 824 744 L 848 744 Q 856 744 856 736 L 856 348 Q 856 344 860 344 L 860 344 Q 864 344 867.2 344.8 L 880 348" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 800 748 L 809.6 745.6 Q 816 744 824 744 L 848 744 Q 856 744 856 736 L 856 348 Q 856 344 860 344 L 860 344 Q 864 344 867.2 344.8 L 880 348" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 1080 324 L 1092.8 320.8 Q 1096 320 1100 320 L 1100 320 Q 1104 320 1104 316 L 1104 272 Q 1104 264 1112 264 L 1416 264 Q 1424 264 1424 272 L 1424 408 Q 1424 416 1432 416 L 1496 416 Q 1504 416 1504 408 L 1504 392" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1080 324 L 1092.8 320.8 Q 1096 320 1100 320 L 1100 320 Q 1104 320 1104 316 L 1104 272 Q 1104 264 1112 264 L 1416 264 Q 1424 264 1424 272 L 1424 408 Q 1424 416 1432 416 L 1496 416 Q 1504 416 1504 408 L 1504 392" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<path d="M 800 136 L 852 136 Q 856 136 856 140 L 856 140 Q 856 144 860 144 L 880 144" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 800 136 L 852 136 Q 856 136 856 140 L 856 140 Q 856 144 860 144 L 880 144" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 1160 136 L 1108 136 Q 1104 136 1104 140 L 1104 140 Q 1104 144 1100 144 L 1080 144" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1160 136 L 1108 136 Q 1104 136 1104 140 L 1104 140 Q 1104 144 1100 144 L 1080 144" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 976 488 L 976 392" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 976 488 L 976 392" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 1360 764 L 1369.6 761.6 Q 1376 760 1384 760 L 1408 760 Q 1416 760 1416 752 L 1416 740 Q 1416 736 1420 736 L 1420 736 Q 1424 736 1427.2 736.8 L 1440 740" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1360 764 L 1369.6 761.6 Q 1376 760 1384 760 L 1408 760 Q 1416 760 1416 752 L 1416 740 Q 1416 736 1420 736 L 1420 736 Q 1424 736 1427.2 736.8 L 1440 740" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 1016 284 L 1016 240 Q 1016 232 1008 232 L 984 232 Q 976 232 976 224 L 976 212" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1016 284 L 1016 240 Q 1016 232 1008 232 L 984 232 Q 976 232 976 224 L 976 212" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 1080 544 L 1088 544 Q 1096 544 1096 552 L 1096 552 Q 1096 560 1104 560 L 1128 560 Q 1136 560 1136 552 L 1136 336 Q 1136 328 1128 328 L 1128 328 Q 1120 328 1120 320 L 1120 216 Q 1120 208 1128 208 L 1200 208 Q 1208 208 1208 200 L 1208 188" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 1080 544 L 1088 544 Q 1096 544 1096 552 L 1096 552 Q 1096 560 1104 560 L 1128 560 Q 1136 560 1136 552 L 1136 336 Q 1136 328 1128 328 L 1128 328 Q 1120 328 1120 320 L 1120 216 Q 1120 208 1128 208 L 1200 208 Q 1208 208 1208 200 L 1208 188" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 416 80 L 416 64 Q 416 56 424 56 L 936 56 Q 944 56 944 64 L 944 80" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 416 80 L 416 64 Q 416 56 424 56 L 936 56 Q 944 56 944 64 L 944 80" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 800 928 L 816 928 Q 824 928 824 920 L 824 376 Q 824 368 832 368 L 856 368 Q 864 368 870.4 369.6 L 880 372" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 800 928 L 816 928 Q 824 928 824 920 L 824 376 Q 824 368 832 368 L 856 368 Q 864 368 870.4 369.6 L 880 372" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<path d="M 104 1068 L 104 48 Q 104 40 112 40 L 1008 40 Q 1016 40 1016 48 L 1016 80" fill="none" stroke="#f5f5f5" stroke-width="6"/>
+<path d="M 104 1068 L 104 48 Q 104 40 112 40 L 1008 40 Q 1016 40 1016 48 L 1016 80" fill="none" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<rect x="1652" y="118" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1670" y="127" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1688" y="118" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1698" y="127" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1392" y="118" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1410" y="127" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1372" y="118" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1382" y="127" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="552" y="910" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="570" y="919" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="532" y="918" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="542" y="927" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1092" y="290" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1110" y="299" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1112" y="306" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1130" y="315" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1264" y="264" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1282" y="273" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1264" y="196" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1282" y="205" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1824" y="264" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1842" y="273" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1824" y="196" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1834" y="205" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="552" y="330" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="570" y="339" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="532" y="314" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="550" y="323" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1392" y="322" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1410" y="331" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1372" y="282" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1382" y="291" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="812" y="330" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="830" y="339" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="848" y="290" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="858" y="299" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1264" y="468" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1282" y="477" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1264" y="372" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1274" y="381" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1544" y="196" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1562" y="205" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1584" y="264" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1594" y="273" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1544" y="468" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1562" y="477" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1584" y="400" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1602" y="409" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1112" y="526" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1130" y="535" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1092" y="330" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1102" y="339" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1512" y="264" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1530" y="273" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1320" y="196" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1338" y="205" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1392" y="526" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1410" y="535" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1372" y="306" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1382" y="315" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="812" y="534" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="830" y="543" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="848" y="306" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="858" y="315" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="704" y="196" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="722" y="205" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="952" y="264" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="970" y="273" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1372" y="706" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1390" y="715" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1372" y="330" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1382" y="339" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1932" y="526" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1950" y="535" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1932" y="118" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1942" y="127" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1112" y="730" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1130" y="739" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1092" y="354" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1102" y="363" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="812" y="730" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="830" y="739" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="848" y="330" width="20" height="12" rx="2" fill="#f5f5f5"/>
+<text x="858" y="339" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">1</text>
+<rect x="1092" y="306" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1110" y="315" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..*</text>
+<rect x="1512" y="400" width="36" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1530" y="409" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">0..1</text>
+<rect x="1026" y="252" width="56" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1054" y="261" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">BY EMAIL</text>
+<rect x="1146" y="438" width="68" height="12" rx="2" fill="#f5f5f5"/>
+<text x="1180" y="447" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">RECEIVERID</text>
+<rect x="834" y="642" width="56" height="12" rx="2" fill="#f5f5f5"/>
+<text x="862" y="651" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">MEMBERID</text>
+<rect x="114" y="548" width="84" height="12" rx="2" fill="#f5f5f5"/>
+<text x="156" y="557" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.06em">ADMIN MANAGES</text>
+<rect x="320" y="80" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="320" y="80" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="420" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Staff</text>
+<line x1="320" y1="108" x2="520" y2="108" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ staffId: String</text>
+<text x="330" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="330" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ email: String</text>
+<text x="330" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ designation: String</text>
+<text x="330" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ department: String</text>
+<rect x="600" y="80" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="80" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Parent</text>
+<line x1="600" y1="108" x2="800" y2="108" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ parentId: String</text>
+<text x="610" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="610" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ email: String</text>
+<text x="610" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ phone: String</text>
+<text x="610" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<rect x="880" y="80" width="200" height="132" rx="6" fill="#f5f5f5"/>
+<rect x="880" y="80" width="200" height="132" rx="6" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/>
+<text x="980" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">User</text>
+<line x1="880" y1="108" x2="1080" y2="108" stroke="#bf4520" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="890" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ email: String</text>
+<text x="890" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">- password: Hash</text>
+<text x="890" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ role: Admin|Student|…</text>
+<text x="890" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<line x1="880" y1="188" x2="1080" y2="188" stroke="#bf4520" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="206" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ login(id, pass, role): Session</text>
+<rect x="1160" y="80" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1160" y="80" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1260" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Teacher</text>
+<line x1="1160" y1="108" x2="1360" y2="108" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1170" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ teacherId: String</text>
+<text x="1170" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="1170" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ email: String</text>
+<text x="1170" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ department: String</text>
+<text x="1170" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<rect x="1720" y="284" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1720" y="284" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1820" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Exam</text>
+<line x1="1720" y1="312" x2="1920" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1730" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ examId: String</text>
+<text x="1730" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ courseId: Course</text>
+<text x="1730" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ date: String</text>
+<text x="1730" y="372" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ hall: String</text>
+<text x="1730" y="386" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<rect x="320" y="284" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="320" y="284" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="420" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">FeeHead</text>
+<line x1="320" y1="312" x2="520" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="330" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ dept: String</text>
+<text x="330" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ amount: Number</text>
+<text x="330" y="372" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ frequency: String</text>
+<rect x="600" y="284" width="200" height="132" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="284" width="200" height="132" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Fee</text>
+<line x1="600" y1="312" x2="800" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<text x="610" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ feeHeadId: FeeHead</text>
+<text x="610" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ amount: Number</text>
+<text x="610" y="372" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: Paid|Pending</text>
+<text x="610" y="386" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ transactionId: String</text>
+<line x1="600" y1="392" x2="800" y2="392" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="410" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ pay(method): txId</text>
+<rect x="880" y="284" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="880" y="284" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="980" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student</text>
+<line x1="880" y1="312" x2="1080" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: String</text>
+<text x="890" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="890" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ email: String</text>
+<text x="890" y="372" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ classId: Class</text>
+<text x="890" y="386" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ sectionId: Section</text>
+<rect x="1160" y="284" width="200" height="80" rx="6" fill="#f5f5f5"/>
+<rect x="1160" y="284" width="200" height="80" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1260" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Class</text>
+<line x1="1160" y1="312" x2="1360" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1170" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ code: String</text>
+<text x="1170" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="1170" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ teacherId: Teacher</text>
+<rect x="1440" y="80" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1440" y="80" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1540" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Routine</text>
+<line x1="1440" y1="108" x2="1640" y2="108" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1450" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ day: String</text>
+<text x="1450" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ startTime: String</text>
+<text x="1450" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ endTime: String</text>
+<text x="1450" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ room: String</text>
+<text x="1450" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: Lecture|Lab</text>
+<rect x="1720" y="80" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1720" y="80" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1820" y="98" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Course</text>
+<line x1="1720" y1="108" x2="1920" y2="108" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1730" y="126" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ courseCode: String</text>
+<text x="1730" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title: String</text>
+<text x="1730" y="154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ department: String</text>
+<text x="1730" y="168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ credits: Number</text>
+<text x="1730" y="182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: Core|Elective</text>
+<rect x="600" y="488" width="200" height="132" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="488" width="200" height="132" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Fine</text>
+<line x1="600" y1="516" x2="800" y2="516" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="534" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ fineId: String</text>
+<text x="610" y="548" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<text x="610" y="562" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: String</text>
+<text x="610" y="576" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ amount: Number</text>
+<text x="610" y="590" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: Paid|Unpaid</text>
+<line x1="600" y1="596" x2="800" y2="596" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="614" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ pay(): void</text>
+<rect x="1440" y="284" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1440" y="284" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1540" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Section</text>
+<line x1="1440" y1="312" x2="1640" y2="312" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1450" y="330" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ sectionId: String</text>
+<text x="1450" y="344" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="1450" y="358" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ classId: Class</text>
+<text x="1450" y="372" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ teacherId: Teacher</text>
+<text x="1450" y="386" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ capacity: Number</text>
+<rect x="1440" y="488" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1440" y="488" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1540" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">ReportCardBatch</text>
+<line x1="1440" y1="516" x2="1640" y2="516" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1450" y="534" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ batchId: String</text>
+<text x="1450" y="548" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ classId: Class</text>
+<text x="1450" y="562" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ sectionId: Section</text>
+<text x="1450" y="576" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentCount: Number</text>
+<text x="1450" y="590" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<rect x="1720" y="488" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1720" y="488" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1820" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Result</text>
+<line x1="1720" y1="516" x2="1920" y2="516" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1730" y="534" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ resultId: String</text>
+<text x="1730" y="548" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ courseId: Course</text>
+<text x="1730" y="562" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ semester: String</text>
+<text x="1730" y="576" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ avgGpa: Number</text>
+<text x="1730" y="590" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<rect x="600" y="692" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="692" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="710" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Waiver</text>
+<line x1="600" y1="720" x2="800" y2="720" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="738" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ waiverId: String</text>
+<text x="610" y="752" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<text x="610" y="766" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: String</text>
+<text x="610" y="780" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ value: String</text>
+<text x="610" y="794" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ amount: Number</text>
+<rect x="880" y="488" width="200" height="118" rx="6" fill="#f5f5f5"/>
+<rect x="880" y="488" width="200" height="118" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="980" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Message</text>
+<line x1="880" y1="516" x2="1080" y2="516" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="534" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ senderId: String</text>
+<text x="890" y="548" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ receiverId: String</text>
+<text x="890" y="562" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ senderName: String</text>
+<text x="890" y="576" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ text: String</text>
+<line x1="880" y1="582" x2="1080" y2="582" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="600" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ send(): void  «socket»</text>
+<rect x="1160" y="488" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1160" y="488" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1260" y="506" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Attendance</text>
+<line x1="1160" y1="516" x2="1360" y2="516" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1170" y="534" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<text x="1170" y="548" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ classId: Class</text>
+<text x="1170" y="562" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ date: Date</text>
+<text x="1170" y="576" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: Present|Absent…</text>
+<text x="1170" y="590" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ remark: String</text>
+<rect x="40" y="1250" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="40" y="1250" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="140" y="1268" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">AttendancePolicy</text>
+<line x1="40" y1="1278" x2="240" y2="1278" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="50" y="1296" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ minAttendance: Number</text>
+<text x="50" y="1310" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ lateBuffer: Number</text>
+<text x="50" y="1324" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ penaltyType: String</text>
+<text x="50" y="1338" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ biometricSync: Boolean</text>
+<rect x="320" y="1250" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="320" y="1250" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="420" y="1268" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Holiday</text>
+<line x1="320" y1="1278" x2="520" y2="1278" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="1296" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="330" y="1310" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: String</text>
+<text x="330" y="1324" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ startDate: Date</text>
+<text x="330" y="1338" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ endDate: Date</text>
+<rect x="320" y="872" width="200" height="132" rx="6" fill="#f5f5f5"/>
+<rect x="320" y="872" width="200" height="132" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="420" y="890" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Book</text>
+<line x1="320" y1="900" x2="520" y2="900" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="918" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ isbn: String</text>
+<text x="330" y="932" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title: String</text>
+<text x="330" y="946" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ author: String</text>
+<text x="330" y="960" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ copies: Number</text>
+<text x="330" y="974" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ availableCopies: Number</text>
+<line x1="320" y1="980" x2="520" y2="980" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="998" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ borrow(student): BookIssue</text>
+<rect x="600" y="872" width="200" height="118" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="872" width="200" height="118" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="890" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">BookIssue</text>
+<line x1="600" y1="900" x2="800" y2="900" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="918" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ book: Book</text>
+<text x="610" y="932" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ memberId: String</text>
+<text x="610" y="946" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ dueDate: Date</text>
+<text x="610" y="960" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: Active|Overdue…</text>
+<line x1="600" y1="966" x2="800" y2="966" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="984" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ renew(): void  (+7 days)</text>
+<rect x="1160" y="692" width="200" height="108" rx="6" fill="#f5f5f5"/>
+<rect x="1160" y="692" width="200" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1260" y="710" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Mark</text>
+<line x1="1160" y1="720" x2="1360" y2="720" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1170" y="738" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: Student</text>
+<text x="1170" y="752" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ classId: Class</text>
+<text x="1170" y="766" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ examType: String</text>
+<text x="1170" y="780" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ obtainedMarks: Number</text>
+<text x="1170" y="794" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ grade: String</text>
+<rect x="1440" y="692" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="1440" y="692" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1540" y="710" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">GradeScale</text>
+<line x1="1440" y1="720" x2="1640" y2="720" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1450" y="738" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ grade: String</text>
+<text x="1450" y="752" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ min: Number</text>
+<text x="1450" y="766" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ max: Number</text>
+<text x="1450" y="780" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ point: Number</text>
+<rect x="40" y="1108" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="40" y="1108" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="140" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Hostel</text>
+<line x1="40" y1="1136" x2="240" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="50" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="50" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: Boys|Girls|Mixed</text>
+<text x="50" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ capacity: Number</text>
+<text x="50" y="1196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ occupied: Number</text>
+<rect x="320" y="1108" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="320" y="1108" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="420" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">TransportRoute</text>
+<line x1="320" y1="1136" x2="520" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="330" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ route: String</text>
+<text x="330" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ vehicle: String</text>
+<text x="330" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ time: String</text>
+<text x="330" y="1196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ students: Number</text>
+<rect x="600" y="1108" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="600" y="1108" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="700" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Inventory</text>
+<line x1="600" y1="1136" x2="800" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="610" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ itemName: String</text>
+<text x="610" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ category: String</text>
+<text x="610" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ quantity: Number</text>
+<text x="610" y="1196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<rect x="880" y="1108" width="200" height="118" rx="6" fill="#f5f5f5"/>
+<rect x="880" y="1108" width="200" height="118" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="980" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Announcement</text>
+<line x1="880" y1="1136" x2="1080" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title: String</text>
+<text x="890" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ category: String</text>
+<text x="890" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ targetAudience: String</text>
+<text x="890" y="1196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<line x1="880" y1="1202" x2="1080" y2="1202" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="890" y="1220" fill="#2d3142" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ publish(): void</text>
+<rect x="1160" y="1108" width="200" height="94" rx="6" fill="#f5f5f5"/>
+<rect x="1160" y="1108" width="200" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1260" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Activity</text>
+<line x1="1160" y1="1136" x2="1360" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1170" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ user: String</text>
+<text x="1170" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ action: String</text>
+<text x="1170" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: String</text>
+<text x="1170" y="1196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ timestamp: Date</text>
+<rect x="1440" y="1108" width="200" height="80" rx="6" fill="#f5f5f5"/>
+<rect x="1440" y="1108" width="200" height="80" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1540" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Alert</text>
+<line x1="1440" y1="1136" x2="1640" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1450" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ message: String</text>
+<text x="1450" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: Info|Warning|Error</text>
+<text x="1450" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ isRead: Boolean</text>
+<rect x="1720" y="1108" width="200" height="80" rx="6" fill="#f5f5f5"/>
+<rect x="1720" y="1108" width="200" height="80" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1820" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Report</text>
+<line x1="1720" y1="1136" x2="1920" y2="1136" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1730" y="1154" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name: String</text>
+<text x="1730" y="1168" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ desc: String</text>
+<text x="1730" y="1182" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ icon: String</text>
+<rect x="24" y="1388" width="1952" height="330" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.30)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="40" y="1408" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">PACKAGE · TEACHING MATERIALS, REQUESTS &amp; OPERATIONS</text>
+<rect x="48" y="1428" width="240" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="168" y="1446" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Lecture</text>
+<line x1="48" y1="1456" x2="288" y2="1456" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="58" y="1474" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title: String</text>
+<text x="58" y="1488" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ courseId: ObjectId → Course</text>
+<text x="58" y="1502" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ teacherId: ObjectId → Teacher</text>
+<text x="58" y="1516" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ fileName / mimeType / size</text>
+<text x="58" y="1530" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ data: Buffer (≤4 MB)</text>
+<rect x="438" y="1428" width="240" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="558" y="1446" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">StudentDocument</text>
+<line x1="438" y1="1456" x2="678" y2="1456" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="448" y="1474" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: ObjectId → Student</text>
+<text x="448" y="1488" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ fileName: String</text>
+<text x="448" y="1502" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ mimeType / size</text>
+<text x="448" y="1516" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ data: Buffer (≤4 MB)</text>
+<rect x="828" y="1428" width="240" height="108" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="948" y="1446" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Inquiry</text>
+<line x1="828" y1="1456" x2="1068" y2="1456" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="838" y="1474" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ type: contact|leave|password-reset…</text>
+<text x="838" y="1488" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ subject: String</text>
+<text x="838" y="1502" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ name / email / message</text>
+<text x="838" y="1516" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: New|In Progress|Resolved</text>
+<text x="838" y="1530" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ adminNote: String</text>
+<rect x="1218" y="1428" width="240" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1338" y="1446" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Notification</text>
+<line x1="1218" y1="1456" x2="1458" y2="1456" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1228" y="1474" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ studentId: ObjectId → Student</text>
+<text x="1228" y="1488" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ kind: reminder|payment|info</text>
+<text x="1228" y="1502" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title / body / link</text>
+<text x="1228" y="1516" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ read: Boolean</text>
+<rect x="1608" y="1428" width="240" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1728" y="1446" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">InventoryAudit</text>
+<line x1="1608" y1="1456" x2="1848" y2="1456" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1618" y="1474" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ items: [itemId, expected, counted]</text>
+<text x="1618" y="1488" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ itemsChecked: Number</text>
+<text x="1618" y="1502" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ discrepancies: Number</text>
+<text x="1618" y="1516" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ applied: Boolean</text>
+<rect x="48" y="1578" width="240" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="168" y="1596" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">InventoryLog</text>
+<line x1="48" y1="1606" x2="288" y2="1606" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="58" y="1624" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ action: Added|Updated|Audited…</text>
+<text x="58" y="1638" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ itemName: String</text>
+<text x="58" y="1652" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ user: String</text>
+<text x="58" y="1666" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ detail: String</text>
+<rect x="438" y="1578" width="240" height="94" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="558" y="1596" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Meeting</text>
+<line x1="438" y1="1606" x2="678" y2="1606" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="448" y="1624" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ title / code (unique)</text>
+<text x="448" y="1638" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ hostId: String</text>
+<text x="448" y="1652" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ sectionIds: [ObjectId → Section]</text>
+<text x="448" y="1666" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: live|ended</text>
+<rect x="828" y="1578" width="240" height="80" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="948" y="1596" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Application</text>
+<line x1="828" y1="1606" x2="1068" y2="1606" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="838" y="1624" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ applicant / email / program</text>
+<text x="838" y="1638" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ status: Pending|Accepted|Rejected</text>
+<text x="838" y="1652" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ decision note</text>
+<rect x="1218" y="1578" width="240" height="66" rx="6" fill="#ffffff" stroke="#2d3142" stroke-width="1"/>
+<text x="1338" y="1596" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">RolePermission</text>
+<line x1="1218" y1="1606" x2="1458" y2="1606" stroke="#2d3142" stroke-opacity="0.35" stroke-width="1"/>
+<text x="1228" y="1624" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ role: String</text>
+<text x="1228" y="1638" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace">+ permissions: module → Boolean</text>
+<text x="1650" y="1590" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Associations: Lecture → Course, Teacher;</text>
+<text x="1650" y="1604" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Notification, StudentDocument → Student;</text>
+<text x="1650" y="1618" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Meeting → Section; Audit → Inventory</text>
+<g transform="translate(0,300)">
+<line x1="40" y1="1432" x2="1960" y2="1432" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/>
+<text x="40" y="1448" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">LEGEND · RELATIONSHIPS</text>
+<line x1="40" y1="1468" x2="80" y2="1468" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-tri)"/>
+<text x="92" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Inheritance</text>
+<line x1="193" y1="1468" x2="233" y2="1468" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="5,4" marker-end="url(#cls-sums-tri)"/>
+<text x="245" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Realization</text>
+<line x1="346" y1="1468" x2="386" y2="1468" stroke="#4f5d75" stroke-width="1.2" marker-start="url(#cls-sums-dia)"/>
+<text x="398" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Composition</text>
+<line x1="499" y1="1468" x2="539" y2="1468" stroke="#4f5d75" stroke-width="1.2" marker-start="url(#cls-sums-dia-o)"/>
+<text x="551" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Aggregation</text>
+<line x1="652" y1="1468" x2="692" y2="1468" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#cls-sums-open)"/>
+<text x="704" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Association (ObjectId ref)</text>
+<line x1="889" y1="1468" x2="929" y2="1468" stroke="#4f5d75" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#cls-sums-open)"/>
+<text x="941" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Dependency (string / email link)</text>
+<rect x="1160" y="1462" width="28" height="12" rx="2" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/>
+<text x="1196" y="1472" fill="#4f5d75" font-size="9" font-family="'Geist', system-ui, sans-serif">Focal: login account</text>
+</g>
+</g>
+</svg></div>
+  </section>
+</div>
+</body>
+</html>

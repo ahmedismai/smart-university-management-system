@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMS use case diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520;
+          --sans:'Geist', system-ui, sans-serif; --serif:'Instrument Serif', Georgia, serif; --mono:'Geist Mono', ui-monospace, monospace; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); padding: 3rem 1.25rem; }
+  .frame { max-width: 1040px; margin: 0 auto; min-width: 0; }
+  .eyebrow { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem); letter-spacing: -.02em; line-height: 1.1; }
+  .lede { color: var(--muted); max-width: 62ch; margin: .75rem 0 2.5rem; line-height: 1.55; }
+  section { margin-bottom: 3.5rem; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; letter-spacing: -.01em; }
+  .cap { color: var(--muted); font-size: .9rem; margin: .35rem 0 1rem; line-height: 1.5; }
+  code { font-family: var(--mono); font-size: .82em; }
+  .diagram-container { width: 100%; overflow-x: auto; border: 1px solid rgba(45,49,66,.12); border-radius: 6px; }
+  svg { width: 100%; display: block; }
+  @media print { section { break-inside: avoid; page-break-inside: avoid; } .diagram-container { overflow-x: visible; } svg { min-width: 0 !important; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <p class="eyebrow">SUMS · UML · Use case</p>
+  <h1>SUMS use case diagram</h1>
+  <p class="lede">One connected diagram for the whole system. Each use case links to every actor that touches it: the student uses it from the left, the admin manages it from the right.</p>
+  <section>
+    <h2>Whole system</h2>
+    <p class="cap">Log in is shared by student and admin; a student is a visitor who has logged in.</p>
+    <div class="diagram-container"><svg viewBox="0 0 1400 1428" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="uc-sums-title uc-sums-desc" style="min-width:1400px">
+<title id="uc-sums-title">SUMS use cases</title>
+<desc id="uc-sums-desc">One connected use case diagram: visitor, student, admin and teacher around a single SUMS system, including lectures, requests, payment verification, the assistant chatbot and inventory/hostel operations; most use cases are shared by the student (who uses them) and the admin (who manages them).</desc>
+<rect width="1400" height="1428" fill="#f5f5f5"/><text x="40" y="36" fill="#4f5d75" font-size="10" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">SMART UNIVERSITY MANAGEMENT SYSTEM (SUMS)</text><text x="40" y="70" fill="#2d3142" font-size="30" font-family="'Instrument Serif', Georgia, serif">Use Case Diagram</text><line x1="40" y1="84" x2="1360" y2="84" stroke="rgba(45,49,66,0.18)" stroke-width="1"/>
+<g transform="translate(0,88)">
+<defs>
+  <pattern id="uc-sums-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/></pattern>
+  <marker id="uc-sums-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+  <marker id="uc-sums-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+  <marker id="uc-sums-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+  <marker id="uc-sums-arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect width="100%" height="100%" fill="url(#uc-sums-dots)" opacity="0.55"/>
+<rect x="300" y="64" width="800" height="1172" rx="8" fill="rgba(45,49,66,0.02)" stroke="rgba(45,49,66,0.30)" stroke-width="1"/>
+<text x="700" y="88" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.18em">SYSTEM · SMART UNIVERSITY MANAGEMENT SYSTEM (SUMS)</text>
+<line x1="400" y1="128" x2="400" y2="184" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="120" y1="156" x2="400" y2="156" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="400" cy="156" r="3" fill="#4f5d75"/>
+<line x1="400" y1="128" x2="530" y2="128" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="400" cy="128" r="2.5" fill="#4f5d75"/>
+<line x1="400" y1="184" x2="530" y2="184" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="400" cy="184" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="240" x2="460" y2="912" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="120" y1="576" x2="460" y2="576" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="576" r="3" fill="#4f5d75"/>
+<line x1="460" y1="240" x2="530" y2="240" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="240" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="296" x2="530" y2="296" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="296" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="352" x2="530" y2="352" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="352" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="408" x2="530" y2="408" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="408" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="464" x2="530" y2="464" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="464" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="520" x2="530" y2="520" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="520" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="576" x2="530" y2="576" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="576" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="632" x2="530" y2="632" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="632" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="856" x2="530" y2="856" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="856" r="2.5" fill="#4f5d75"/>
+<line x1="460" y1="912" x2="530" y2="912" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="460" cy="912" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="240" x2="940" y2="800" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="1280" y1="520" x2="940" y2="520" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="520" r="3" fill="#4f5d75"/>
+<line x1="940" y1="240" x2="870" y2="240" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="240" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="296" x2="870" y2="296" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="296" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="352" x2="870" y2="352" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="352" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="408" x2="870" y2="408" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="408" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="464" x2="870" y2="464" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="464" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="520" x2="870" y2="520" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="520" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="576" x2="870" y2="576" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="576" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="632" x2="870" y2="632" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="632" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="688" x2="870" y2="688" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="688" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="744" x2="870" y2="744" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="744" r="2.5" fill="#4f5d75"/>
+<line x1="940" y1="800" x2="870" y2="800" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="940" cy="800" r="2.5" fill="#4f5d75"/>
+<path d="M 870 912 L 1014 912 A 6 6 0 0 1 1026 912 L 1260 912" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="100" y1="534" x2="100" y2="248" stroke="#2d3142" stroke-width="1.2"/>
+<polygon points="100,238 94,250 106,250" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/>
+<circle cx="100" cy="136" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.4"/><line x1="100" y1="146" x2="100" y2="174" stroke="#2d3142" stroke-width="1.4"/><line x1="84" y1="156" x2="116" y2="156" stroke="#2d3142" stroke-width="1.4"/><path d="M 86 194 L 100 174 L 114 194" fill="none" stroke="#2d3142" stroke-width="1.4"/><text x="100" y="214" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Visitor</text><text x="100" y="228" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">no session</text>
+<circle cx="100" cy="556" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.4"/><line x1="100" y1="566" x2="100" y2="594" stroke="#2d3142" stroke-width="1.4"/><line x1="84" y1="576" x2="116" y2="576" stroke="#2d3142" stroke-width="1.4"/><path d="M 86 614 L 100 594 L 114 614" fill="none" stroke="#2d3142" stroke-width="1.4"/><text x="100" y="634" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student</text><text x="100" y="648" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student_session</text>
+<circle cx="1300" cy="500" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.4"/><line x1="1300" y1="510" x2="1300" y2="538" stroke="#2d3142" stroke-width="1.4"/><line x1="1284" y1="520" x2="1316" y2="520" stroke="#2d3142" stroke-width="1.4"/><path d="M 1286 558 L 1300 538 L 1314 558" fill="none" stroke="#2d3142" stroke-width="1.4"/><text x="1300" y="578" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Admin</text><text x="1300" y="592" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">admin_session</text>
+<circle cx="1280" cy="892" r="10" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.4"/><line x1="1280" y1="902" x2="1280" y2="930" stroke="#2d3142" stroke-width="1.4"/><line x1="1264" y1="912" x2="1296" y2="912" stroke="#2d3142" stroke-width="1.4"/><path d="M 1266 950 L 1280 930 L 1294 950" fill="none" stroke="#2d3142" stroke-width="1.4"/><text x="1280" y="970" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Teacher</text><text x="1280" y="984" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">socket client</text>
+<ellipse cx="700" cy="128" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="128" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Browse university info</text><text x="700" y="140" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/about · /academics · /research</text>
+<ellipse cx="700" cy="184" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="184" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="182" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Apply for admission</text><text x="700" y="196" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/admission/*</text>
+<ellipse cx="700" cy="240" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="240" rx="170" ry="22" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/><text x="700" y="238" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Log in</text><text x="700" y="252" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student_session · admin_session</text>
+<ellipse cx="700" cy="296" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="296" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="294" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Dashboard &amp; stats</text><text x="700" y="308" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/student/dashboard · /admin/dashboard</text>
+<ellipse cx="700" cy="352" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="352" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="350" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Routine &amp; courses</text><text x="700" y="364" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student views · admin manages</text>
+<ellipse cx="700" cy="408" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="408" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="406" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Attendance</text><text x="700" y="420" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student tracks · admin records</text>
+<ellipse cx="700" cy="464" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="464" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="462" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Marks &amp; results</text><text x="700" y="476" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student views · admin uploads</text>
+<ellipse cx="700" cy="520" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="520" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="518" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Fees &amp; payments</text><text x="700" y="532" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student pays · admin manages</text>
+<ellipse cx="700" cy="576" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="576" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="574" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Library books</text><text x="700" y="588" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student borrows · admin manages</text>
+<ellipse cx="700" cy="632" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="632" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="630" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Announcements</text><text x="700" y="644" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student reads · admin publishes</text>
+<ellipse cx="700" cy="688" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="688" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="686" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Manage users &amp; roles</text><text x="700" y="700" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">students · teachers · staff · parents</text>
+<ellipse cx="700" cy="744" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="744" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="742" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Campus resources</text><text x="700" y="756" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">hostel · transport · inventory</text>
+<ellipse cx="700" cy="800" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="800" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="798" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Reports &amp; audit logs</text><text x="700" y="812" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/admin/reports · /audit-logs</text>
+<ellipse cx="700" cy="856" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="856" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="854" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Profile &amp; settings</text><text x="700" y="868" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/student/profile · /settings</text>
+<ellipse cx="700" cy="912" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="912" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="910" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Chat messages</text><text x="700" y="924" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/student/messages · socket.io</text>
+<line x1="120" y1="600" x2="300" y2="600" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="300" y1="600" x2="300" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="300" y1="1080" x2="530" y2="1080" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="300" cy="1080" r="3" fill="#4f5d75"/>
+<line x1="300" y1="1136" x2="530" y2="1136" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="300" cy="1136" r="3" fill="#4f5d75"/>
+<line x1="300" y1="1192" x2="530" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="300" cy="1192" r="3" fill="#4f5d75"/>
+<line x1="84" y1="156" x2="60" y2="156" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="60" y1="156" x2="60" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="60" y1="1080" x2="530" y2="1080" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="60" cy="1080" r="3" fill="#4f5d75"/>
+<line x1="60" y1="1192" x2="530" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="60" cy="1192" r="3" fill="#4f5d75"/>
+<circle cx="1020" cy="520" r="3" fill="#4f5d75"/>
+<line x1="1020" y1="520" x2="1020" y2="1080" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="1020" y1="968" x2="870" y2="968" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="1020" cy="968" r="3" fill="#4f5d75"/>
+<line x1="1020" y1="1024" x2="870" y2="1024" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="1020" cy="1024" r="3" fill="#4f5d75"/>
+<line x1="1020" y1="1080" x2="870" y2="1080" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="1020" cy="1080" r="3" fill="#4f5d75"/>
+<circle cx="1180" cy="912" r="3" fill="#4f5d75"/>
+<line x1="1180" y1="912" x2="1180" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="1180" y1="1136" x2="870" y2="1136" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="1180" cy="1136" r="3" fill="#4f5d75"/>
+<line x1="1180" y1="1192" x2="870" y2="1192" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="1180" cy="1192" r="3" fill="#4f5d75"/>
+<ellipse cx="700" cy="1136" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="1136" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="1134" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Lectures &amp; course materials</text><text x="700" y="1148" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">teacher uploads · student downloads</text>
+<ellipse cx="700" cy="1080" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="1080" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="1078" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Requests &amp; inquiries</text><text x="700" y="1092" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">contact · leave · password reset</text>
+<ellipse cx="700" cy="968" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="968" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="966" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Verify payments &amp; reminders</text><text x="700" y="980" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">finance review queue · notifications</text>
+<ellipse cx="700" cy="1192" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="1192" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="1190" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Ask the SUMS Assistant</text><text x="700" y="1204" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/api/chatbot · Gemini + offline fallback</text>
+<ellipse cx="700" cy="1024" rx="170" ry="22" fill="#f5f5f5"/><ellipse cx="700" cy="1024" rx="170" ry="22" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="700" y="1022" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Audit inventory &amp; allocate hostels</text><text x="700" y="1036" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">stock audit · bed allocation</text>
+<g transform="translate(0,280)"><line x1="40" y1="996" x2="1360" y2="996" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/><text x="40" y="1012" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">LEGEND</text><circle cx="54" cy="1027" r="3.5" fill="none" stroke="#2d3142" stroke-width="1.2"/><line x1="54" y1="1031" x2="54" y2="1037" stroke="#2d3142" stroke-width="1.2"/><line x1="49" y1="1033" x2="59" y2="1033" stroke="#2d3142" stroke-width="1.2"/><text x="76" y="1036" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Actor</text><ellipse cx="148" cy="1032" rx="14" ry="7" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="170" y="1036" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Use case</text><ellipse cx="257" cy="1032" rx="14" ry="7" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/><text x="279" y="1036" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Log in (shared gate)</text><line x1="415" y1="1032" x2="443" y2="1032" stroke="#4f5d75" stroke-width="1.2"/><text x="451" y="1036" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Association</text><line x1="540" y1="1032" x2="558" y2="1032" stroke="#2d3142" stroke-width="1.2"/><polygon points="568,1032 558,1027 558,1037" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.2"/><text x="576" y="1036" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Generalization (student is a visitor)</text></g>
+</g>
+</svg></div>
+  </section>
+</div>
+</body>
+</html>

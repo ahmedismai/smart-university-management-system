@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUMS activity diagram</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --paper:#f5f5f5; --ink:#2d3142; --muted:#4f5d75; --accent:#bf4520;
+          --sans:'Geist', system-ui, sans-serif; --serif:'Instrument Serif', Georgia, serif; --mono:'Geist Mono', ui-monospace, monospace; }
+  body { font-family: var(--sans); background: var(--paper); color: var(--ink); padding: 3rem 1.25rem; }
+  .frame { max-width: 1040px; margin: 0 auto; min-width: 0; }
+  .eyebrow { font-family: var(--mono); font-size: .66rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(1.75rem, 2.4vw + 1rem, 2.5rem); letter-spacing: -.02em; line-height: 1.1; }
+  .lede { color: var(--muted); max-width: 62ch; margin: .75rem 0 2.5rem; line-height: 1.55; }
+  section { margin-bottom: 3.5rem; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: 1.6rem; letter-spacing: -.01em; }
+  .cap { color: var(--muted); font-size: .9rem; margin: .35rem 0 1rem; line-height: 1.5; }
+  code { font-family: var(--mono); font-size: .82em; }
+  .diagram-container { width: 100%; overflow-x: auto; border: 1px solid rgba(45,49,66,.12); border-radius: 6px; }
+  svg { width: 100%; display: block; }
+  @media print { section { break-inside: avoid; page-break-inside: avoid; } .diagram-container { overflow-x: visible; } svg { min-width: 0 !important; } }
+</style>
+</head>
+<body>
+<div class="frame">
+  <p class="eyebrow">SUMS · UML · Activity</p>
+  <h1>SUMS activity diagram</h1>
+  <p class="lede">The whole journey in one activity diagram: from opening the website to logging out, for the visitor, the student and the admin.</p>
+  <section>
+    <h2>Whole system</h2>
+    <p class="cap">Every path (visitor, student, admin) starts at the same Start node and ends at the same End node.</p>
+    <div class="diagram-container"><svg viewBox="0 0 1560 2096" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="act-sums-title act-sums-desc" style="min-width:1560px">
+<title id="act-sums-title">SUMS activity</title>
+<desc id="act-sums-desc">The whole SUMS journey in one activity diagram: visitor browsing, login with retry, role split, student tasks (records, library, fees, chat), admin module management, and logout.</desc>
+<rect width="1560" height="2096" fill="#f5f5f5"/><text x="40" y="36" fill="#4f5d75" font-size="10" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">SMART UNIVERSITY MANAGEMENT SYSTEM (SUMS)</text><text x="40" y="70" fill="#2d3142" font-size="30" font-family="'Instrument Serif', Georgia, serif">Activity Diagram</text><line x1="40" y1="84" x2="1520" y2="84" stroke="rgba(45,49,66,0.18)" stroke-width="1"/>
+<g transform="translate(0,88)">
+<defs>
+  <pattern id="act-sums-dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="0.9" fill="rgba(45,49,66,0.10)"/></pattern>
+  <marker id="act-sums-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4f5d75"/></marker>
+  <marker id="act-sums-arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#bf4520"/></marker>
+  <marker id="act-sums-arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#2e5aa8"/></marker>
+  <marker id="act-sums-arrow-open" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polyline points="0 0, 8 3, 0 6" fill="none" stroke="#4f5d75" stroke-width="1.2"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#f5f5f5"/>
+<rect width="100%" height="100%" fill="url(#act-sums-dots)" opacity="0.55"/>
+<path d="M 600 58 L 600 80" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 128 L 600 152" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 248 L 600 280" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 328 L 600 360" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 456 L 600 488" fill="none" stroke="#bf4520" stroke-width="1.4" marker-end="url(#act-sums-arrow-accent)"/>
+<path d="M 600 536 L 600 568" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 664 L 600 696" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 744 L 600 776" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 700 200 L 1220 200" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1460 200 L 1528 200 Q 1536 200 1536 208 L 1536 1556 Q 1536 1564 1528 1564 L 614 1564" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 700 408 L 900 408" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1000 384 L 1000 312 Q 1000 304 992 304 L 710 304" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 700 616 L 1332 616 Q 1340 616 1340 624 L 1340 696" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<line x1="600" y1="872" x2="600" y2="904" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="160" y1="904" x2="1060" y2="904" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="600" cy="904" r="3" fill="#4f5d75"/>
+<path d="M 160 904 L 160 944" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 420 904 L 420 944" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 740 904 L 740 944" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1060 904 L 1060 944" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<line x1="160" y1="992" x2="160" y2="1320" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M 420 1040 L 420 1072" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<line x1="420" y1="1120" x2="420" y2="1320" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M 520 992 L 552 992 Q 560 992 560 1000 L 560 1320" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M 740 1040 L 740 1072" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 740 1120 L 740 1152" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 740 1200 L 740 1232" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<line x1="740" y1="1280" x2="740" y2="1320" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M 840 992 L 872 992 Q 880 992 880 1000 L 880 1320" fill="none" stroke="#4f5d75" stroke-width="1.2"/>
+<path d="M 1060 992 L 1060 1024" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1060 1072 L 1060 1104" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1060 1152 L 1060 1184" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<line x1="1060" y1="1232" x2="1060" y2="1320" stroke="#4f5d75" stroke-width="1.2"/>
+<line x1="160" y1="1320" x2="1060" y2="1320" stroke="#4f5d75" stroke-width="1.2"/>
+<circle cx="160" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="420" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="560" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="740" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="880" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="1060" cy="1320" r="3" fill="#4f5d75"/>
+<circle cx="600" cy="1320" r="3" fill="#4f5d75"/>
+<path d="M 600 1320 L 600 1344" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 500 1392 L 48 1392 Q 40 1392 40 1384 L 40 728 Q 40 720 48 720 L 490 720" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 1440 L 600 1472" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 600 1520 L 600 1550" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1340 744 L 1340 776" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1340 824 L 1340 856" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1440 904 L 1472 904 Q 1480 904 1480 896 L 1480 808 Q 1480 800 1472 800 L 1450 800" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<path d="M 1340 952 L 1340 1488 Q 1340 1496 1332 1496 L 710 1496" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="948" y="180" width="24" height="12" rx="2" fill="#f5f5f5"/><text x="960" y="189" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO</text>
+<rect x="608" y="258" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="624" y="267" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="788" y="388" width="24" height="12" rx="2" fill="#f5f5f5"/><text x="800" y="397" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO</text>
+<rect x="608" y="466" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="624" y="475" fill="#bf4520" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="1008" y="338" width="40" height="12" rx="2" fill="#f5f5f5"/><text x="1028" y="347" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">RETRY</text>
+<rect x="1000" y="596" width="40" height="12" rx="2" fill="#f5f5f5"/><text x="1020" y="605" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">ADMIN</text>
+<rect x="608" y="674" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="634" y="683" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">STUDENT</text>
+<rect x="168" y="918" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="194" y="927" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">RECORDS</text>
+<rect x="428" y="918" width="52" height="12" rx="2" fill="#f5f5f5"/><text x="454" y="927" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">LIBRARY</text>
+<rect x="748" y="918" width="36" height="12" rx="2" fill="#f5f5f5"/><text x="766" y="927" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">FEES</text>
+<rect x="1068" y="918" width="36" height="12" rx="2" fill="#f5f5f5"/><text x="1086" y="927" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">CHAT</text>
+<rect x="428" y="1050" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="444" y="1059" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="568" y="1154" width="56" height="12" rx="2" fill="#f5f5f5"/><text x="596" y="1163" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO · 400</text>
+<rect x="748" y="1050" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="764" y="1059" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="888" y="1154" width="24" height="12" rx="2" fill="#f5f5f5"/><text x="900" y="1163" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO</text>
+<rect x="254" y="1372" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="270" y="1381" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="608" y="1450" width="24" height="12" rx="2" fill="#f5f5f5"/><text x="620" y="1459" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO</text>
+<rect x="1488" y="846" width="32" height="12" rx="2" fill="#f5f5f5"/><text x="1504" y="855" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">YES</text>
+<rect x="1348" y="994" width="24" height="12" rx="2" fill="#f5f5f5"/><text x="1360" y="1003" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle" letter-spacing="0.08em">NO</text>
+<circle cx="600" cy="48" r="10" fill="#2d3142"/>
+<rect x="490" y="80" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="490" y="80" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="102" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Open SUMS website</text><text x="600" y="117" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">public pages</text>
+<polygon points="600,152 700,200 600,248 500,200" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="198" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Logging</text><text x="600" y="213" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">in?</text>
+<rect x="1220" y="176" width="240" height="48" rx="10" fill="#f5f5f5"/><rect x="1220" y="176" width="240" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1340" y="198" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Browse info &amp; apply</text><text x="1340" y="213" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/about · /admission/*</text>
+<rect x="490" y="280" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="490" y="280" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="302" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Choose portal &amp; enter credentials</text><text x="600" y="317" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/login/student · /login/employee</text>
+<polygon points="600,360 700,408 600,456 500,408" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="406" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Credentials</text><text x="600" y="421" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">valid?</text>
+<rect x="900" y="384" width="200" height="48" rx="10" fill="#f5f5f5"/><rect x="900" y="384" width="200" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1000" y="406" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Show error toast</text><text x="1000" y="421" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">400 · 401</text>
+<rect x="490" y="488" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="490" y="488" width="220" height="48" rx="10" fill="rgba(191,69,32,0.08)" stroke="#bf4520" stroke-width="1"/><text x="600" y="510" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Set session cookie</text><text x="600" y="525" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student_session · admin_session</text>
+<polygon points="600,568 700,616 600,664 500,616" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="614" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Which</text><text x="600" y="629" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">role?</text>
+<rect x="490" y="696" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="490" y="696" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="718" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student dashboard</text><text x="600" y="733" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/student/dashboard</text>
+<polygon points="600,776 700,824 600,872 500,824" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="822" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Choose</text><text x="600" y="837" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">task</text>
+<rect x="60" y="944" width="200" height="48" rx="10" fill="#f5f5f5"/><rect x="60" y="944" width="200" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="160" y="966" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">View records</text><text x="160" y="981" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">routine · attendance · results</text>
+<polygon points="420,944 520,992 420,1040 320,992" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="420" y="990" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Loan</text><text x="420" y="1005" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">allowed?</text>
+<rect x="310" y="1072" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="310" y="1072" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="420" y="1094" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Create 14-day loan</text><text x="420" y="1109" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">copies -1 · BookIssue</text>
+<polygon points="740,944 840,992 740,1040 640,992" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="740" y="990" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Any dues</text><text x="740" y="1005" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">pending?</text>
+<rect x="630" y="1072" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="630" y="1072" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="740" y="1094" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Choose item &amp; method</text><text x="740" y="1109" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">wallet · bank · card</text>
+<rect x="630" y="1152" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="630" y="1152" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="740" y="1174" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Mark Paid + tx ID</text><text x="740" y="1189" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">status · paidDate</text>
+<rect x="630" y="1232" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="630" y="1232" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="740" y="1254" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Show receipt</text><text x="740" y="1269" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">transaction ID</text>
+<rect x="950" y="944" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="950" y="944" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1060" y="966" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Load chat history</text><text x="1060" y="981" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">GET /messages/history</text>
+<rect x="950" y="1024" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="950" y="1024" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1060" y="1046" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Join socket room</text><text x="1060" y="1061" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">socket.io :3001</text>
+<rect x="950" y="1104" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="950" y="1104" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1060" y="1126" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Send message</text><text x="1060" y="1141" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">emit sendMessage</text>
+<rect x="950" y="1184" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="950" y="1184" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1060" y="1206" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Save &amp; push to teacher</text><text x="1060" y="1221" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Message.create · emit</text>
+<polygon points="600,1344 700,1392 600,1440 500,1392" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="1390" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Another</text><text x="600" y="1405" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">task?</text>
+<rect x="490" y="1472" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="490" y="1472" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="600" y="1494" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Log out</text><text x="600" y="1509" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">session cookie cleared</text>
+<circle cx="600" cy="1564" r="12" fill="#f5f5f5" stroke="#2d3142" stroke-width="1.4"/><circle cx="600" cy="1564" r="7" fill="#2d3142"/>
+<rect x="1230" y="696" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="1230" y="696" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1340" y="718" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Admin dashboard</text><text x="1340" y="733" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">/admin/dashboard</text>
+<rect x="1230" y="776" width="220" height="48" rx="10" fill="#f5f5f5"/><rect x="1230" y="776" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1340" y="798" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Manage a module</text><text x="1340" y="813" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">users · academics · finance …</text>
+<polygon points="1340,856 1440,904 1340,952 1240,904" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1340" y="902" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">More</text><text x="1340" y="917" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">work?</text>
+<line x1="40" y1="1596" x2="1520" y2="1596" stroke="rgba(45,49,66,0.18)" stroke-width="1" stroke-dasharray="4,3"/>
+<text x="40" y="1624" fill="#bf4520" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.14em">TEACHER · LECTURE UPLOAD → STUDENT DOWNLOAD</text>
+<rect x="40" y="1640" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="150" y="1662" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Teacher signs in</text><text x="150" y="1677" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">teacher_session</text>
+<path d="M 262 1664 L 336 1664" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="340" y="1640" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="450" y="1662" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Choose course</text><text x="450" y="1677" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">own sections only</text>
+<path d="M 562 1664 L 636 1664" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="640" y="1640" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="750" y="1662" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Upload file</text><text x="750" y="1677" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">PDF · DOC · DOCX ≤ 4 MB</text>
+<path d="M 862 1664 L 936 1664" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="940" y="1640" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1050" y="1662" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Saved in MongoDB</text><text x="1050" y="1677" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Lecture document</text>
+<path d="M 1162 1664 L 1236 1664" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="1240" y="1640" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1350" y="1662" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student downloads</text><text x="1350" y="1677" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Lectures · Course page</text>
+<text x="40" y="1734" fill="#bf4520" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.14em">FINANCE · WALLET / BANK PAYMENT REVIEW</text>
+<rect x="40" y="1750" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="150" y="1772" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Student pays</text><text x="150" y="1787" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">wallet or bank + tx ID</text>
+<path d="M 262 1774 L 336 1774" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="340" y="1750" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="450" y="1772" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Fee set to Pending</text><text x="450" y="1787" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Under Review</text>
+<path d="M 562 1774 L 636 1774" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="640" y="1750" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="750" y="1772" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Admin reviews</text><text x="750" y="1787" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Payments queue</text>
+<path d="M 862 1774 L 936 1774" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="940" y="1750" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1050" y="1772" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Approve / Reject</text><text x="1050" y="1787" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">Paid or Failed</text>
+<path d="M 1162 1774 L 1236 1774" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="1240" y="1750" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1350" y="1772" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Notification sent</text><text x="1350" y="1787" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">student dashboard</text>
+<text x="40" y="1844" fill="#bf4520" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.14em">AI · SUMS ASSISTANT</text>
+<rect x="40" y="1860" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="150" y="1882" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Ask a question</text><text x="150" y="1897" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">chat widget</text>
+<path d="M 262 1884 L 336 1884" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="340" y="1860" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="450" y="1882" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Build context</text><text x="450" y="1897" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">knowledge + student data</text>
+<path d="M 562 1884 L 636 1884" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="640" y="1860" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="750" y="1882" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Gemini answers</text><text x="750" y="1897" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">AI_MODEL_NAME</text>
+<path d="M 862 1884 L 936 1884" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="940" y="1860" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1050" y="1882" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Fallback if offline</text><text x="1050" y="1897" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">keyword rules</text>
+<path d="M 1162 1884 L 1236 1884" fill="none" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/>
+<rect x="1240" y="1860" width="220" height="48" rx="10" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="1350" y="1882" fill="#2d3142" font-size="12" font-weight="600" font-family="'Geist', system-ui, sans-serif" text-anchor="middle">Reply shown</text><text x="1350" y="1897" fill="#4f5d75" font-size="9" font-family="'Geist Mono', ui-monospace, monospace" text-anchor="middle">English or Arabic</text>
+<g transform="translate(0,340)"><line x1="40" y1="1604" x2="1520" y2="1604" stroke="rgba(45,49,66,0.10)" stroke-width="0.8"/><text x="40" y="1620" fill="#4f5d75" font-size="8" font-family="'Geist Mono', ui-monospace, monospace" letter-spacing="0.18em">LEGEND</text><circle cx="54" cy="1640" r="5" fill="#2d3142"/><text x="76" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Start</text><circle cx="148" cy="1640" r="6" fill="none" stroke="#2d3142" stroke-width="1.2"/><circle cx="148" cy="1640" r="3.5" fill="#2d3142"/><text x="170" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">End</text><rect x="217" y="1634" width="28" height="12" rx="5" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="253" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Action</text><polygon points="330,1633 344,1640 330,1647 316,1640" fill="#ffffff" stroke="#2d3142" stroke-width="1"/><text x="352" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Decision</text><line x1="425" y1="1640" x2="453" y2="1640" stroke="#bf4520" stroke-width="1.4" marker-end="url(#act-sums-arrow-accent)"/><text x="461" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Happy path</text><line x1="545" y1="1640" x2="573" y2="1640" stroke="#4f5d75" stroke-width="1.2" marker-end="url(#act-sums-arrow)"/><text x="581" y="1644" fill="#4f5d75" font-size="8.5" font-family="'Geist', system-ui, sans-serif">Control flow</text>
+</g>
+</g>
+</svg></div>
+  </section>
+</div>
+</body>
+</html>
