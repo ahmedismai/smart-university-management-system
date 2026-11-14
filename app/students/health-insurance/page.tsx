@@ -284,7 +284,7 @@ export default function HealthInsurancePage() {
                           </div>
                           <div>
                             <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-1">Emergency Hotline</div>
-                            <div className="text-2xl font-black text-white">+880 1622 000 999</div>
+                            <div className="text-2xl font-black text-white">+20 155 000 0999</div>
                           </div>
                        </div>
                        <div className="flex items-center gap-6 group">
@@ -293,7 +293,7 @@ export default function HealthInsurancePage() {
                           </div>
                           <div>
                             <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/40 mb-1">Insurance Support</div>
-                            <div className="text-2xl font-black text-white">+880 1622 111 222</div>
+                            <div className="text-2xl font-black text-white">+20 155 111 1222</div>
                           </div>
                        </div>
                     </div>

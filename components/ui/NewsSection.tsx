@@ -11,7 +11,7 @@ const newsItems = [
   {
     id: 1,
     title: "Inaugural Orientation: Welcoming the Class of 2026",
-    description: "NextGen University of Bangladesh officially welcomed its newest cohort with a comprehensive orientation program, emphasizing academic excellence, institutional values, and digital literacy through the SUMS platform.",
+    description: "NextGen University of Egypt officially welcomed its newest cohort with a comprehensive orientation program, emphasizing academic excellence, institutional values, and digital literacy through the SUMS platform.",
     category: "Campus Life",
     date: "April 2026",
     image: "/news/news_orientation_day_1776708378873.png"

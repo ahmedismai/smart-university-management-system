@@ -76,7 +76,7 @@ export const DashboardHeader = () => {
           </div>
           <div>
             <h1 className="text-sm font-bold text-slate-800 leading-none">NextGen University</h1>
-            <p className="text-[10px] text-slate-500 font-medium">of Bangladesh</p>
+            <p className="text-[10px] text-slate-500 font-medium">of Egypt</p>
           </div>
         </div>
 

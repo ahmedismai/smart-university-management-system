@@ -379,9 +379,9 @@ export default function AcademicResults() {
              </h3>
              <div className="space-y-4">
                 {[
-                  { name: "Abir Hasan", gpa: "3.98", dept: "CSE" },
+                  { name: "Omar Hassan", gpa: "3.98", dept: "CSE" },
                   { name: "Tahsin Noor", gpa: "3.95", dept: "BBA" },
-                  { name: "Nabila Khan", gpa: "3.92", dept: "EEE" },
+                  { name: "Nabila Khaled", gpa: "3.92", dept: "EEE" },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl hover:bg-primary/5 transition-colors group cursor-pointer">
                      <div className="flex items-center gap-3">

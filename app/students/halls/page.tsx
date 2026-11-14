@@ -41,7 +41,7 @@ const femaleHalls = [
   { name: "Marie Curie Hall", capacity: "750", location: "South Campus" },
   { name: "Ada Lovelace Hall", capacity: "680", location: "Tech Zone" },
   { name: "Florence Nightingale Hall", capacity: "820", location: "Medical Zone" },
-  { name: "Begum Huda Shaarawi Hall", capacity: "900", location: "Central Campus" },
+  { name: "Huda Shaarawi Hall", capacity: "900", location: "Central Campus" },
   { name: "Jane Austen Hall", capacity: "600", location: "Riverside" },
 ];
 
@@ -361,7 +361,7 @@ export default function HallsPage() {
                       </div>
                       <div>
                         <div className="text-xs font-black uppercase tracking-widest opacity-50">Call Us</div>
-                        <div className="font-bold">+880 1234-567890</div>
+                        <div className="font-bold">+20 2 2345 6780</div>
                       </div>
                     </div>
                     <div className="flex items-center gap-4 text-white">

@@ -223,7 +223,7 @@ export default function DepartmentsPage() {
                      Pioneering the <br /> <span className="text-secondary">NextGen</span> of Research
                   </h2>
                   <p className="text-lg text-text-main/60 font-medium leading-relaxed">
-                     Our departments are not just teaching centers; they are hubs of technological breakthrough and cultural preservation. With over 500+ research papers published annually, we are leading the transformation of Bangladesh&apos;s higher education.
+                     Our departments are not just teaching centers; they are hubs of technological breakthrough and cultural preservation. With over 500+ research papers published annually, we are leading the transformation of Egypt&apos;s higher education.
                   </p>
                   <div className="grid grid-cols-2 gap-8 pt-8">
                      <div className="p-6 rounded-3xl bg-surface border border-primary/5">

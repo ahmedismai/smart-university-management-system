@@ -32,9 +32,9 @@ const categories = [
 const colleges = [
   { 
     id: "dmc", 
-    name: "Dhaka Medical College", 
+    name: "NextGen Medical College", 
     category: "medical", 
-    location: "Dhaka", 
+    location: "Cairo", 
     established: "1946",
     students: "2,500+", 
     specialization: "Medicine, Surgery, Cardiology",
@@ -42,9 +42,9 @@ const colleges = [
   },
   { 
     id: "mmc", 
-    name: "Mymensingh Medical College", 
+    name: "Delta Medical College", 
     category: "medical", 
-    location: "Mymensingh", 
+    location: "Mansoura", 
     established: "1962",
     students: "1,800+", 
     specialization: "General Medicine, Pediatrics",
@@ -52,9 +52,9 @@ const colleges = [
   },
   { 
     id: "bite", 
-    name: "Bangladesh Institute of Tech", 
+    name: "Nile Institute of Technology", 
     category: "engineering", 
-    location: "Gazipur", 
+    location: "6th of October City", 
     established: "1995",
     students: "3,200+", 
     specialization: "Textile, Civil, Mechanical",
@@ -64,7 +64,7 @@ const colleges = [
     id: "igc", 
     name: "Ideal General College", 
     category: "general", 
-    location: "Dhaka", 
+    location: "Cairo", 
     established: "2001",
     students: "5,000+", 
     specialization: "Science, Commerce, Arts",
@@ -72,9 +72,9 @@ const colleges = [
   },
   { 
     id: "ssmc", 
-    name: "Sir Salimullah Medical College", 
+    name: "Mediterranean Medical College", 
     category: "medical", 
-    location: "Mitford, Dhaka", 
+    location: "Alexandria", 
     established: "1875",
     students: "2,100+", 
     specialization: "Surgery, Orthopedics",
@@ -84,7 +84,7 @@ const colleges = [
     id: "gist", 
     name: "Global Institute of Science", 
     category: "engineering", 
-    location: "Chittagong", 
+    location: "Port Said", 
     established: "2008",
     students: "1,500+", 
     specialization: "Computer Science, EEE",
@@ -134,7 +134,7 @@ export default function AffiliatedCollegesPage() {
                <span className="text-secondary font-serif">Colleges</span>
             </h1>
             <p className="text-lg lg:text-xl text-white/70 max-w-2xl mx-auto font-medium leading-relaxed">
-               NextGen University oversees a vast network of 100+ prestigious colleges, ensuring uniform academic excellence across Bangladesh.
+               NextGen University oversees a vast network of 100+ prestigious colleges, ensuring uniform academic excellence across Egypt.
             </p>
           </motion.div>
         </div>

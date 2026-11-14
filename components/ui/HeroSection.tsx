@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const slides = [
   {
     id: 1,
-    title: "NextGen University of Bangladesh",
+    title: "NextGen University of Egypt",
     subtitle: "Smart University Management System",
     description: "A secure, scalable, and intelligent digital platform to automate academic, administrative, and financial operations in one unified dashboard.",
     image: "/hero-1.png",

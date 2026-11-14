@@ -18,7 +18,7 @@ const timelineData = [
   {
     year: "2011",
     title: "The Foundation",
-    description: "NextGen University of Bangladesh was founded with a vision to revolutionize higher education through technology and innovation. The first campus was established in the heart of Dhaka.",
+    description: "NextGen University of Egypt was founded with a vision to revolutionize higher education through technology and innovation. The first campus was established in the heart of New Cairo.",
     icon: Flag,
     color: "bg-blue-500",
   },
@@ -46,7 +46,7 @@ const timelineData = [
   {
     year: "2026",
     title: "Modern Excellence",
-    description: "NextGen University is now ranked as the #1 Tech University in Bangladesh, fostering global partnerships and pioneering next-generation academic standards.",
+    description: "NextGen University is now ranked as the #1 Tech University in Egypt, fostering global partnerships and pioneering next-generation academic standards.",
     icon: Globe,
     color: "bg-indigo-500",
   }

@@ -365,7 +365,7 @@ export default function ProfilePage() {
                       value={editForm.phone} 
                       onChange={e => setEditForm({...editForm, phone: e.target.value})} 
                       className="w-full px-5 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="+880 1712 345678" 
+                      placeholder="+20 101 234 5678" 
                     />
                   </div>
                   <div>
@@ -375,7 +375,7 @@ export default function ProfilePage() {
                       value={editForm.address} 
                       onChange={e => setEditForm({...editForm, address: e.target.value})} 
                       className="w-full px-5 py-3.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all" 
-                      placeholder="Dhanmondi, Dhaka" 
+                      placeholder="Nasr City, Cairo" 
                     />
                   </div>
                   <div>

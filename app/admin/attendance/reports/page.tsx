@@ -26,9 +26,9 @@ import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 const lowAttendanceList = [
-  { id: "STU-2041", name: "Rakib Hasan", class: "CSE-101", attendance: "62%", trend: "down" },
-  { id: "STU-2055", name: "Nabila Akter", class: "BBA-201", attendance: "58%", trend: "down" },
-  { id: "STU-1092", name: "Jasim Uddin", class: "EEE-102", attendance: "71%", trend: "up" },
+  { id: "STU-2041", name: "Karim Hassan", class: "CSE-101", attendance: "62%", trend: "down" },
+  { id: "STU-2055", name: "Nada Adel", class: "BBA-201", attendance: "58%", trend: "down" },
+  { id: "STU-1092", name: "Youssef Gamal", class: "EEE-102", attendance: "71%", trend: "up" },
 ];
 
 const reportTypes = [

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const achievements = [
   {
     id: 1,
-    studentName: "Adnan Chowdhury",
+    studentName: "Adham Shawky",
     title: "Global Robotics Challenge: 1st Place",
     description: "Led the university team to victory at the 2026 World Robotics Summit in Singapore, developing an AI-driven rescue drone.",
     image: "/news/news_role_dashboards_hub_1776708512717.png", // Reusing news image
@@ -30,7 +30,7 @@ const achievements = [
   },
   {
     id: 3,
-    studentName: "Rakib Hassan",
+    studentName: "Karim Hassan",
     title: "Inter-University Debate Champion",
     description: "Crowned the Best Speaker at the National Parliamentary Debating Championship for consecutive two years.",
     image: "/news/news_orientation_day_1776708378873.png", // Reusing news image

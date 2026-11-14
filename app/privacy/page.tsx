@@ -1,4 +1,4 @@
-export const metadata = { title: "Privacy Policy | NextGen University of Bangladesh" };
+export const metadata = { title: "Privacy Policy | NextGen University of Egypt" };
 
 const sections = [
   {
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
   return (
     <main className="max-w-3xl mx-auto px-6 py-16">
       <h1 className="text-4xl font-black text-[#0F2E5D]">Privacy Policy</h1>
-      <p className="text-gray-500 mt-3">How NextGen University of Bangladesh handles your personal information.</p>
+      <p className="text-gray-500 mt-3">How NextGen University of Egypt handles your personal information.</p>
       <div className="mt-10 space-y-8">
         {sections.map((s) => (
           <section key={s.title}>

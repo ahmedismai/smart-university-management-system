@@ -94,7 +94,7 @@ export default function Footer() {
                 <Image src="/logo.png" alt="SUMS Logo" width={50} height={50} className="relative w-12 h-12 lg:w-14 lg:h-14 object-contain transition-transform group-hover:scale-105" />
                 <div className="flex flex-col">
                   <span className="text-white font-bold text-lg lg:text-xl leading-tight">NextGen University</span>
-                  <span className="text-secondary font-medium text-[9px] lg:text-[11px] tracking-[0.2em] uppercase">Of Bangladesh</span>
+                  <span className="text-secondary font-medium text-[9px] lg:text-[11px] tracking-[0.2em] uppercase">Of Egypt</span>
                 </div>
               </div>
             </Link>
@@ -179,7 +179,7 @@ export default function Footer() {
                 <div className="flex flex-col">
                   <span className="text-xs text-white/40 font-black uppercase tracking-widest mb-1">Campus Location</span>
                   <p className="text-sm font-bold text-white/80">
-                    Gulshan-2 Academic Block<br/>Dhaka, 1212, Bangladesh
+                    Fifth Settlement Academic Block<br/>New Cairo, 11835, Egypt
                   </p>
                 </div>
               </div>
@@ -205,7 +205,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-6 text-[10px] text-white/40 font-black uppercase tracking-[0.2em]">
-            <p>&copy; {currentYear} NextGen University of Bangladesh. All rights reserved.</p>
+            <p>&copy; {currentYear} NextGen University of Egypt. All rights reserved.</p>
             <span className="hidden md:block w-px h-4 bg-white/10" />
             <div className="flex gap-4">
               <Link href="/privacy" className="hover:text-secondary transition-colors  ">Privacy Policy</Link>

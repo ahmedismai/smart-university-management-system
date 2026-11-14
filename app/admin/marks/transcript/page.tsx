@@ -27,9 +27,9 @@ import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
 
 const requestHistory = [
-  { id: "TR-5501", student: "Md. Amin Islam", stuId: "STU-1001", type: "Official", status: "Verified", date: "2026-04-20" },
-  { id: "TR-5502", student: "Sifat Rahman", stuId: "STU-1002", type: "Un-official", status: "Ready", date: "2026-04-22" },
-  { id: "TR-5503", student: "Jarin Tasnim", stuId: "STU-1003", type: "Official", status: "Pending Signature", date: "2026-04-24" },
+  { id: "TR-5501", student: "Mohamed Amin Ismail", stuId: "STU-1001", type: "Official", status: "Verified", date: "2026-04-20" },
+  { id: "TR-5502", student: "Salma Abdelrahman", stuId: "STU-1002", type: "Un-official", status: "Ready", date: "2026-04-22" },
+  { id: "TR-5503", student: "Jana Tarek", stuId: "STU-1003", type: "Official", status: "Pending Signature", date: "2026-04-24" },
 ];
 
 export default function TranscriptManagement() {
@@ -148,7 +148,7 @@ export default function TranscriptManagement() {
                           <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tighter">NextGen University</h2>
                           <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">Office of the Controller of Examinations</p>
                           <div className="flex items-center gap-4 mt-2 text-[10px] font-bold text-slate-400 uppercase">
-                             <span className="flex items-center gap-1"><MapPin size={10} /> Dhaka, Bangladesh</span>
+                             <span className="flex items-center gap-1"><MapPin size={10} /> Cairo, Egypt</span>
                              <span className="flex items-center gap-1"><Calendar size={10} /> Issued: {new Date().toLocaleDateString()}</span>
                           </div>
                        </div>
@@ -244,7 +244,7 @@ export default function TranscriptManagement() {
                      <div className="text-center">
                         <div className="w-40 h-px bg-slate-300 mb-2 mx-auto" />
                         <p className="text-[10px] font-black text-slate-800 uppercase tracking-widest">Controller of Examinations</p>
-                        <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-1">NextGen University of Bangladesh</p>
+                        <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-1">NextGen University of Egypt</p>
                      </div>
                   </div>
                </div>

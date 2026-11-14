@@ -3,7 +3,7 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "NextGen University of Bangladesh",
+    name: "NextGen University of Egypt",
     short_name: "NGU",
     description: "Smart University Management System",
     start_url: "/",

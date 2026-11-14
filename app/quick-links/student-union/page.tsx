@@ -17,12 +17,12 @@ import {
 } from "lucide-react";
 
 const executiveBody = [
-  { role: "President", name: "Tanvir Ahmed", department: "Law", term: "2025-26" },
-  { role: "Vice President", name: "Sadiya Islam", department: "Political Science", term: "2025-26" },
+  { role: "President", name: "Tamer Ahmed", department: "Law", term: "2025-26" },
+  { role: "Vice President", name: "Salma Ismail", department: "Political Science", term: "2025-26" },
   { role: "General Secretary", name: "Rashed Karim", department: "Economics", term: "2025-26" },
-  { role: "Joint Secretary", name: "Nabila Tabassum", department: "English", term: "2025-26" },
-  { role: "Cultural Secretary", name: "Areeba Khan", department: "Fine Arts", term: "2025-26" },
-  { role: "Welfare Secretary", name: "Zubair Hossain", department: "Social Work", term: "2025-26" }
+  { role: "Joint Secretary", name: "Nabila Tawfik", department: "English", term: "2025-26" },
+  { role: "Cultural Secretary", name: "Aya Khaled", department: "Fine Arts", term: "2025-26" },
+  { role: "Welfare Secretary", name: "Ziad Hussein", department: "Social Work", term: "2025-26" }
 ];
 
 const pillars = [

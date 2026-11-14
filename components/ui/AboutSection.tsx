@@ -23,7 +23,7 @@ const stats = [
   { label: "Founded", value: "2011", icon: Target },
   { label: "Tech Rank", value: "#1", icon: Zap },
   { label: "Vision", value: "Smart", icon: ShieldCheck },
-  { label: "System", value: "NGUB", icon: LayoutDashboard },
+  { label: "System", value: "NGUE", icon: LayoutDashboard },
 ];
 
 const stakeholders = [
@@ -155,7 +155,7 @@ export default function AboutSection() {
                 className="text-4xl lg:text-5xl font-black text-primary leading-[1.1]"
               >
                 NextGen University <br/>
-                <span className="text-secondary  ">of Bangladesh</span>
+                <span className="text-secondary  ">of Egypt</span>
               </motion.h2>
             </div>
 
@@ -167,7 +167,7 @@ export default function AboutSection() {
               className="space-y-6 text-text-main/70 leading-relaxed font-medium"
             >
               <p>
-                NextGen University of Bangladesh is a forward-thinking educational institution committed to delivering modern, innovative, and student-centered academic experiences. We combine academic excellence with smart technology to create a dynamic learning environment.
+                NextGen University of Egypt is a forward-thinking educational institution committed to delivering modern, innovative, and student-centered academic experiences. We combine academic excellence with smart technology to create a dynamic learning environment.
               </p>
               <p>
                 To support this vision, we’ve introduced the <span className="text-primary font-bold">Smart University Management System (SUMS)</span>—a powerful digital platform designed to streamline and automate key academic and administrative processes, eliminating delays, errors, and communication gaps found in traditional systems.

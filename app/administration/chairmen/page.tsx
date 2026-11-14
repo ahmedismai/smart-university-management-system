@@ -34,16 +34,16 @@ const faculties = [
 const chairmen = [
   {
     id: "cse",
-    name: "Professor Dr. Md. Saidur Rahman",
+    name: "Professor Dr. Mohamed Saeed Abdelrahman",
     role: "Chairman, Computer Science & Engineering",
     faculty: "engineering",
     email: "chairman.cse@nextgen.edu",
     office: "Engineering Wing, Room 402",
-    image: "https://cse.buet.ac.bd/graph_drawing/public/assets/img/md_saidur_rahman.jpeg"
+    image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=400&h=400&auto=format&fit=crop"
   },
   {
     id: "physics",
-    name: "Professor Dr. Ishtiaque M. Syed",
+    name: "Professor Dr. Ehab Mostafa El-Sayed",
     role: "Chairman, Department of Physics",
     faculty: "science",
     email: "chairman.physics@nextgen.edu",
@@ -52,7 +52,7 @@ const chairmen = [
   },
   {
     id: "finance",
-    name: "Professor Dr. M. Sadiqul Islam",
+    name: "Professor Dr. Sherif Adel Mansour",
     role: "Chairman, Finance & Banking",
     faculty: "business",
     email: "chairman.finance@nextgen.edu",
@@ -61,7 +61,7 @@ const chairmen = [
   },
   {
     id: "english",
-    name: "Professor Dr. Shamsad Mortuza",
+    name: "Professor Dr. Tarek Ali Fahmy",
     role: "Chairman, Department of English",
     faculty: "arts",
     email: "chairman.english@nextgen.edu",
@@ -70,7 +70,7 @@ const chairmen = [
   },
   {
     id: "math",
-    name: "Professor Dr. Md. Showkat Ali",
+    name: "Professor Dr. Khaled Hassan Ibrahim",
     role: "Chairman, Department of Mathematics",
     faculty: "science",
     email: "chairman.math@nextgen.edu",
@@ -79,7 +79,7 @@ const chairmen = [
   },
   {
     id: "eee",
-    name: "Professor Dr. Md. Shafiqul Islam",
+    name: "Professor Dr. Amr Samir El-Shafei",
     role: "Chairman, Electrical & Electronic Engineering",
     faculty: "engineering",
     email: "chairman.eee@nextgen.edu",
@@ -88,7 +88,7 @@ const chairmen = [
   },
   {
     id: "marketing",
-    name: "Professor Dr. Mian Sayeed Bin Hashim",
+    name: "Professor Dr. Hossam Eldin Ragab",
     role: "Chairman, Department of Marketing",
     faculty: "business",
     email: "chairman.marketing@nextgen.edu",
@@ -97,7 +97,7 @@ const chairmen = [
   },
   {
     id: "history",
-    name: "Professor Dr. Abu Md. Delwar Hosain",
+    name: "Professor Dr. Ashraf Fathy Abdelaziz",
     role: "Chairman, Department of History",
     faculty: "arts",
     email: "chairman.history@nextgen.edu",
@@ -106,7 +106,7 @@ const chairmen = [
   },
   {
     id: "law",
-    name: "Professor Dr. Md. Akram Hossain",
+    name: "Professor Dr. Yasser Mahmoud Hegazy",
     role: "Chairman, Faculty of Law",
     faculty: "law",
     email: "chairman.law@nextgen.edu",
@@ -115,7 +115,7 @@ const chairmen = [
   },
   {
     id: "economics",
-    name: "Professor Dr. Mahbubul Mokaddem",
+    name: "Professor Dr. Wael Nabil Saleh",
     role: "Chairman, Department of Economics",
     faculty: "business",
     email: "chairman.economics@nextgen.edu",
@@ -124,7 +124,7 @@ const chairmen = [
   },
   {
     id: "civil",
-    name: "Professor Dr. Md. Mujibur Rahman",
+    name: "Professor Dr. Ayman Fouad Zaki",
     role: "Chairman, Civil Engineering",
     faculty: "engineering",
     email: "chairman.civil@nextgen.edu",
@@ -133,7 +133,7 @@ const chairmen = [
   },
   {
     id: "philosophy",
-    name: "Professor Dr. Md. Sajahan Miah",
+    name: "Professor Dr. Hany Gamal Soliman",
     role: "Chairman, Department of Philosophy",
     faculty: "arts",
     email: "chairman.philosophy@nextgen.edu",

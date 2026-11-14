@@ -40,7 +40,7 @@ export default function IdCardPage() {
 
       <div className="rounded-[2rem] overflow-hidden shadow-2xl border border-gray-100 bg-white" data-keep-colors>
         <div className="bg-gradient-to-br from-[#0F2E5D] to-[#2E5E9F] text-white px-8 py-6">
-          <p className="text-[10px] font-black tracking-[0.3em] text-yellow-300">NEXTGEN UNIVERSITY OF BANGLADESH</p>
+          <p className="text-[10px] font-black tracking-[0.3em] text-yellow-300">NEXTGEN UNIVERSITY OF EGYPT</p>
           <p className="text-xl font-black mt-1">Student Identity Card</p>
         </div>
         <div className="p-8 flex gap-6 items-center">

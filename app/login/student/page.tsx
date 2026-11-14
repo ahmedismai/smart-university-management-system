@@ -117,7 +117,7 @@ export default function StudentLoginPage() {
             </div>
             <div>
               <h1 className="text-3xl font-black tracking-tight text-white uppercase">NextGen <span className="text-secondary font-serif normal-case">Portal</span></h1>
-              <span className="text-xs font-bold text-white/50 tracking-[0.3em] uppercase">University of Bangladesh</span>
+              <span className="text-xs font-bold text-white/50 tracking-[0.3em] uppercase">University of Egypt</span>
             </div>
           </Link>
 

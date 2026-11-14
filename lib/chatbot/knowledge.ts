@@ -37,21 +37,21 @@ export const KNOWLEDGE: KnowledgeEntry[] = [
     keywords: ["hall", "hostel", "dorm", "residence", "accommodation", "housing", "سكن", "المدينة الجامعية", "اقامة", "إقامة"],
     title: "Halls of residence",
     answer:
-      "There are 10 halls (male and female) with high-speed Wi-Fi, 24/7 security, dining services, laundry, common rooms and a 24/7 medical center. First-year students and those living furthest from campus get priority. Apply from /students/halls. Residential support: housing@nextgen.edu.bd, +880 1234-567890, Admin Building, First Floor, Room 204, 09:00 AM-05:00 PM.",
+      "There are 10 halls (male and female) with high-speed Wi-Fi, 24/7 security, dining services, laundry, common rooms and a 24/7 medical center. First-year students and those living furthest from campus get priority. Apply from /students/halls. Residential support: housing@nextgen.edu.bd, +20 2 2345 6780, Admin Building, First Floor, Room 204, 09:00 AM-05:00 PM.",
   },
   {
     id: "transport",
     keywords: ["transport", "bus", "shuttle", "pass", "مواصلات", "باص", "اتوبيس", "أتوبيس"],
     title: "Transport",
     answer:
-      "NextGen Transit runs Campus Express (North-South campus), City Link (to City Central terminal), Residential Loop and a Night Shuttle for library and lab students. All full-time students are eligible for a universal transport pass: apply online or visit the transport office in the Main Admin Wing. Lost pass: +880 1622 333 444 (Zone B, Entry 3).",
+      "NextGen Transit runs Campus Express (North-South campus), City Link (to City Central terminal), Residential Loop and a Night Shuttle for library and lab students. All full-time students are eligible for a universal transport pass: apply online or visit the transport office in the Main Admin Wing. Lost pass: +20 155 333 3444 (Zone B, Entry 3).",
   },
   {
     id: "health",
     keywords: ["health", "insurance", "medical", "hospital", "doctor", "تأمين", "تامين", "صحي", "مستشفى", "طبيب"],
     title: "Health insurance",
     answer:
-      "Students get health coverage: in-patient (IPD), out-patient (OPD), essential medicines and an annual dental & vision allowance, with a cashless process at partner hospitals. Emergency hotline +880 1622 000 999, insurance support +880 1622 111 222, Campus North Wing ground floor, Sun-Thu 8:00 AM-8:00 PM.",
+      "Students get health coverage: in-patient (IPD), out-patient (OPD), essential medicines and an annual dental & vision allowance, with a cashless process at partner hospitals. Emergency hotline +20 155 000 0999, insurance support +20 155 111 1222, Campus North Wing ground floor, Sun-Thu 8:00 AM-8:00 PM.",
   },
   {
     id: "calendar",
@@ -65,7 +65,7 @@ export const KNOWLEDGE: KnowledgeEntry[] = [
     keywords: ["contact", "phone", "email", "address", "location", "where", "registrar", "تواصل", "اتصال", "رقم", "عنوان", "ايميل", "إيميل", "فين"],
     title: "Contact",
     answer:
-      "NextGen University of Bangladesh is at Gulshan-2 Academic Block, Dhaka 1212, Bangladesh. Registrar's office: registrar@nextgen.university. You can also send a message through any Contact form on the site, or use /feedback.",
+      "NextGen University of Egypt is at Fifth Settlement Academic Block, New Cairo 11835, Egypt. Registrar's office: registrar@nextgen.university. You can also send a message through any Contact form on the site, or use /feedback.",
   },
   {
     id: "login",

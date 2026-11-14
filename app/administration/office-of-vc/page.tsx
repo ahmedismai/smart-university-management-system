@@ -23,31 +23,31 @@ import { cn } from "@/lib/utils";
 
 const officeStaff = [
   { 
-    name: "Dr. Ahmed Rahman", 
+    name: "Dr. Ahmed Ramadan", 
     role: "Special Assistant to the VC", 
-    mail: "ahmed.rahman@university.gov", 
-    phone: "+880 1711-XXXXXX",
+    mail: "ahmed.ramadan@university.gov", 
+    phone: "+20 1011 XXX XXXX",
     image: "https://images.unsplash.com/photo-1540569014015-19a7be504e3a?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Ms. Sarah Khan", 
+    name: "Ms. Sara Kamel", 
     role: "Private Secretary", 
-    mail: "sarah.khan@university.gov", 
-    phone: "+880 1712-XXXXXX",
+    mail: "sara.kamel@university.gov", 
+    phone: "+20 1012 XXX XXXX",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Mr. Tanvir Hossain", 
+    name: "Mr. Tamer Hussein", 
     role: "Administrative Officer", 
-    mail: "tanvir.h@university.gov", 
-    phone: "+880 1713-XXXXXX",
+    mail: "tamer.h@university.gov", 
+    phone: "+20 1013 XXX XXXX",
     image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Mrs. Nasrin Sultana", 
+    name: "Mrs. Nesreen Soliman", 
     role: "Public Relations Officer", 
-    mail: "nasrin.s@university.gov", 
-    phone: "+880 1714-XXXXXX",
+    mail: "nesreen.s@university.gov", 
+    phone: "+20 1014 XXX XXXX",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&h=400&auto=format&fit=crop"
   }
 ];
@@ -102,7 +102,7 @@ export default function OfficeOfVCPage() {
                   <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl z-10 bg-primary/10">
                      <Image 
                        src="/vc-portrait.png" 
-                       alt="Professor Dr. Md. Amdad Islam" 
+                       alt="Professor Dr. Mahmoud Emad Eldin" 
                        fill 
                        className="object-cover"
                      />
@@ -113,7 +113,7 @@ export default function OfficeOfVCPage() {
                   <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-primary/5 rounded-full blur-3xl" />
                   
                   <div className="mt-8 space-y-2 text-center lg:text-left">
-                     <h2 className="text-2xl font-black text-primary uppercase">Professor Dr. Md. Amdad Islam</h2>
+                     <h2 className="text-2xl font-black text-primary uppercase">Professor Dr. Mahmoud Emad Eldin</h2>
                      <p className="text-secondary font-bold tracking-widest uppercase text-xs">Vice Chancellor</p>
                   </div>
                </motion.div>
@@ -131,7 +131,7 @@ export default function OfficeOfVCPage() {
                         A Legacy of academic <br /> and <span className="text-secondary">Administrative leadership</span>
                      </h3>
                      <p className="text-text-main/60 font-medium leading-relaxed text-lg">
-                        Professor Dr. Md. Amdad Islam took office as the 29th Vice-Chancellor of NextGen University. A visionary academician and a pioneer in the field of Applied Sciences, he has dedicated over three decades to elevating the standards of higher education in Bangladesh.
+                        Professor Dr. Mahmoud Emad Eldin took office as the 29th Vice-Chancellor of NextGen University. A visionary academician and a pioneer in the field of Applied Sciences, he has dedicated over three decades to elevating the standards of higher education in Egypt.
                      </p>
                   </motion.div>
 
@@ -178,15 +178,15 @@ export default function OfficeOfVCPage() {
                   </div>
                   
                   <div className="space-y-6 text-text-main/60 font-medium text-xl   leading-relaxed font-serif">
-                     <p>&ldquo;NextGen University is more than an institution; it is a cradle of innovation and human values. Our mission is to empower the youth of Bangladesh with global standards of knowledge while rooted in our deep cultural heritage.&rdquo;</p>
+                     <p>&ldquo;NextGen University is more than an institution; it is a cradle of innovation and human values. Our mission is to empower the youth of Egypt with global standards of knowledge while rooted in our deep cultural heritage.&rdquo;</p>
                      <p>&ldquo;In this digital era, we are committed to building a Smarter University—one that fosters critical thinking, research impact, and entrepreneurial spirit. I invite you all to join us in this journey of transformation.&rdquo;</p>
                   </div>
 
                   <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-8 border-t border-primary/5">
                      <div className="flex items-center gap-6">
-                        <div className="w-16 h-16 rounded-full bg-secondary text-primary flex items-center justify-center font-black text-2xl">A</div>
+                        <div className="w-16 h-16 rounded-full bg-secondary text-primary flex items-center justify-center font-black text-2xl">M</div>
                         <div>
-                           <p className="text-xl font-black text-primary uppercase leading-none">Professor Dr. Md. Amdad Islam</p>
+                           <p className="text-xl font-black text-primary uppercase leading-none">Professor Dr. Mahmoud Emad Eldin</p>
                            <p className="text-sm font-bold text-secondary uppercase tracking-widest mt-2">Vice-Chancellor</p>
                         </div>
                      </div>

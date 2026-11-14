@@ -1,4 +1,4 @@
-export const metadata = { title: "Terms of Use | NextGen University of Bangladesh" };
+export const metadata = { title: "Terms of Use | NextGen University of Egypt" };
 
 const sections = [
   {

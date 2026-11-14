@@ -205,7 +205,7 @@ export function Navbar() {
             </div>
             <div className="flex flex-col">
               <span className="text-primary font-bold text-lg lg:text-xl leading-tight">NextGen University</span>
-              <span className="text-secondary font-medium text-[9px] lg:text-[11px] tracking-[0.2em] uppercase">Of Bangladesh</span>
+              <span className="text-secondary font-medium text-[9px] lg:text-[11px] tracking-[0.2em] uppercase">Of Egypt</span>
             </div>
           </Link>
 

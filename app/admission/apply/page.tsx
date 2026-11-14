@@ -277,7 +277,7 @@ export default function AdmissionApplyPage() {
                             <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
                             <input 
                               type="tel" 
-                              name="phone" defaultValue={form.phone ?? ""} placeholder="+880 1XXX-XXXXXX"
+                              name="phone" defaultValue={form.phone ?? ""} placeholder="+20 1X XXXX XXXX"
                               className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none"
                             />
                           </div>

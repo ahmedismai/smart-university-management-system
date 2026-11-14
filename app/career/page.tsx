@@ -24,7 +24,7 @@ const jobs = [
     title: "Professor of Artificial Intelligence",
     department: "Computer Science & Engineering",
     type: "Full-time",
-    location: "Main Campus, Dhaka",
+    location: "Main Campus, New Cairo",
     deadline: "May 15, 2026",
     category: "Academic",
     salary: "Grade 1-3"
@@ -34,7 +34,7 @@ const jobs = [
     title: "Post-Doctoral Fellow (Quantum Computing)",
     department: "Innovation Lab",
     type: "Contract (2 Years)",
-    location: "Main Campus, Dhaka",
+    location: "Main Campus, New Cairo",
     deadline: "May 20, 2026",
     category: "Research",
     salary: "Negotiable"
@@ -54,7 +54,7 @@ const jobs = [
     title: "Senior Research Engineer (AR/VR)",
     department: "Research Center",
     type: "Full-time",
-    location: "Main Campus, Dhaka",
+    location: "Main Campus, New Cairo",
     deadline: "May 12, 2026",
     category: "Research",
     salary: "Competitive"
@@ -64,7 +64,7 @@ const jobs = [
     title: "Associate Professor (Econometrics)",
     department: "Economics",
     type: "Full-time",
-    location: "Main Campus, Dhaka",
+    location: "Main Campus, New Cairo",
     deadline: "June 10, 2026",
     category: "Academic",
     salary: "Grade 4"
@@ -74,7 +74,7 @@ const jobs = [
     title: "IT Support Specialist",
     department: "ICT Division",
     type: "Full-time",
-    location: "Main Campus, Dhaka",
+    location: "Main Campus, New Cairo",
     deadline: "May 30, 2026",
     category: "Administrative",
     salary: "Grade 9-11"

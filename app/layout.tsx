@@ -10,7 +10,7 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
-  title: "NextGen University of Bangladesh",
+  title: "NextGen University of Egypt",
   description: "Smart University Management System",
   applicationName: "NGU",
   appleWebApp: {

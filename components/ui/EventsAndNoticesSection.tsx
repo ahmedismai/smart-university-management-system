@@ -23,7 +23,7 @@ const events = [
     description: "Celebrating the achievements of our graduating class with a grand ceremony and distinguished guests.",
     date: "24",
     month: "APR",
-    location: "Main Auditorium, NGUB",
+    location: "Main Auditorium, NGUE",
     time: "10:00 AM",
     image: "/events/convocation.png",
     category: "Academic",

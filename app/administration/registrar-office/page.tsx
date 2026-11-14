@@ -23,31 +23,31 @@ import { cn } from "@/lib/utils";
 
 const officeStaff = [
   { 
-    name: "Dr. Farhana Ahmed", 
+    name: "Dr. Fatma Ahmed", 
     role: "Deputy Registrar (Academic)", 
-    mail: "farhana.a@registrar.gov", 
-    phone: "+880 1721-XXXXXX",
+    mail: "fatma.a@registrar.gov", 
+    phone: "+20 1021 XXX XXXX",
     image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Mr. Rakibul Hassan", 
+    name: "Mr. Ramy Hassan", 
     role: "Assistant Registrar (Admin)", 
-    mail: "rakib.h@registrar.gov", 
-    phone: "+880 1722-XXXXXX",
-    image: "https://upload.wikimedia.org/wikipedia/commons/2/27/Bangladesh_Ambassador_Md._Jashim_Uddin.png"
+    mail: "ramy.h@registrar.gov", 
+    phone: "+20 1022 XXX XXXX",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Mr. Jashim Uddin", 
+    name: "Mr. Gamal Youssef", 
     role: "Section Officer (Records)", 
-    mail: "jashim.u@registrar.gov", 
-    phone: "+880 1723-XXXXXX",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQFqH9pOD8HdnQ/profile-displayphoto-scale_200_200/B56Z2HTy_eGsAY-/0/1776091609179?e=2147483647&v=beta&t=8v3UiDxd_DTnAeX3gv6UhuAgRpvhObi_WOwZASPitaQ"
+    mail: "gamal.y@registrar.gov", 
+    phone: "+20 1023 XXX XXXX",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&h=400&auto=format&fit=crop"
   },
   { 
-    name: "Ms. Tania Sultana", 
+    name: "Ms. Rania Sultan", 
     role: "Academic Coordination Officer", 
-    mail: "tania.s@registrar.gov", 
-    phone: "+880 1724-XXXXXX",
+    mail: "rania.s@registrar.gov", 
+    phone: "+20 1024 XXX XXXX",
     image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?q=80&w=400&h=400&auto=format&fit=crop"
   }
 ];
@@ -150,14 +150,14 @@ export default function RegistrarOfficePage() {
                >
                   <div className="relative flex-1 rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl bg-primary/10 min-h-[500px]">
                      <Image 
-                       src="https://miro.medium.com/1*zWyjquNyIeYzkZc6hopFMA.png"
+                       src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop"
                        alt="The Registrar"
                        fill
                        className="object-cover"
                      />
                      <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent" />
                      <div className="absolute bottom-10 left-10 p-2">
-                        <h3 className="text-3xl font-black text-white uppercase tracking-tighter">Professor Dr. Rebecca Ahmed</h3>
+                        <h3 className="text-3xl font-black text-white uppercase tracking-tighter">Professor Dr. Rasha Ahmed</h3>
                         <p className="text-secondary font-bold tracking-widest uppercase text-xs mt-2">University Registrar</p>
                      </div>
                   </div>

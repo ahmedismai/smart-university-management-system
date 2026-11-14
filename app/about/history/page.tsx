@@ -81,7 +81,7 @@ export default function HistoricalOutlinePage() {
 
               <div className="space-y-6 text-lg text-text-main/70 leading-relaxed font-medium">
                 <p>
-                  NextGen University of Bangladesh (NGUB) was established with a bold mission: to bridge the gap between traditional academic knowledge and the rapidly evolving technological landscape. Founded by a group of visionary educators and industry leaders, NGUB has grown from a single-faculty institute to a comprehensive university with five world-class faculties.
+                  NextGen University of Egypt (NGUE) was established with a bold mission: to bridge the gap between traditional academic knowledge and the rapidly evolving technological landscape. Founded by a group of visionary educators and industry leaders, NGUE has grown from a single-faculty institute to a comprehensive university with five world-class faculties.
                 </p>
                 <p>
                   Our history is defined by a relentless pursuit of excellence, early adoption of digital governance, and a commitment to producing graduates who are not just job-seekers, but innovators and problem-solvers.

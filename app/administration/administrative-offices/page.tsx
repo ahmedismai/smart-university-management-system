@@ -30,7 +30,7 @@ const offices = [
     description: "Maintaining campus discipline, student safety, and coordinating security operations across the university territory.",
     icon: ShieldCheck,
     color: "bg-red-500/10 text-red-600",
-    head: "Professor Dr. Md. Maksudur Rahman",
+    head: "Professor Dr. Magdy Abdelrahman",
     designation: "Proctor",
     location: "Administrative Building, Ground Floor",
     email: "proctor@nextgen.edu",
@@ -41,7 +41,7 @@ const offices = [
     description: "Providing 24/7 emergency medical services, routine check-ups, and pharmaceutical support for students and faculty.",
     icon: Stethoscope,
     color: "bg-emerald-500/10 text-emerald-600",
-    head: "Dr. Sarwar Jahan Khurshid",
+    head: "Dr. Samir Gaber Khorshid",
     designation: "Chief Medical Officer",
     location: "University Medical Complex",
     email: "medical@nextgen.edu",
@@ -52,7 +52,7 @@ const offices = [
     description: "Driving the university's digital transformation, maintaining network infrastructure, and supporting e-governance systems.",
     icon: Terminal,
     color: "bg-blue-500/10 text-blue-600",
-    head: "Professor Dr. Md. Adnan Maula",
+    head: "Professor Dr. Adnan El-Mawla",
     designation: "Director",
     location: "IT Tower, 3rd Floor",
     email: "ict@nextgen.edu",
@@ -63,7 +63,7 @@ const offices = [
     description: "Managing the institutional budget, student tuition fees, faculty payroll, and overall financial transparency.",
     icon: BadgeCent,
     color: "bg-amber-500/10 text-amber-600",
-    head: "Md. Jashim Uddin",
+    head: "Gamal Eldin Youssef",
     designation: "Director",
     location: "Finance Wing, 1st Floor",
     email: "accounts@nextgen.edu",
@@ -74,7 +74,7 @@ const offices = [
     description: "Overseeing student organizations, career counseling, extracurricular activities, and welfare services.",
     icon: MessageSquareQuote,
     color: "bg-purple-500/10 text-purple-600",
-    head: "Professor Dr. Novera Abbas",
+    head: "Professor Dr. Nevine Abbas",
     designation: "Director",
     location: "TSC, 2nd Floor",
     email: "student.affairs@nextgen.edu",
@@ -85,7 +85,7 @@ const offices = [
     description: "Designing the university masterplan, overseeing infrastructure construction, and institutional expansion projects.",
     icon: Construction,
     color: "bg-orange-500/10 text-orange-600",
-    head: "Engr. Md. Anisur Rahman",
+    head: "Eng. Anis Abdelrahman",
     designation: "Director",
     location: "P&D Annexe, Ground Floor",
     email: "planning@nextgen.edu",
@@ -96,7 +96,7 @@ const offices = [
     description: "Managing university media relations, institutional branding, news publications, and official events.",
     icon: Newspaper,
     color: "bg-indigo-500/10 text-indigo-600",
-    head: "Mahmood Alam",
+    head: "Mahmoud Allam",
     designation: "Director",
     location: "Senate Bhaban, Room 102",
     email: "pr@nextgen.edu",
@@ -107,7 +107,7 @@ const offices = [
     description: "Promoting physical wellness, managing athletic facilities, and organizing inter-university sports tournaments.",
     icon: Trophy,
     color: "bg-rose-500/10 text-rose-600",
-    head: "Md. Shahjahan Ali",
+    head: "Shaaban Ali",
     designation: "Director",
     location: "Central Gymnasium",
     email: "sports@nextgen.edu",
@@ -207,7 +207,7 @@ export default function AdministrativeOfficesPage() {
                               <Mail size={14} className="text-secondary group-hover/btn:text-white" />
                               <span className="text-[10px] font-black uppercase tracking-widest">Email</span>
                            </button>
-                           <button onClick={() => actions.tel("+880 2 5566 7788")} className="flex items-center justify-center gap-2 py-3 bg-surface rounded-xl hover:bg-primary hover:text-white transition-all group/btn">
+                           <button onClick={() => actions.tel("+20 2 2556 7788")} className="flex items-center justify-center gap-2 py-3 bg-surface rounded-xl hover:bg-primary hover:text-white transition-all group/btn">
                               <Phone size={14} className="text-secondary group-hover/btn:text-white" />
                               <span className="text-[10px] font-black uppercase tracking-widest">Call</span>
                            </button>

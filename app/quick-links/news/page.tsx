@@ -166,7 +166,7 @@ export default function NewsPage() {
                            </div>
                            <div className="space-y-0.5">
                               <p className="text-[9px] font-black text-primary/30 uppercase tracking-widest">Office of Registrar</p>
-                              <p className="text-sm font-bold text-primary">+880-1234-5678</p>
+                              <p className="text-sm font-bold text-primary">+20 2 1234 5678</p>
                            </div>
                         </div>
                      </div>

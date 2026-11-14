@@ -31,7 +31,7 @@ const projects = [
     duration: "2024 - 2027",
     status: "Ongoing",
     category: "Sustainability",
-    collaborators: ["MIT", "Deltares", "BUET"],
+    collaborators: ["MIT", "Deltares", "Nile Tech Institute"],
     description: "Developing comprehensive architectural and civil engineering guidelines for rising sea levels in megacity delta regions."
   },
   {

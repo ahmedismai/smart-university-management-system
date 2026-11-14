@@ -182,7 +182,7 @@ export default function ResultsPage() {
             <div class="signature-area">
               <div class="signature-line"></div>
               <div class="signature-text">Controller of Examinations</div>
-              <div class="signature-sub">NextGen University of Bangladesh</div>
+              <div class="signature-sub">NextGen University of Egypt</div>
             </div>
           </div>
 

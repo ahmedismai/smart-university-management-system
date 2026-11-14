@@ -44,7 +44,7 @@ export default function FinancialManagement() {
                   </div>
                   <div>
                     <p className="text-sm font-bold text-slate-800">INV-2026-00{i}</p>
-                    <p className="text-[10px] text-slate-500">Student: Md. Amin • CSE-A</p>
+                    <p className="text-[10px] text-slate-500">Student: Mohamed Amin • CSE-A</p>
                   </div>
                 </div>
                 <div className="text-right">

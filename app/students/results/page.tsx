@@ -29,7 +29,7 @@ const mockResults = [
   { code: "CSE-302", title: "Software Engineering", credit: 3.0, grade: "A", point: 3.75 },
   { code: "CSE-303", title: "Computer Networks", credit: 3.0, grade: "A-", point: 3.5 },
   { code: "MAT-205", title: "Partial Differential Equations", credit: 4.0, grade: "B+", point: 3.25 },
-  { code: "GEN-104", title: "History of Bangladesh", credit: 2.0, grade: "A+", point: 4.0 },
+  { code: "GEN-104", title: "History of Egypt", credit: 2.0, grade: "A+", point: 4.0 },
 ];
 
 const semesterList = [

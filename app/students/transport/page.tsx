@@ -137,7 +137,7 @@ export default function TransportPage() {
 
                   <div className="space-y-6">
                     <div className="space-y-1">
-                       <h3 className="text-3xl font-black text-white uppercase tracking-tight">Tasnimul Haque</h3>
+                       <h3 className="text-3xl font-black text-white uppercase tracking-tight">Tarek Hamdy</h3>
                        <p className="text-xs font-bold text-white/50 tracking-[0.2em] uppercase">Route: North Campus Link</p>
                     </div>
                     
@@ -321,7 +321,7 @@ export default function TransportPage() {
                        </div>
                        <div>
                           <div className="text-[10px] font-black uppercase tracking-[0.3em] text-white/30 mb-1">Transit Desk</div>
-                          <div className="text-xl font-black tracking-widest">+880 1622 333 444</div>
+                          <div className="text-xl font-black tracking-widest">+20 155 333 3444</div>
                        </div>
                     </div>
                     <div className="flex items-center gap-6 p-8 bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] text-white group hover:bg-white/10 transition-all">

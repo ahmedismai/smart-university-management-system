@@ -35,9 +35,9 @@ async function main() {
 
   // ---------- Teachers ----------
   const teacherSeed = [
-    ["Dr. Sarah Johnson", "CSE"], ["Dr. Rahman Hossain", "CSE"], ["Prof. Nasrin Akter", "CSE"],
-    ["Dr. Karim Uddin", "EEE"], ["Dr. Farhana Islam", "EEE"], ["Prof. Mahmud Hasan", "EEE"],
-    ["Dr. Tania Sultana", "BBA"], ["Prof. Imran Chowdhury", "BBA"], ["Dr. Salma Begum", "BBA"],
+    ["Dr. Sarah Johnson", "CSE"], ["Dr. Ramy Hussein", "CSE"], ["Prof. Nesreen Adel", "CSE"],
+    ["Dr. Karim Fouad", "EEE"], ["Dr. Fatma Ismail", "EEE"], ["Prof. Mahmoud Hassan", "EEE"],
+    ["Dr. Rania Sultan", "BBA"], ["Prof. Emad Shawky", "BBA"], ["Dr. Salma Bakr", "BBA"],
   ];
   const teachers = teacherSeed.map(([name, department], i) => ({
     _id: new ObjectId(), name, department, status: "Active",
@@ -103,11 +103,11 @@ async function main() {
 
   // ---------- Students ----------
   const names = [
-    "Ahmed Ismail", "Mohamed Ali", "Fatima Rahman", "Rahim Uddin", "Ayesha Siddika", "Tanvir Hasan",
-    "Nusrat Jahan", "Sakib Khan", "Mariam Akter", "Omar Faruk", "Sadia Islam", "Jamal Hossain",
-    "Lamia Chowdhury", "Hasan Mahmud", "Rima Sultana", "Zayed Karim", "Nabila Haque", "Imtiaz Ahmed",
-    "Farzana Yeasmin", "Rafi Alam", "Sumaiya Noor", "Arif Billah", "Tasnim Ara", "Mehedi Hasan",
-    "Jannat Ferdous", "Shihab Ahmed", "Maliha Tabassum", "Fahim Reza", "Anika Tahsin", "Yusuf Kabir",
+    "Ahmed Ismail", "Mohamed Ali", "Fatma Abdelrahman", "Abdelrahim Youssef", "Aya Seddik", "Tamer Hassan",
+    "Nourhan Gamal", "Seif Khaled", "Mariam Adel", "Omar Farouk", "Salma Ismail", "Gamal Hussein",
+    "Lamia Shawky", "Hassan Mahmoud", "Reem Sultan", "Zeyad Karim", "Nabila Hamdy", "Islam Ahmed",
+    "Farida Yassin", "Rami Allam", "Somaya Nour", "Aref Abdallah", "Tasneem Ashraf", "Mahdy Hassan",
+    "Jana Fawzy", "Shehab Ahmed", "Malak Tawfik", "Fahd Reda", "Habiba Tarek", "Youssef Kabil",
   ];
   const students = names.map((name, i) => {
     const cls = classes[i % 3];
@@ -117,8 +117,8 @@ async function main() {
       email: `${name.toLowerCase().replace(/[^a-z]+/g, ".")}@student.sums.edu`,
       studentId: `${cls.code}2024${String(Math.floor(i / 3) + 1).padStart(3, "0")}`,
       classId: cls._id, sectionId: secs[Math.floor(i / 3) % 2]._id,
-      status: "Active", phone: `+8801700${String(100000 + i * 137).slice(0, 6)}`,
-      address: "Dhaka, Bangladesh", about: "", linkedin: "", github: "", twitter: "", website: "", avatar: "",
+      status: "Active", phone: `+201000${String(100000 + i * 137).slice(0, 6)}`,
+      address: "Cairo, Egypt", about: "", linkedin: "", github: "", twitter: "", website: "", avatar: "",
     };
   });
   await put("students", students);
@@ -134,14 +134,14 @@ async function main() {
   await put("users", users);
 
   // ---------- Staff & Parents ----------
-  const staffSeed = [["Rubina Parvin", "Registrar", "Administration"], ["Kamal Hossain", "Accountant", "Finance"], ["Shirin Akter", "Librarian", "Library"], ["Abdul Malek", "Lab Assistant", "CSE"], ["Nazmul Haque", "IT Officer", "IT"], ["Rokeya Khatun", "Office Assistant", "Administration"]];
+  const staffSeed = [["Rabab Fathy", "Registrar", "Administration"], ["Kamal Hussein", "Accountant", "Finance"], ["Shereen Adel", "Librarian", "Library"], ["Abdel Malek Saad", "Lab Assistant", "CSE"], ["Nader Hamdy", "IT Officer", "IT"], ["Rokaya Khattab", "Office Assistant", "Administration"]];
   await put("staffs", staffSeed.map(([name, designation, department], i) => ({
     name, designation, department, email: `${name.toLowerCase().replace(/\s+/g, ".")}@sums.edu`,
-    staffId: `ST-${String(i + 1).padStart(3, "0")}`, phone: `+8801800${100000 + i * 211}`, status: "Active",
+    staffId: `ST-${String(i + 1).padStart(3, "0")}`, phone: `+201100${100000 + i * 211}`, status: "Active",
   })));
   await put("parents", students.slice(0, 12).map((s, i) => ({
     name: `${s.name.split(" ").slice(-1)[0]} (Guardian)`, email: `parent${i + 1}@sums.edu`, parentId: `P-${String(i + 1).padStart(3, "0")}`,
-    phone: `+8801900${100000 + i * 173}`, studentId: s._id, status: i % 6 === 5 ? "Pending" : "Active", lastLogin: daysAgo(i),
+    phone: `+201200${100000 + i * 173}`, studentId: s._id, status: i % 6 === 5 ? "Pending" : "Active", lastLogin: daysAgo(i),
   })));
 
   // ---------- Grade scale ----------
@@ -291,7 +291,7 @@ async function main() {
   ].map(([name, desc, icon]) => ({ name, desc, icon })));
   await put("activities", [
     ["System Admin", "Logged in", "Admin dashboard access"], ["System Admin", "Published announcement", "Spring 2026 Final Exam Schedule"],
-    ["Kamal Hossain", "Recorded payment", "Tuition fee payment received"], ["Shirin Akter", "Issued book", "Clean Code issued to a student"],
+    ["Kamal Hussein", "Recorded payment", "Tuition fee payment received"], ["Shereen Adel", "Issued book", "Clean Code issued to a student"],
     ["System Admin", "Created exam", "Software Engineering Final"],
   ].map(([user, action, details], i) => ({ user, action, details, status: "Success", timestamp: daysAgo(i) })));
   await put("reportcardbatches", [{ batchId: "RCB-2026-001", classId: classes[0]._id, sectionId: sections[0]._id, studentCount: 10, status: "Ready", template: "Detailed", createdBy: "System Admin" }]);

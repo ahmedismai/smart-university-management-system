@@ -24,7 +24,7 @@ const supportServices = [
   },
   {
     title: "Pre-Arrival Support",
-    description: "Orientation webinars and guides to help you prepare for your journey to Bangladesh.",
+    description: "Orientation webinars and guides to help you prepare for your journey to Egypt.",
     icon: Plane,
   },
   {
@@ -96,7 +96,7 @@ export default function InternationalStudentsPage() {
         
         <div className="absolute bottom-0 right-0 p-12 hidden lg:block">
            <div className="flex items-center gap-4 text-white/40 font-bold uppercase tracking-widest text-xs">
-              <MapPin size={20} className="text-secondary" /> Dhaka, Bangladesh
+              <MapPin size={20} className="text-secondary" /> Cairo, Egypt
            </div>
         </div>
       </section>

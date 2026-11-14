@@ -18,7 +18,7 @@ export default function SettingsPage() {
   const [updating, setUpdating] = useState(false);
 
   type Prefs = { theme: ThemeChoice; language: string; timezone: string; email: boolean; push: boolean; sms: boolean; showProfile: boolean; allowMessages: boolean };
-  const DEFAULTS: Prefs = { theme: "system", language: "English (United States)", timezone: "UTC+6 (Dhaka, Bangladesh)", email: true, push: true, sms: false, showProfile: true, allowMessages: true };
+  const DEFAULTS: Prefs = { theme: "system", language: "English (United States)", timezone: "UTC+2 (Cairo, Egypt)", email: true, push: true, sms: false, showProfile: true, allowMessages: true };
   const [saved, setSaved] = useState<Prefs>(DEFAULTS);
   const [draft, setDraft] = useState<Prefs>(DEFAULTS);
   const dirty = JSON.stringify(saved) !== JSON.stringify(draft);
@@ -148,7 +148,7 @@ export default function SettingsPage() {
                   <SettingSection title="Language" description="Select your preferred language for the interface.">
                     <select value={draft.language} onChange={(e) => setPref("language", e.target.value)} className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm font-bold text-gray-700 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all appearance-none">
                       <option>English (United States)</option>
-                      <option>Bengali (Bangladesh)</option>
+                      <option>Arabic (Egypt)</option>
                       <option>French (France)</option>
                     </select>
                   </SettingSection>
@@ -159,7 +159,7 @@ export default function SettingsPage() {
                       onChange={(e) => setPref("timezone", e.target.value)}
                       className="w-full bg-gray-50 border border-gray-100 rounded-xl px-4 py-3 text-sm font-bold text-gray-700 focus:outline-none"
                     >
-                      {["UTC+6 (Dhaka, Bangladesh)", "UTC+3 (Riyadh, Cairo)", "UTC+0 (London)", "UTC+5:30 (India)", "UTC-5 (New York)"].map((z) => (
+                      {["UTC+2 (Cairo, Egypt)", "UTC+3 (Riyadh)", "UTC+0 (London)", "UTC+5:30 (India)", "UTC-5 (New York)"].map((z) => (
                         <option key={z}>{z}</option>
                       ))}
                     </select>

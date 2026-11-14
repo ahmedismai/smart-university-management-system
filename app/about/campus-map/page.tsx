@@ -211,7 +211,7 @@ export default function CampusMapPage() {
                         <h2 className="text-2xl font-black">{selectedLocation.name}</h2>
                         <p className="text-white/70 leading-relaxed text-sm font-medium">{selectedLocation.description}</p>
                      </div>
-                     <button onClick={() => actions.external("https://www.google.com/maps/search/?api=1&query=NextGen+University+of+Bangladesh")} className="w-full py-4 bg-secondary text-primary font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group">
+                     <button onClick={() => actions.external("https://www.google.com/maps/search/?api=1&query=NextGen+University+of+Egypt")} className="w-full py-4 bg-secondary text-primary font-black uppercase tracking-widest rounded-xl hover:bg-white transition-all duration-300 group">
                         <span className="flex items-center justify-center gap-2">
                            Get Directions <Navigation size={16} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                         </span>
@@ -323,7 +323,7 @@ export default function CampusMapPage() {
                  </div>
                  <h3 className="text-2xl font-black text-primary uppercase">Contact Desk</h3>
                  <p className="text-text-main/60 font-medium leading-relaxed">
-                    Need help finding a room? Contact our virtual help desk at <strong>+880 1234 56789</strong> or visit any faculty lobby.
+                    Need help finding a room? Contact our virtual help desk at <strong>+20 2 2345 6789</strong> or visit any faculty lobby.
                  </p>
               </div>
            </div>
