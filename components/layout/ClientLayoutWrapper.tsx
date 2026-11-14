@@ -8,6 +8,7 @@ import { Toaster } from "react-hot-toast";
 import ActionsProvider from "@/components/layout/ActionsProvider";
 import ThemeApplier from "@/components/layout/ThemeApplier";
 import ChatbotWidget from "@/components/chatbot/ChatbotWidget";
+import InstallPrompt from "@/components/pwa/InstallPrompt";
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -22,6 +23,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
         <Toaster position="top-right" reverseOrder={false} />
         <ThemeApplier />
         <ActionsProvider />
+        <InstallPrompt />
         {children}
         {!isAdminRoute && !/\/meetings\/[^/]+/.test(pathname || "") && <ChatbotWidget />}
       </div>
@@ -39,6 +41,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
       </div>
       <Footer />
       <ChatbotWidget />
+      <InstallPrompt />
     </div>
   );
 }

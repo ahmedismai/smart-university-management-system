@@ -54,8 +54,21 @@ next-env.d.ts
 # generated / private documents (not needed to run the app)
 *.docx
 *.pptx
+*.pdf
 /docs/meetings/
-/docs/**/*.pdf
+/docs/SUMS_Arabic_System_Documentation.html
+/docs/diagrams/H.txt
+
+# graduation book & documentation generators (local only)
+/scripts/build_sums_book.js
+/scripts/book_helpers.js
+/scripts/content_*.js
+/scripts/generate_arabic_documentation_pdf.py
+
+# loose images / screenshots in the project root
+/*.jpg
+/*.jpeg
+/*.png
 __pycache__/
 *.pyc
 .claude/
