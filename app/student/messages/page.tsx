@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { Search, Phone, Video, Info, MoreVertical, Send, Smile, CheckCheck, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { io, Socket } from "socket.io-client";
+import { connectRealtime, type RealtimeSocket } from "@/lib/realtime/client";
 import toast from "react-hot-toast";
 import { actions } from "@/lib/siteActions";
 
@@ -21,7 +21,7 @@ export default function MessagingPage() {
   const [showMenu, setShowMenu] = useState(false);
   const [showEmoji, setShowEmoji] = useState(false);
   const EMOJIS = ["😀", "😂", "😊", "😍", "👍", "🙏", "🎉", "🔥", "❤️", "😢", "🤔", "👏"];
-  const socketRef = useRef<Socket | null>(null);
+  const socketRef = useRef<RealtimeSocket | null>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
   // 1. Fetch Student Profile and Contacts
@@ -90,7 +90,7 @@ export default function MessagingPage() {
     if (!studentInfo) return;
 
     // Connect to Socket server
-    const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL || `${window.location.protocol}//${window.location.hostname}:3001`);
+    const socket = connectRealtime();
     socketRef.current = socket;
 
     socket.on("connect", () => {

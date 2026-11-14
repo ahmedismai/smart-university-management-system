@@ -95,7 +95,7 @@ Built on an advanced modern technology stack combining **Next.js 15+ (App Router
 | **Edge Protection** | **Next.js Middleware (`middleware.ts`)** | Intercepts protected `/admin/*`, `/student/*` and `/teacher/*` routes to validate session tokens before page execution. |
 | **Backend REST APIs** | **Next.js Route Handlers (`app/api/*`)** | Lightweight, type-safe API endpoints handling business logic and database mutations. |
 | **Persistence Tier** | **MongoDB & Mongoose** | Document database with 40 strictly typed schemas, automated timestamps, and referenced integrity. |
-| **Real-Time Engine** | **Socket.io (`socket-server.js`)** | Standalone Node.js WebSocket process (Port 3001) for instant message dispatch and channel subscriptions. |
+| **Real-Time Engine** | **WebSockets on Vercel Functions (`app/api/realtime`)** | `upgradeWebSocket` route + Redis pub/sub (`lib/realtime`) for instant messages and online-class signaling; locally `scripts/realtime-dev.ts` on port 3001. |
 | **Type Safety** | **TypeScript 5.x** | Compile-time validation preventing runtime exceptions across data structures. |
 
 ---
@@ -247,11 +247,12 @@ Key schema structures from the 40 entities defined in `models/`:
 * `POST /api/inquiries` (public), `GET/PATCH /api/admin/inquiries`: Requests and inquiries.
 * `POST /api/chatbot`: SUMS Assistant. `GET /api/auth/me`: current session identity.
 
-### 7.2 WebSocket Events (`socket-server.js`)
+### 7.2 WebSocket Events (`/api/realtime`, `lib/realtime/hub.ts`)
 * `join`: Subscribes a client socket to its private room (student ID or teacher ID).
 * `sendMessage`: Persists a chat message and dispatches it to the receiver's room.
 * `receiveMessage` / `messageSent`: Delivery to the receiver and acknowledgement to the sender.
-Run the socket server with `npm run chat` (port 3001).
+* `meeting:join` / `meeting:ping` / `meeting:signal` / `meeting:state` / `meeting:chat` / `meeting:reaction` / `meeting:host-action` / `meeting:end` / `meeting:leave`: online-class room and WebRTC signaling.
+Locally `npm run dev` also starts the realtime server (port 3001).
 
 ---
 
@@ -262,7 +263,7 @@ Run the socket server with `npm run chat` (port 3001).
 3. **NoSQL Injection Mitigation:** Input values are strictly sanitized and bound by Mongoose schema validators.
 4. **API Guard:** `middleware.ts` also protects every `/api/admin/*` route; admin handlers additionally call `getAdminContext()`. Student and teacher APIs resolve the signed-in user from the session cookie and scope all queries to that user.
 5. **Known limitation:** session cookies hold plain identifiers rather than signed tokens; use signed sessions (e.g. JWT) before a public deployment.
-6. **CORS & WebSocket Partitioning:** The Socket server currently allows any origin (`*`); restrict it to the production origin before deployment.
+6. **WebSocket identity:** `/api/realtime` resolves the user from the `student_session` / `teacher_session` cookies on connect; sender ids, names and host rights sent by the client are ignored, and meeting access follows the same invitation rules as the meeting APIs.
 
 ---
 
@@ -285,16 +286,13 @@ npm install
 # 3. (Optional) Fill the empty database with demo data - never deletes existing data
 npm run seed
 
-# 4. Launch WebSocket daemon (Port 3001)
-npm run chat
-
-# 5. Start Next.js application (Port 3000)
+# 4. Start Next.js (port 3000) + realtime WebSocket server (port 3001)
 npm run dev
 ```
 
 ### Deployment (GitHub + Vercel)
-* **Website and API:** push to GitHub and import the repository in Vercel (`vercel.json` is included). Set `MONGODB_URI` (and optionally `GEMINI_API_KEY`, `AI_MODEL_NAME`, `NEXT_PUBLIC_SOCKET_URL`, TURN variables) in the project's environment variables, and allow Vercel in MongoDB Atlas Network Access (`0.0.0.0/0`).
-* **Socket server:** Vercel cannot host WebSockets, so `socket-server.js` runs on a separate host (Render, Railway, Fly.io) with `MONGODB_URI` and `ALLOWED_ORIGIN`; its URL is given to the website as `NEXT_PUBLIC_SOCKET_URL`.
+* **Website and API:** push to GitHub and import the repository in Vercel (`vercel.json` is included). Set `MONGODB_URI` (and optionally `GEMINI_API_KEY`, `AI_MODEL_NAME`, TURN variables) in the project's environment variables, and allow Vercel in MongoDB Atlas Network Access (`0.0.0.0/0`).
+* **Realtime:** served by Vercel itself at `/api/realtime`. Connect an Upstash Redis store (Vercel > Storage) so `REDIS_URL` is set.
 * **Upload limit:** lecture files and student documents are limited to 4 MB because Vercel serverless request bodies are capped at 4.5 MB.
 
 ---

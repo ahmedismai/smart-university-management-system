@@ -148,13 +148,9 @@ smart-university-management-system/
    ```bash
    npm run seed
    ```
-5. Run the development server:
+5. Run the development server (also starts the realtime WebSocket server for messages and online classes on port 3001):
    ```bash
    npm run dev
-   ```
-6. (For messaging and online classes) in a second terminal run the socket server:
-   ```bash
-   npm run chat
    ```
 
 ### Production build
@@ -165,16 +161,15 @@ npm run build && npm start
 ### Deploy to Vercel (website + API)
 1. Push the repository to GitHub (`.env.local`, `accounts.json` and other secrets are git-ignored).
 2. In Vercel choose **Add New > Project**, import the repository (framework: Next.js, nothing else to change; `vercel.json` is included).
-3. Add the environment variables from `.env.example` (at least `MONGODB_URI`; optionally `GEMINI_API_KEY`, `AI_MODEL_NAME`, `NEXT_PUBLIC_SOCKET_URL`, the TURN variables) for Production and Preview, then deploy.
+3. Add the environment variables from `.env.example` (at least `MONGODB_URI`; optionally `GEMINI_API_KEY`, `AI_MODEL_NAME`, the TURN variables) for Production and Preview, then deploy.
 4. MongoDB Atlas: **Network Access > Add IP address > 0.0.0.0/0** (Vercel uses changing IPs). Seed the database once from your computer with `npm run seed`.
 
 Limits on Vercel: uploads (lecture files and student documents) are capped at **4 MB** because serverless request bodies are limited to 4.5 MB.
 
-### Deploy the chat / online-class socket server
-Vercel cannot run a WebSocket server, so `socket-server.js` is hosted separately (Render, Railway, Fly.io ...):
-- Start command: `npm run chat`, with the environment variables `MONGODB_URI`, `ALLOWED_ORIGIN` (your Vercel URL) and optionally `PORT`.
-- Then set `NEXT_PUBLIC_SOCKET_URL` on Vercel to the socket server's public `https://` URL and redeploy.
-- Without it, the website works normally; only messaging and live classes are unavailable.
+### Messages and online classes (WebSockets on Vercel)
+Realtime runs inside the same Vercel project as a WebSocket Function at `/api/realtime` (`app/api/realtime/route.ts`, using `upgradeWebSocket` from `@vercel/functions`).
+- In Vercel open **Storage > Create > Upstash (Redis)** and connect it to the project. This adds `REDIS_URL`, which shares meeting rooms and events between function instances.
+- A WebSocket closes when the function reaches its max duration (300 s); the client reconnects automatically and the video call keeps running.
 
 ### Logins
 - Admin: `/login/employee` with the admin email

@@ -3,7 +3,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useRouter } from "next/navigation";
-import { io, Socket } from "socket.io-client";
+import { connectRealtime, type RealtimeSocket } from "@/lib/realtime/client";
 import toast from "react-hot-toast";
 import {
   Mic,
@@ -74,19 +74,6 @@ const ICE_SERVERS: RTCIceServer[] = [
       ]
     : []),
 ];
-
-const socketUrl = () => {
-  const fallback = `${window.location.protocol}//${window.location.hostname}:3001`;
-  const configured = process.env.NEXT_PUBLIC_SOCKET_URL;
-  if (!configured) return fallback;
-  try {
-    // The Next.js site itself can never be the socket server — ignore a misconfigured value
-    if (new URL(configured).origin === window.location.origin) return fallback;
-  } catch {
-    return fallback;
-  }
-  return configured;
-};
 
 const REACTIONS = ["👍", "👏", "❤️", "😂", "😮", "🎉"];
 
@@ -311,7 +298,8 @@ export default function MeetingRoom({ code, apiBase, backHref }: { code: string;
   const [mediaError, setMediaError] = useState("");
 
   // Network
-  const socketRef = useRef<Socket | null>(null);
+  const socketRef = useRef<RealtimeSocket | null>(null);
+  const heartbeatRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const pcsRef = useRef(new Map<string, PcRecord>());
   const [peers, setPeers] = useState<Record<string, RemotePeer>>({});
   const [selfPeerId, setSelfPeerId] = useState("");
@@ -436,6 +424,7 @@ export default function MeetingRoom({ code, apiBase, backHref }: { code: string;
   useEffect(() => {
     const pcs = pcsRef.current;
     return () => {
+      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
       socketRef.current?.emit("meeting:leave");
       socketRef.current?.disconnect();
       pcs.forEach(({ pc }) => pc.close());
@@ -561,6 +550,8 @@ export default function MeetingRoom({ code, apiBase, backHref }: { code: string;
 
   const leave = useCallback(
     (reason?: string) => {
+      if (heartbeatRef.current) clearInterval(heartbeatRef.current);
+      heartbeatRef.current = null;
       socketRef.current?.emit("meeting:leave");
       socketRef.current?.disconnect();
       socketRef.current = null;
@@ -580,36 +571,69 @@ export default function MeetingRoom({ code, apiBase, backHref }: { code: string;
   const join = () => {
     if (!me || !meeting) return;
     setStage("joining");
-    const url = socketUrl();
-    const socket = io(url, { transports: ["websocket", "polling"], reconnection: true });
+    const socket = connectRealtime();
+    const url = socket.url;
     socketRef.current = socket;
 
+    const syncPeers = (present: string[]) => {
+      const keep = new Set(present);
+      pcsRef.current.forEach((_rec, pid) => {
+        if (!keep.has(pid)) removePeer(pid);
+      });
+    };
+
     const doJoin = () => {
+      // After the first join, a reconnect (Vercel closes sockets when the function hits its time limit)
+      // resumes the same participant: existing video connections are peer-to-peer and keep running.
+      const resume = joinedRef.current;
       socket.emit(
         "meeting:join",
-        { code: meeting.code, userId: me.id, name: me.name, role: me.role, audio: micOnRef.current, video: camOnRef.current },
+        { code: meeting.code, userId: me.id, name: me.name, role: me.role, audio: micOnRef.current, video: camOnRef.current, resume },
         (res: { ok: boolean; error?: string; self?: PeerInfo; peers?: PeerInfo[]; history?: ChatMsg[] }) => {
           if (!res?.ok) {
+            if (resume) return leave(res?.error || "The meeting is no longer available.");
             socket.disconnect();
             setErrorText(res?.error || "Could not join the meeting.");
             setStage("error");
             return;
           }
-          // (Re)connect: drop stale connections and offer to everyone already in the room
+          toast.dismiss("sock");
+          setSelfPeerId(res.self!.peerId);
+          const list = res.peers || [];
+          if (resume) {
+            syncPeers(list.map((p) => p.peerId));
+            setPeers((prev) => {
+              const next = { ...prev };
+              for (const p of list) next[p.peerId] = { ...next[p.peerId], ...p };
+              return next;
+            });
+            // Only connect to people who joined while we were reconnecting
+            for (const p of list) if (!pcsRef.current.has(p.peerId)) createPc(p.peerId, true);
+            socket.emit("meeting:state", { audio: micOnRef.current, video: camOnRef.current, screen: !!screenTrackRef.current });
+            return;
+          }
           pcsRef.current.forEach(({ pc }) => pc.close());
           pcsRef.current.clear();
-          setSelfPeerId(res.self!.peerId);
           // chat messages saved earlier in this meeting (e.g. after a refresh or rejoin)
           if (res.history?.length) setMessages(res.history);
           const map: Record<string, RemotePeer> = {};
-          for (const p of res.peers || []) map[p.peerId] = { ...p };
+          for (const p of list) map[p.peerId] = { ...p };
           setPeers(map);
-          for (const p of res.peers || []) createPc(p.peerId, true);
-          // Re-send current state (a reconnect resets it on the server)
+          for (const p of list) createPc(p.peerId, true);
           socket.emit("meeting:state", { audio: micOnRef.current, video: camOnRef.current, screen: !!screenTrackRef.current, hand: false });
           setHandUp(false);
           joinedRef.current = true;
           setStage("room");
+
+          // Heartbeat: keeps us in the room and drops peers whose connection died silently
+          if (heartbeatRef.current) clearInterval(heartbeatRef.current);
+          heartbeatRef.current = setInterval(() => {
+            if (!socket.connected) return;
+            socket.emit("meeting:ping", undefined, (r: { ok: boolean; peers?: string[] }) => {
+              if (r?.ok) syncPeers(r.peers || []);
+              else if (joinedRef.current) doJoin();
+            });
+          }, 20_000);
         }
       );
     };
@@ -617,8 +641,12 @@ export default function MeetingRoom({ code, apiBase, backHref }: { code: string;
     socket.on("connect", doJoin);
     socket.on("connect_error", () => {
       if (!joinedRef.current) {
-        toast.error(`Cannot reach the meeting server at ${url}. Is "npm run chat" running?`, { id: "sock" });
+        toast.error(`Cannot reach the meeting server at ${url}. Retrying…`, { id: "sock" });
       }
+    });
+    socket.on("unauthorized", () => leave("Your session has expired. Please sign in again."));
+    socket.on("disconnect", () => {
+      if (joinedRef.current) toast.loading("Reconnecting…", { id: "sock", duration: 4000 });
     });
 
     socket.on("meeting:peer-joined", (p: PeerInfo) => {

@@ -1,4 +1,4 @@
-// Runs the Next.js dev server and the chat/meeting socket server together.
+// Runs the Next.js dev server and the local realtime (chat/meeting WebSocket) server together.
 const { spawn } = require("node:child_process");
 const run = (name, args) => {
   const p = spawn(process.execPath, args, { stdio: "inherit", env: process.env });
@@ -10,7 +10,7 @@ const run = (name, args) => {
   return p;
 };
 const children = [
-  run("chat", ["socket-server.js"]),
+  run("realtime", ["--env-file-if-exists=.env.local", "--import", "tsx", "scripts/realtime-dev.ts"]),
   run("web", [require.resolve("next/dist/bin/next"), "dev"]),
 ];
 function kill() { children.forEach((c) => { try { c.kill(); } catch {} }); }

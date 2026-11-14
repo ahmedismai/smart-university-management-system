@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Search, Send } from "lucide-react";
-import { io, Socket } from "socket.io-client";
+import { connectRealtime, type RealtimeSocket } from "@/lib/realtime/client";
 import { cn } from "@/lib/utils";
 
 type Contact = { id: string; name: string; lastMsg: string; time: string | null; unread: number };
@@ -18,7 +18,7 @@ export default function TeacherMessagesPage() {
   const [text, setText] = useState("");
   const [search, setSearch] = useState("");
   const [connected, setConnected] = useState(false);
-  const socketRef = useRef<Socket | null>(null);
+  const socketRef = useRef<RealtimeSocket | null>(null);
   const activeRef = useRef<Contact | null>(null);
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -51,10 +51,10 @@ export default function TeacherMessagesPage() {
     setContacts((prev) => prev.map((c) => (c.id === active.id ? { ...c, unread: 0 } : c)));
   }, [active]);
 
-  // Socket (uses the same socket server as the student side: node socket-server.js on port 3001)
+  // Realtime socket (same hub as the student side: /api/realtime)
   useEffect(() => {
     if (!me) return;
-    const socket = io(process.env.NEXT_PUBLIC_SOCKET_URL || `${window.location.protocol}//${window.location.hostname}:3001`);
+    const socket = connectRealtime();
     socketRef.current = socket;
     socket.on("connect", () => {
       setConnected(true);
@@ -126,7 +126,7 @@ export default function TeacherMessagesPage() {
       </div>
       {!connected && (
         <p className="text-xs text-primary/50">
-          لإرسال واستقبال الرسائل لحظيًا شغّل سيرفر الشات في ترمينال تاني: <code className="bg-gray-100 px-1.5 py-0.5 rounded">node socket-server.js</code>
+          جاري الاتصال بسيرفر الرسائل… (محليًا: تأكد إن <code className="bg-gray-100 px-1.5 py-0.5 rounded">npm run dev</code> شغال)
         </p>
       )}
 
