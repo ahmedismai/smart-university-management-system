@@ -5,8 +5,12 @@ import React from "react";
 import { Calendar as CalendarIcon, CheckCircle2, XCircle, Clock, FileText, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function AttendanceManagement() {
-  const [day, setDay] = React.useState(() => new Date());
-  const shiftDay = (n: number) => setDay((d) => new Date(d.getFullYear(), d.getMonth(), d.getDate() + n));
+  // Set after mount: the page is pre-rendered at build time, so a date computed
+  // during render would differ from the browser's and break hydration.
+  const [day, setDay] = React.useState<Date | null>(null);
+  React.useEffect(() => setDay(new Date()), []);
+  const shiftDay = (n: number) =>
+    setDay((d) => (d ? new Date(d.getFullYear(), d.getMonth(), d.getDate() + n) : d));
   return (
     <div className="space-y-6">
       <div>
@@ -45,7 +49,7 @@ export default function AttendanceManagement() {
         <div className="p-6 border-b border-slate-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <button onClick={() => shiftDay(-1)} aria-label="Previous day" className="p-2 hover:bg-slate-100 rounded-lg cursor-pointer"><ChevronLeft size={20} /></button>
-            <h3 className="font-bold text-slate-800 min-w-[9rem] text-center">{day.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</h3>
+            <h3 className="font-bold text-slate-800 min-w-[9rem] text-center">{day ? day.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : " "}</h3>
             <button onClick={() => shiftDay(1)} aria-label="Next day" className="p-2 hover:bg-slate-100 rounded-lg cursor-pointer"><ChevronRight size={20} /></button>
           </div>
           <div className="flex items-center gap-3">

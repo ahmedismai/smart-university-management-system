@@ -176,7 +176,7 @@ export default function ResultsPage() {
                 </svg>
               </div>
               <div class="verify-text">
-                This academic transcript is digitally generated. Verify authenticity online at <strong>verify.nub.edu.bd</strong> using reference ID <strong>TR-${data.student.studentId}</strong>.
+                This academic transcript is digitally generated. Verify authenticity online at <strong>verify.nextgen.edu.eg</strong> using reference ID <strong>TR-${data.student.studentId}</strong>.
               </div>
             </div>
             <div class="signature-area">

@@ -4,12 +4,16 @@ import React from "react";
 import { StudentSidebar } from "./StudentSidebar";
 import { StudentDashboardHeader } from "./StudentDashboardHeader";
 import { motion } from "framer-motion";
+import { MobileNavProvider, ResponsiveSidebar } from "./MobileNav";
 
 export const StudentDashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
+    <MobileNavProvider>
     <div className="flex h-screen bg-[#F8FAFC] overflow-hidden font-sans">
-      {/* Sidebar */}
-      <StudentSidebar />
+      {/* Sidebar: fixed on desktop, drawer on phones */}
+      <ResponsiveSidebar>
+        <StudentSidebar />
+      </ResponsiveSidebar>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
@@ -28,5 +32,6 @@ export const StudentDashboardLayout = ({ children }: { children: React.ReactNode
         </main>
       </div>
     </div>
+    </MobileNavProvider>
   );
 };

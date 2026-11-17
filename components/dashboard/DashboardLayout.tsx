@@ -3,6 +3,7 @@
 import React from "react";
 import { Sidebar } from "./Sidebar";
 import { DashboardHeader } from "./DashboardHeader";
+import { MobileNavProvider, ResponsiveSidebar } from "./MobileNav";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface DashboardLayoutProps {
@@ -11,11 +12,12 @@ interface DashboardLayoutProps {
 
 export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
+    <MobileNavProvider>
     <div className="flex h-screen bg-slate-50 overflow-hidden">
-      {/* Sidebar - Desktop */}
-      <div className="hidden lg:block h-full flex-shrink-0">
+      {/* Sidebar: fixed on desktop, drawer on phones */}
+      <ResponsiveSidebar>
         <Sidebar />
-      </div>
+      </ResponsiveSidebar>
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
@@ -32,5 +34,6 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
         </main>
       </div>
     </div>
+    </MobileNavProvider>
   );
 };

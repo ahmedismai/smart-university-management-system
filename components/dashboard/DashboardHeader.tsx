@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { MobileMenuButton } from "./MobileNav";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { Search, Bell, Moon, Sun, User, Settings, LogOut, ChevronDown, UserCircle } from "lucide-react";
@@ -61,9 +62,10 @@ export const DashboardHeader = () => {
   };
 
   return (
-    <header className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-8 sticky top-0 z-30 shadow-sm">
+    <header className="h-20 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 sticky top-0 z-30 shadow-sm">
       {/* Brand & Search */}
-      <div className="flex items-center gap-8 flex-1">
+      <div className="flex items-center gap-4 md:gap-8 flex-1 min-w-0">
+        <MobileMenuButton />
         <div className="hidden md:flex items-center gap-3 min-w-max">
           <div className="relative w-12 h-12">
             <Image 

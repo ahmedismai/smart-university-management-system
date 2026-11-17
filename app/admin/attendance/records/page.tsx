@@ -30,6 +30,11 @@ const statsConfig = [
 ];
 
 export default function AttendanceRecords() {
+  // Computed after mount so the pre-rendered HTML matches the first client render.
+  const [today, setToday] = useState("");
+  useEffect(() => {
+    setToday(new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }));
+  }, []);
   const [loading, setLoading] = useState(true);
   const [records, setRecords] = useState<any[]>([]);
   const [stats, setStats] = useState<any>({
@@ -201,7 +206,7 @@ export default function AttendanceRecords() {
                <div className="flex items-center gap-2 px-3 py-2 bg-slate-50 border border-slate-200 rounded-xl">
                   <Calendar size={16} className="text-slate-400" />
                   <span className="text-xs font-bold text-slate-600">
-                    {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+                    {today || " "}
                   </span>
                </div>
                <button onClick={() => actions.filter("Filter rows")} className="p-2.5 border border-slate-200 rounded-xl text-slate-500 hover:text-primary transition-colors cursor-pointer">

@@ -13,10 +13,10 @@ export type KnowledgeEntry = {
 export const KNOWLEDGE: KnowledgeEntry[] = [
   {
     id: "admission",
-    keywords: ["admission", "apply", "application", "admit", "تقديم", "قبول", "التقديم", "القبول", "ادخل الجامعة"],
+    keywords: ["admission", "apply", "application", "admit", "تقديم", "قبول", "نتيجة القبول", "حالة الطلب", "status", "التقديم", "القبول", "ادخل الجامعة"],
     title: "Undergraduate admission",
     answer:
-      "Undergraduate admission is open for 2026. Fall intake starts Aug 15, 2026 and the application deadline is Nov 30, 2026. Requirements: minimum GPA 3.5 (or equivalent) in high-school graduation with proficiency in the core subjects of the chosen major, plus official transcripts, a Statement of Purpose, letters of recommendation and proof of high-school completion. Steps: check requirements, submit the online application at /admission/apply, then review and a possible interview. The centralized undergraduate admission test for the Fall session is on Jul 5, 2026.",
+      "Undergraduate admission is open for 2026. Fall intake starts Aug 15, 2026 and the application deadline is Nov 30, 2026. Requirements: minimum GPA 3.5 (or equivalent) in high-school graduation with proficiency in the core subjects of the chosen major, plus official transcripts, a Statement of Purpose, letters of recommendation and proof of high-school completion. Steps: check requirements, submit the online application at /admission/apply, then review and a possible interview. The centralized undergraduate admission test for the Fall session is on Jul 5, 2026. After applying you get an application ID (APP-YYYY-NNNNN). Check the decision any time at /admission/status with that ID and your email. Accepted applicants are enrolled automatically, get a student ID (shown on the status page), and sign in at /login/student with that student ID and the password they created on the application form.",
   },
   {
     id: "scholarship",
@@ -37,7 +37,7 @@ export const KNOWLEDGE: KnowledgeEntry[] = [
     keywords: ["hall", "hostel", "dorm", "residence", "accommodation", "housing", "سكن", "المدينة الجامعية", "اقامة", "إقامة"],
     title: "Halls of residence",
     answer:
-      "There are 10 halls (male and female) with high-speed Wi-Fi, 24/7 security, dining services, laundry, common rooms and a 24/7 medical center. First-year students and those living furthest from campus get priority. Apply from /students/halls. Residential support: housing@nextgen.edu.bd, +20 2 2345 6780, Admin Building, First Floor, Room 204, 09:00 AM-05:00 PM.",
+      "There are 10 halls (male and female) with high-speed Wi-Fi, 24/7 security, dining services, laundry, common rooms and a 24/7 medical center. First-year students and those living furthest from campus get priority. Apply from /students/halls. Residential support: housing@nextgen.edu.eg, +20 2 2345 6780, Admin Building, First Floor, Room 204, 09:00 AM-05:00 PM.",
   },
   {
     id: "transport",

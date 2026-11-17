@@ -8,6 +8,7 @@ import { LayoutDashboard, BookOpen, Calendar, Users, Bell, LogOut, CheckSquare, 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { TeacherDataProvider, useTeacherData } from "./useTeacherData";
+import { MobileNavProvider, ResponsiveSidebar, MobileMenuButton } from "./MobileNav";
 
 const menuItems = [
   { title: "Dashboard", icon: LayoutDashboard, href: "/teacher/dashboard" },
@@ -42,6 +43,7 @@ const Shell = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="flex h-screen bg-[#F8FAFC] overflow-hidden font-sans">
+      <ResponsiveSidebar>
       <aside className="w-64 h-full bg-primary text-white flex flex-col overflow-hidden shadow-xl border-r border-white/10">
         <Link href="/teacher/dashboard">
           <div className="p-3 border-b border-white/10 flex items-center gap-3">
@@ -90,10 +92,12 @@ const Shell = ({ children }: { children: React.ReactNode }) => {
           </button>
         </div>
       </aside>
+      </ResponsiveSidebar>
 
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-8 shrink-0">
-          <p className="text-sm text-gray-500">
+        <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between gap-2 px-4 md:px-8 shrink-0">
+          <MobileMenuButton />
+          <p className="text-sm text-gray-500 flex-1 min-w-0 truncate">
             Welcome back, <span className="font-bold text-primary">{data?.teacher.name || "..."}</span>
           </p>
           <div className="flex items-center gap-3">
@@ -119,6 +123,8 @@ const Shell = ({ children }: { children: React.ReactNode }) => {
 
 export const TeacherDashboardLayout = ({ children }: { children: React.ReactNode }) => (
   <TeacherDataProvider>
-    <Shell>{children}</Shell>
+    <MobileNavProvider>
+      <Shell>{children}</Shell>
+    </MobileNavProvider>
   </TeacherDataProvider>
 );

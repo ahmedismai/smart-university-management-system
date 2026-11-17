@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
@@ -16,7 +17,10 @@ import {
   ChevronRight, 
   ArrowLeft,
   School,
-  FileText
+  FileText,
+  CreditCard,
+  Lock,
+  X
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -27,12 +31,15 @@ const steps = [
   { id: 4, name: "Documents", icon: Upload },
 ];
 
-const FACULTIES = [
-  "Faculty of Engineering & Technology",
-  "Faculty of Science",
-  "Faculty of Business Administration",
-  "Faculty of Arts & Social Sciences",
-];
+type Program = { code: string; name: string };
+
+const DOCUMENTS = [
+  { kind: "photo", label: "Personal Photo", info: "JPG, PNG (max 2MB)", accept: "image/jpeg,image/png,image/webp" },
+  { kind: "nationalId", label: "National ID (both sides)", info: "JPG, PNG, PDF (max 2MB)", accept: "image/jpeg,image/png,image/webp,application/pdf" },
+  { kind: "secondaryCertificate", label: "Thanaweya Amma Certificate", info: "JPG, PNG, PDF (max 2MB)", accept: "image/jpeg,image/png,image/webp,application/pdf" },
+  { kind: "birthCertificate", label: "Birth Certificate", info: "JPG, PNG, PDF (max 2MB)", accept: "image/jpeg,image/png,image/webp,application/pdf" },
+] as const;
+const MAX_FILE = 2 * 1024 * 1024;
 
 export default function AdmissionApplyPage() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -41,6 +48,27 @@ export default function AdmissionApplyPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
   const [applicationId, setApplicationId] = useState("");
+  const [programs, setPrograms] = useState<Program[] | null>(null);
+  const [files, setFiles] = useState<Record<string, File>>({});
+  const [fileError, setFileError] = useState("");
+  const [uploadIssues, setUploadIssues] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("/api/admission/programs")
+      .then((r) => r.json())
+      .then((j) => setPrograms(j.programs || []))
+      .catch(() => setPrograms([]));
+  }, []);
+
+  const pickFile = (kind: string, file?: File) => {
+    setFileError("");
+    if (!file) return;
+    if (file.size > MAX_FILE) {
+      setFileError(`${file.name} is larger than 2MB`);
+      return;
+    }
+    setFiles((f) => ({ ...f, [kind]: file }));
+  };
 
   const nextStep = () => setCurrentStep((prev) => Math.min(prev + 1, steps.length));
   const prevStep = () => setCurrentStep((prev) => Math.max(prev - 1, 1));
@@ -53,17 +81,41 @@ export default function AdmissionApplyPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitError("");
+    if ((form.password || "").length < 8) {
+      setSubmitError("Please create a password of at least 8 characters (step 1)");
+      return;
+    }
+    if (form.password !== form.confirmPassword) {
+      setSubmitError("The two passwords do not match (step 1)");
+      return;
+    }
     setSubmitting(true);
     try {
       const res = await fetch("/api/admission/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form, faculty: form.faculty ?? FACULTIES[0] }),
+        body: JSON.stringify({ ...form, confirmPassword: undefined }),
       });
       const json = await res.json();
       if (!res.ok) throw new Error(json.error || "Submission failed");
+
+      // Upload the chosen documents one by one (keeps each request small).
+      const issues: string[] = [];
+      for (const doc of DOCUMENTS) {
+        const file = files[doc.kind];
+        if (!file) continue;
+        const fd = new FormData();
+        fd.append("applicationId", json.applicationId);
+        fd.append("token", json.uploadToken);
+        fd.append("kind", doc.kind);
+        fd.append("file", file);
+        const up = await fetch("/api/admission/documents", { method: "POST", body: fd }).catch(() => null);
+        if (!up || !up.ok) issues.push(doc.label);
+      }
+      setUploadIssues(issues);
       setApplicationId(json.applicationId);
       setIsSubmitted(true);
+      window.scrollTo({ top: 0 });
     } catch (err: any) {
       setSubmitError(err.message || "Submission failed");
     } finally {
@@ -104,16 +156,29 @@ export default function AdmissionApplyPage() {
             Your application for admission has been successfully received. Our admissions team will review your details and contact you soon via email.
           </p>
           {applicationId && (
-            <p className="text-sm font-bold text-primary mb-8">
-              Application ID: <span className="text-secondary">{applicationId}</span>
+            <div className="mb-6 p-4 rounded-2xl bg-surface">
+              <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">Your Application ID</p>
+              <p className="text-2xl font-black text-primary tracking-wider">{applicationId}</p>
+              <p className="text-xs text-gray-500 mt-1">Save it: you need it with your email to check your admission result.</p>
+            </div>
+          )}
+          {uploadIssues.length > 0 && (
+            <p className="mb-6 text-xs font-bold text-amber-700 bg-amber-50 rounded-xl p-3">
+              Some documents could not be uploaded ({uploadIssues.join(", ")}). Please bring them to the admissions office.
             </p>
           )}
-          <button 
-            onClick={() => window.location.href = "/"}
-            className="w-full bg-primary text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 transition-all cursor-pointer"
+          <Link
+            href={`/admission/status?id=${encodeURIComponent(applicationId)}`}
+            className="block w-full bg-secondary text-primary py-4 rounded-xl font-bold hover:shadow-lg transition-all mb-3"
+          >
+            Check Application Status
+          </Link>
+          <Link
+            href="/"
+            className="block w-full bg-primary text-white py-4 rounded-xl font-bold hover:shadow-lg hover:shadow-primary/20 transition-all"
           >
             Return to Home
-          </button>
+          </Link>
         </motion.div>
       </div>
     );
@@ -224,7 +289,7 @@ export default function AdmissionApplyPage() {
                 </div>
               </div>
               <p className="text-xs text-white/60 leading-relaxed group-hover/help:text-white transition-colors">
-                Contact us at <span className="text-secondary">admissions@nextgen.edu.bd</span> for any queries.
+                Contact us at <span className="text-secondary">admissions@nextgen.edu.eg</span> for any queries.
               </p>
             </div>
           </div>
@@ -294,12 +359,52 @@ export default function AdmissionApplyPage() {
                           </div>
                         </div>
                         <div className="md:col-span-2 space-y-2">
+                          <label className="text-sm font-bold text-primary/70 ml-1">National ID Number</label>
+                          <div className="relative">
+                            <CreditCard className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                            <input
+                              type="text"
+                              inputMode="numeric"
+                              maxLength={14}
+                              name="nationalId" defaultValue={form.nationalId ?? ""} placeholder="14-digit national ID"
+                              className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none"
+                            />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-primary/70 ml-1">Create Password</label>
+                          <div className="relative">
+                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                            <input
+                              type="password"
+                              autoComplete="new-password"
+                              name="password" defaultValue={form.password ?? ""} placeholder="At least 8 characters"
+                              className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none"
+                            />
+                          </div>
+                        </div>
+                        <div className="space-y-2">
+                          <label className="text-sm font-bold text-primary/70 ml-1">Confirm Password</label>
+                          <div className="relative">
+                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                            <input
+                              type="password"
+                              autoComplete="new-password"
+                              name="confirmPassword" defaultValue={form.confirmPassword ?? ""} placeholder="Repeat the password"
+                              className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none"
+                            />
+                          </div>
+                        </div>
+                        <p className="md:col-span-2 -mt-3 text-xs text-gray-400 ml-1">
+                          If you are accepted, you will sign in to the student portal with your Student ID and this password.
+                        </p>
+                        <div className="md:col-span-2 space-y-2">
                           <label className="text-sm font-bold text-primary/70 ml-1">Address</label>
                           <div className="relative">
                             <MapPin className="absolute left-4 top-4 text-gray-400" size={18} />
                             <textarea 
                               rows={3}
-                              name="address" defaultValue={form.address ?? ""} placeholder="House #, Road #, Area, City"
+                              name="address" defaultValue={form.address ?? ""} placeholder="Street, District, City, Governorate"
                               className="w-full pl-12 pr-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none"
                             />
                           </div>
@@ -321,13 +426,13 @@ export default function AdmissionApplyPage() {
                             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                               <School size={20} />
                             </div>
-                            <h4 className="font-bold text-primary">Higher Secondary / O-Levels</h4>
+                            <h4 className="font-bold text-primary">Preparatory Certificate (Al-Shahada Al-I&apos;dadiya)</h4>
                           </div>
                           <div className="grid md:grid-cols-2 gap-4">
-                            <input name="sscInstitution" defaultValue={form.sscInstitution ?? ""} placeholder="Institution Name" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
+                            <input name="sscInstitution" defaultValue={form.sscInstitution ?? ""} placeholder="School Name" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
                             <div className="grid grid-cols-2 gap-4">
                                <input name="sscYear" defaultValue={form.sscYear ?? ""} placeholder="Passing Year" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
-                               <input name="sscGpa" defaultValue={form.sscGpa ?? ""} placeholder="GPA/Result" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
+                               <input name="sscGpa" defaultValue={form.sscGpa ?? ""} placeholder="Total / Percentage" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
                             </div>
                           </div>
                         </div>
@@ -337,13 +442,13 @@ export default function AdmissionApplyPage() {
                             <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                               <BookOpen size={20} />
                             </div>
-                            <h4 className="font-bold text-primary">Secondary / A-Levels</h4>
+                            <h4 className="font-bold text-primary">Secondary Certificate (Thanaweya Amma / IGCSE / American Diploma)</h4>
                           </div>
                           <div className="grid md:grid-cols-2 gap-4">
-                            <input name="hscInstitution" defaultValue={form.hscInstitution ?? ""} placeholder="Institution Name" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
+                            <input name="hscInstitution" defaultValue={form.hscInstitution ?? ""} placeholder="School Name" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
                             <div className="grid grid-cols-2 gap-4">
                                <input name="hscYear" defaultValue={form.hscYear ?? ""} placeholder="Passing Year" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
-                               <input name="hscGpa" defaultValue={form.hscGpa ?? ""} placeholder="GPA/Result" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
+                               <input name="hscGpa" defaultValue={form.hscGpa ?? ""} placeholder="Total / Percentage" className="w-full px-4 py-3 bg-white rounded-lg border-2 border-gray-100 outline-none focus:border-secondary" />
                             </div>
                           </div>
                         </div>
@@ -355,34 +460,25 @@ export default function AdmissionApplyPage() {
                     <div className="space-y-6">
                       <div>
                         <h3 className="text-2xl font-bold text-primary mb-2">Program Selection</h3>
-                        <p className="text-gray-500">Choose your desired faculty and department.</p>
+                        <p className="text-gray-500">Choose the program you want to join.</p>
                       </div>
                       
-                      <div className="grid gap-6">
-                        <div className="space-y-2">
-                          <label className="text-sm font-bold text-primary/70 ml-1">Select Faculty</label>
-                          <select name="faculty" defaultValue={form.faculty ?? FACULTIES[0]} className="w-full px-4 py-4 bg-surface rounded-xl border-2 border-transparent focus:border-secondary focus:bg-white transition-all outline-none appearance-none cursor-pointer">
-                            <option>Faculty of Engineering & Technology</option>
-                            <option>Faculty of Science</option>
-                            <option>Faculty of Business Administration</option>
-                            <option>Faculty of Arts & Social Sciences</option>
-                          </select>
-                        </div>
-                        <div className="space-y-2">
-                          <label className="text-sm font-bold text-primary/70 ml-1">Desired Department</label>
-                          <div className="grid sm:grid-cols-2 gap-4">
-                            {["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering"].map((dept) => (
-                              <label key={dept} className="relative cursor-pointer group">
-                                <input type="radio" name="department" value={dept} defaultChecked={form.department === dept} className="peer sr-only" />
-                                <div className="p-4 bg-surface rounded-xl border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 group-hover:bg-secondary/5 transition-all flex items-center gap-3">
-                                  <div className="w-4 h-4 rounded-full border-2 border-gray-300 peer-checked:border-secondary peer-checked:bg-secondary flex items-center justify-center">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white scale-0 peer-checked:scale-100 transition-transform" />
-                                  </div>
-                                  <span className="font-semibold text-primary/80 group-hover:text-primary">{dept}</span>
-                                </div>
-                              </label>
-                            ))}
-                          </div>
+                      <div className="space-y-2">
+                        <label className="text-sm font-bold text-primary/70 ml-1">Desired Program</label>
+                        {programs === null && <p className="text-sm text-gray-400">Loading programs...</p>}
+                        {programs?.length === 0 && (
+                          <p className="text-sm text-red-600">Programs could not be loaded. Please refresh the page.</p>
+                        )}
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          {programs?.map((p) => (
+                            <label key={p.code} className="relative cursor-pointer group">
+                              <input type="radio" name="programCode" value={p.code} defaultChecked={form.programCode === p.code} className="peer sr-only" />
+                              <div className="p-4 bg-surface rounded-xl border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 group-hover:bg-secondary/5 transition-all">
+                                <span className="block text-[10px] font-black uppercase tracking-widest text-secondary">{p.code}</span>
+                                <span className="font-semibold text-primary/80 group-hover:text-primary">{p.name}</span>
+                              </div>
+                            </label>
+                          ))}
                         </div>
                       </div>
                     </div>
@@ -396,20 +492,53 @@ export default function AdmissionApplyPage() {
                       </div>
                       
                       <div className="grid md:grid-cols-2 gap-6">
-                        {[
-                          { label: "Photo (Passport Size)", info: "JPG, PNG (Max 1MB)" },
-                          { label: "Signature", info: "JPG, PNG (Max 500KB)" },
-                          { label: "HSC Transcript", info: "PDF, JPG (Max 2MB)" },
-                          { label: "SSC Transcript", info: "PDF, JPG (Max 2MB)" },
-                        ].map((doc) => (
-                          <div key={doc.label} className="p-6 border-2 border-dashed border-gray-200 rounded-2xl hover:border-secondary/50 hover:bg-secondary/5 transition-all text-center group cursor-pointer">
-                            <Upload className="mx-auto text-gray-400 group-hover:text-secondary mb-3 transition-colors" size={32} />
-                            <h4 className="font-bold text-primary mb-1">{doc.label}</h4>
-                            <p className="text-[10px] text-gray-400 uppercase font-bold">{doc.info}</p>
-                          </div>
-                        ))}
+                        {DOCUMENTS.map((doc) => {
+                          const chosen = files[doc.kind];
+                          return (
+                            <label
+                              key={doc.kind}
+                              className={cn(
+                                "relative p-6 border-2 border-dashed rounded-2xl transition-all text-center group cursor-pointer",
+                                chosen ? "border-secondary bg-secondary/5" : "border-gray-200 hover:border-secondary/50 hover:bg-secondary/5"
+                              )}
+                            >
+                              <input
+                                type="file"
+                                accept={doc.accept}
+                                className="sr-only"
+                                onChange={(e) => pickFile(doc.kind, e.target.files?.[0])}
+                              />
+                              {chosen ? (
+                                <CheckCircle2 className="mx-auto text-secondary mb-3" size={32} />
+                              ) : (
+                                <Upload className="mx-auto text-gray-400 group-hover:text-secondary mb-3 transition-colors" size={32} />
+                              )}
+                              <h4 className="font-bold text-primary mb-1">{doc.label}</h4>
+                              <p className="text-[10px] text-gray-400 uppercase font-bold truncate">{chosen ? chosen.name : doc.info}</p>
+                              {chosen && (
+                                <button
+                                  type="button"
+                                  aria-label={`Remove ${doc.label}`}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setFiles((f) => {
+                                      const next = { ...f };
+                                      delete next[doc.kind];
+                                      return next;
+                                    });
+                                  }}
+                                  className="absolute top-3 right-3 p-1 rounded-full text-gray-400 hover:bg-white hover:text-red-500 cursor-pointer"
+                                >
+                                  <X size={16} />
+                                </button>
+                              )}
+                            </label>
+                          );
+                        })}
                       </div>
-                      
+                      {fileError && <p className="text-sm font-bold text-red-600">{fileError}</p>}
+                      <p className="text-xs text-gray-400">Documents are optional now, but required before enrollment.</p>
+
                       <div className="p-4 bg-blue-50 border border-blue-100 rounded-xl flex gap-3">
                         <CheckCircle2 className="text-blue-500 shrink-0" size={20} />
                         <p className="text-xs text-blue-700 leading-relaxed">

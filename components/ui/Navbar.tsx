@@ -67,6 +67,8 @@ const navLinks = [
     href: "#", 
     hasDropdown: true,
     items: [
+      { name: "Apply Online", href: "/admission/apply" },
+      { name: "Application Status", href: "/admission/status" },
       { name: "Undergraduate", href: "/admission/undergraduate" },
       { name: "Graduate", href: "/admission/graduate" },
       { name: "M.Phil/Ph.D", href: "/admission/mphil-phd" },

@@ -370,7 +370,7 @@ export default function HallsPage() {
                       </div>
                       <div>
                         <div className="text-xs font-black uppercase tracking-widest opacity-50">Email Us</div>
-                        <div className="font-bold">housing@nextgen.edu.bd</div>
+                        <div className="font-bold">housing@nextgen.edu.eg</div>
                       </div>
                     </div>
                   </div>

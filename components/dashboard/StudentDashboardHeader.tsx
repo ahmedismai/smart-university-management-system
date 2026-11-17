@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { MobileMenuButton } from "./MobileNav";
 import Link from "next/link";
 import GlobalSearch from "@/components/dashboard/GlobalSearch";
 import { Bell, Settings, User, LogOut, Mail, HelpCircle } from "lucide-react";
@@ -51,9 +52,10 @@ export const StudentDashboardHeader = () => {
   };
 
   return (
-    <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-8 sticky top-0 z-30">
+    <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between gap-2 px-4 md:px-8 sticky top-0 z-30">
+      <MobileMenuButton />
       {/* Search Bar */}
-      <div className="flex-1 max-w-md">
+      <div className="flex-1 max-w-md min-w-0">
         <GlobalSearch scope="student" placeholder="Search for courses, results, etc..." />
       </div>
 
