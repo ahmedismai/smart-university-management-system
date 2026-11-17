@@ -288,7 +288,7 @@ export default function HallsPage() {
       </section>
 
       {/* Application Process */}
-      <section className="py-32 bg-surface">
+      <section className="py-32 bg-surface overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-8">
