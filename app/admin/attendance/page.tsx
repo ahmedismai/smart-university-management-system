@@ -7,6 +7,7 @@ import { Calendar as CalendarIcon, CheckCircle2, XCircle, Clock, FileText, Chevr
 export default function AttendanceManagement() {
   // Set after mount: the page is pre-rendered at build time, so a date computed
   // during render would differ from the browser's and break hydration.
+  
   const [day, setDay] = React.useState<Date | null>(null);
   React.useEffect(() => setDay(new Date()), []);
   const shiftDay = (n: number) =>
